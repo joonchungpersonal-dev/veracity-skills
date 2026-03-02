@@ -99,7 +99,7 @@ I think running a veracity check after creating a new skill should be standard p
 
 ## What I'm sharing and why
 
-Both skills (`/veracity-tweaked-555` and `/context-engineer`) are open source at [joonchungpersonal-dev/claude-skills](https://github.com/joonchungpersonal-dev/claude-skills), along with the full audit results (JSON files + consolidated report) from the community skills audit.
+Both skills (`/veracity-tweaked-555` and `/context-engineer`) are open source at [joonchungpersonal-dev/veracity-skills](https://github.com/joonchungpersonal-dev/veracity-skills), along with the full audit results (JSON files + consolidated report) from the community skills audit.
 
 The most valuable thing I learned is that **self-auditing catches errors that survive human review** — not because you're careless, but because LLM-generated errors are plausible by nature. They read well, sound right, and are sometimes wrong.
 
@@ -107,7 +107,7 @@ I'm a scientist, not a software engineer — I'm sure people in this community c
 
 ---
 
-**Repo**: [joonchungpersonal-dev/claude-skills](https://github.com/joonchungpersonal-dev/claude-skills)
+**Repo**: [joonchungpersonal-dev/veracity-skills](https://github.com/joonchungpersonal-dev/veracity-skills)
 **Full audit report**: `external-audits/results/consolidated-report.md`
 **Raw data**: `external-audits/results/*.json` (all 532 claims with verdicts and evidence)
 

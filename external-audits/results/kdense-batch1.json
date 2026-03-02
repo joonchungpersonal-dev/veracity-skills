@@ -1,0 +1,543 @@
+{
+  "batch": "kdense-batch1",
+  "auditor": "claude-opus-4-6",
+  "date": "2026-03-02",
+  "skills_audited": 38,
+  "skills_procedural_only": 8,
+  "total_claims_checked": 47,
+  "supported": 35,
+  "not_supported": 4,
+  "unverifiable": 8,
+  "findings": [
+    {
+      "skill": "adaptyv",
+      "claim": "Cloud lab platform integrates computational predictors NetSolP, SoluProt, SolubleMPNN, and ESM for protein expression optimization",
+      "verdict": "SUPPORTED",
+      "evidence": "Adaptyv Bio documentation and blog posts confirm integration of NetSolP, SoluProt, SolubleMPNN, and ESM for solubility and expression prediction prior to wet-lab runs.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "adaptyv",
+      "claim": "Results delivered in approximately 21 days",
+      "verdict": "SUPPORTED",
+      "evidence": "Adaptyv Bio documentation confirms approximately 21-day turnaround for experimental results.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "aeon",
+      "claim": "BSD-3-Clause license, scikit-learn compatible time series ML toolkit",
+      "verdict": "SUPPORTED",
+      "evidence": "JMLR paper (2024) and GitHub confirm aeon is BSD-3-Clause licensed and follows scikit-learn API. Forked from sktime v0.16.0 in 2022.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "aeon",
+      "claim": "Available at github.com/aeon-toolkit/aeon and aeon-toolkit.org",
+      "verdict": "SUPPORTED",
+      "evidence": "Both URLs confirmed active and accessible.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LINK"
+    },
+    {
+      "skill": "alpha-vantage",
+      "claim": "Free tier allows 25 requests per day",
+      "verdict": "SUPPORTED",
+      "evidence": "Alpha Vantage documentation confirms free tier at 25 requests per day.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "alpha-vantage",
+      "claim": "Provides 20+ years of global financial data and 50+ technical indicators",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Alpha Vantage does provide extensive historical data and technical indicators, but the exact counts ('20+ years' and '50+ technical indicators') are marketing claims that are difficult to pin down precisely. The platform does offer numerous indicators and historical data going back decades for major indices.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "anndata",
+      "claim": "BSD-3-Clause license, part of scverse ecosystem",
+      "verdict": "SUPPORTED",
+      "evidence": "PyPI and GitHub confirm BSD-3-Clause license. anndata is part of scverse project, fiscally sponsored by NumFOCUS.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "arboreto",
+      "claim": "BSD-3-Clause license, implements GRNBoost2 and GENIE3 algorithms, core component of SCENIC pipeline",
+      "verdict": "SUPPORTED",
+      "evidence": "Moerman et al. (2019) Bioinformatics paper and GitHub confirm BSD-3-Clause, GRNBoost2/GENIE3 implementation, and integration with pySCENIC pipeline.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "astropy",
+      "claim": "Built-in cosmologies include Planck18 and WMAP9",
+      "verdict": "SUPPORTED",
+      "evidence": "Astropy v7.2.0 documentation confirms built-in cosmologies including Planck18, Planck15, Planck13, and WMAP9 as FlatLambdaCDM instances.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "astropy",
+      "claim": "BSD-3-Clause license",
+      "verdict": "SUPPORTED",
+      "evidence": "Astropy is a well-known BSD-3-Clause licensed project, confirmed by GitHub and PyPI.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "benchling-integration",
+      "claim": "SDK package is 'benchling-sdk', available via pip install",
+      "verdict": "SUPPORTED",
+      "evidence": "PyPI confirms benchling-sdk package exists. Documentation at docs.benchling.com and benchling.com/sdk-docs/ confirmed.",
+      "correct_info": null,
+      "severity": null,
+      "category": "INSTALL"
+    },
+    {
+      "skill": "bgpt-paper-search",
+      "claim": "25+ fields per paper, MCP URL https://bgpt.pro/mcp/sse, free tier 50 searches, paid $0.01 per result",
+      "verdict": "SUPPORTED",
+      "evidence": "BGPT website and GitHub confirm: 25+ metadata fields per paper, MCP SSE endpoint, 50 free searches, $0.01/result pricing billed via Stripe.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "bgpt-paper-search",
+      "claim": "GitHub at https://github.com/connerlambden/bgpt-mcp",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub repository confirmed active at that URL.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LINK"
+    },
+    {
+      "skill": "biorxiv-database",
+      "claim": "Lists 27 valid bioRxiv categories for paper search",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "bioRxiv does organize preprints by subject categories. The exact count of 27 categories was not independently verified but appears reasonable given bioRxiv's known category structure.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "bioservices",
+      "claim": "Provides unified interface to approximately 40 bioinformatics web services",
+      "verdict": "SUPPORTED",
+      "evidence": "BioServices documentation and GitHub confirm approximately 40 web services integrated, including UniProt, KEGG, ChEMBL, BioModels, etc.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "bioservices",
+      "claim": "GPLv3 license, supports Python 3.9-3.12",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub and documentation confirm GPLv3 license. Python version support range confirmed by documentation.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "brenda-database",
+      "claim": "BRENDA contains over 45,000 enzymes with millions of kinetic data points",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "BRENDA actually contains approximately 77,000-90,000 enzyme entries as of recent reports. The claim of '45,000 enzymes' significantly understates the database size. While not harmful (understates rather than overstates), it is factually inaccurate and could lead a scientist to underestimate the database's coverage.",
+      "correct_info": "BRENDA contains approximately 77,000-90,000 enzyme entries, not 45,000.",
+      "severity": "low",
+      "category": "DATABASE_STATS"
+    },
+    {
+      "skill": "cellxgene-census",
+      "claim": "Contains 61+ million cells from human and mouse",
+      "verdict": "SUPPORTED",
+      "evidence": "CZ CELLxGENE Census documentation confirms approximately 61.6 million cells total from human and mouse datasets.",
+      "correct_info": null,
+      "severity": null,
+      "category": "DATABASE_STATS"
+    },
+    {
+      "skill": "cirq",
+      "claim": "Apache-2.0 license, Google Quantum AI open-source framework",
+      "verdict": "SUPPORTED",
+      "evidence": "Wikipedia, GitHub, and Google Quantum AI pages confirm Cirq is Apache-2.0 licensed, developed by Google.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "cirq",
+      "claim": "Supported hardware providers include IonQ, AQT (Alpine Quantum Technologies), and Pasqal",
+      "verdict": "SUPPORTED",
+      "evidence": "IonQ announced Cirq integration (2021). Pasqal confirmed collaboration with Google on Cirq integration. AQT confirmed as early adopter. All three providers verified.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "citation-management",
+      "claim": "PubMed contains 35+ million citations",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "PubMed now contains more than 39 million citations as of 2025-2026. The claim of '35+ million' is outdated and understates the database by approximately 4 million citations. While technically true (39M is indeed '35+'), the number appears to reference an older figure and could mislead a scientist about current database scope.",
+      "correct_info": "PubMed contains 39+ million citations as of 2025.",
+      "severity": "low",
+      "category": "DATABASE_STATS"
+    },
+    {
+      "skill": "clinical-decision-support",
+      "claim": "procedural_only",
+      "verdict": "PROCEDURAL_ONLY",
+      "evidence": "Skill describes GRADE evidence grading system (1A, 1B, 2A, 2B, 2C) and CDS document generation workflow. The GRADE system description is standard and accurate. No unique verifiable factual claims beyond well-known clinical methodology.",
+      "correct_info": null,
+      "severity": null,
+      "category": "PROCEDURAL"
+    },
+    {
+      "skill": "clinical-reports",
+      "claim": "procedural_only",
+      "verdict": "PROCEDURAL_ONLY",
+      "evidence": "Skill describes clinical report writing methodology referencing CARE guidelines, ICH-E3 format, and HIPAA 18 identifiers. These are well-known standards accurately described. No unique verifiable factual claims.",
+      "correct_info": null,
+      "severity": null,
+      "category": "PROCEDURAL"
+    },
+    {
+      "skill": "clinicaltrials-database",
+      "claim": "ClinicalTrials.gov API v2 released March 2024, base URL https://clinicaltrials.gov/api/v2",
+      "verdict": "SUPPORTED",
+      "evidence": "ClinicalTrials.gov documentation confirms API v2.0 released March 2024 with OpenAPI 3.0 specification. Base URL confirmed.",
+      "correct_info": null,
+      "severity": null,
+      "category": "VERSION"
+    },
+    {
+      "skill": "clinicaltrials-database",
+      "claim": "Rate limit approximately 50 requests per minute, public access with no authentication, max page size 1000",
+      "verdict": "SUPPORTED",
+      "evidence": "ClinicalTrials.gov API documentation confirms public access without authentication, rate limiting, and pagination parameters.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "clinpgx-database",
+      "claim": "ClinPGx is successor to PharmGKB; as of July 2025 all PharmGKB URLs redirect to ClinPGx",
+      "verdict": "SUPPORTED",
+      "evidence": "Multiple sources confirm ClinPGx launched as the consolidated pharmacogenomics resource, with PharmGKB URLs redirecting to ClinPGx starting July 2025.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "clinpgx-database",
+      "claim": "API at https://api.clinpgx.org/v1/, CC BY-SA 4.0 license, 2 requests per second maximum",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The ClinPGx API endpoint, license, and rate limit could not be independently verified via web search. ClinPGx is a relatively new resource and detailed API documentation may not be widely indexed yet.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "cobrapy",
+      "claim": "GPL-2.0 license for constraint-based metabolic modeling",
+      "verdict": "SUPPORTED",
+      "evidence": "PyPI and GitHub confirm COBRApy is released under GPL-2.0-or-later (also available under LGPL-2.0-or-later). The GPL-2.0 claim is accurate.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "dask",
+      "claim": "BSD-3-Clause license, scales from laptops (~100 GiB) to clusters (~100 TiB)",
+      "verdict": "SUPPORTED",
+      "evidence": "Dask documentation and Wikipedia confirm BSD-3-Clause license. Dask scales from single laptops to 100s-node clusters. The specific GiB/TiB figures are approximate marketing claims but the scaling range is accurate.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "datacommons-client",
+      "claim": "procedural_only",
+      "verdict": "PROCEDURAL_ONLY",
+      "evidence": "Skill describes Data Commons API usage patterns and query syntax. Mostly procedural API interaction guidance with no unique verifiable factual claims beyond standard API documentation.",
+      "correct_info": null,
+      "severity": null,
+      "category": "PROCEDURAL"
+    },
+    {
+      "skill": "datamol",
+      "claim": "Apache-2.0 license, Pythonic abstraction layer over RDKit",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub and PyPI confirm datamol is Apache-2.0 licensed and built on top of RDKit for molecular processing.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "deeptools",
+      "claim": "Tools for ChIP-seq, RNA-seq, and ATAC-seq analysis under BSD license",
+      "verdict": "SUPPORTED",
+      "evidence": "deepTools documentation confirms it is developed for analysis of high-throughput sequencing data including ChIP-seq and RNA-seq. The GitHub repository (github.com/deeptools/deepTools) uses a BSD-3-Clause license per the LICENSE file.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "denario",
+      "claim": "GPL-3.0 license, built on AG2 and LangGraph frameworks",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub (AstroPilot-AI/Denario), PyPI, and arXiv paper (2510.26887) confirm GPL-3.0 license and AG2/LangGraph architecture. Denario paper was accepted at Agents4Science 2025.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "diffdock",
+      "claim": "MIT license, state-of-the-art in computational docking, GitHub at github.com/gcorso/DiffDock",
+      "verdict": "SUPPORTED",
+      "evidence": "DiffDock achieved 38% top-1 success rate on PDBBind benchmark, establishing SOTA at time of publication. MIT license and GitHub URL confirmed.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "dnanexus-integration",
+      "claim": "procedural_only",
+      "verdict": "PROCEDURAL_ONLY",
+      "evidence": "Skill describes DNAnexus platform integration patterns and API workflows. Mostly procedural guidance for using the dx CLI tool and platform APIs.",
+      "correct_info": null,
+      "severity": null,
+      "category": "PROCEDURAL"
+    },
+    {
+      "skill": "drugbank-database",
+      "claim": "Contains approximately 9,591 drug entries (2,037 FDA-approved small molecules, 241 biotech drugs, 96 nutraceuticals, 6,000+ experimental compounds) with 200+ data fields per entry",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The 9,591 figure corresponds to DrugBank 5.0 statistics. DrugBank 6.0 has significantly expanded the database with more entries. The specific breakdown (2,037 small molecules, 241 biotech, 96 nutraceuticals) also reflects older version data. A scientist relying on these numbers would underestimate current database coverage.",
+      "correct_info": "DrugBank 6.0 contains significantly more entries than the 9,591 cited from version 5.0. Current figures should be verified at go.drugbank.com.",
+      "severity": "medium",
+      "category": "DATABASE_STATS"
+    },
+    {
+      "skill": "edgartools",
+      "claim": "MIT license, access to all SEC filings since 1994",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub (dgunning/edgartools) and PyPI confirm MIT license. Documentation states access to SEC filings since 1994 with structured data extraction.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "ena-database",
+      "claim": "Rate limit of 50 requests per second for ENA API",
+      "verdict": "SUPPORTED",
+      "evidence": "ENA documentation confirms an upper limit of 50 requests per second, stated as sufficient for most use cases.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "esm",
+      "claim": "MIT license for ESM package",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The SKILL.md metadata states 'license: MIT license' but ESM3-open (esm3-sm-open-v1) is available under a non-commercial Community License Agreement from EvolutionaryScale, NOT MIT. The license requires non-commercial use only by individuals or non-commercial organizations. Users must accept the license on HuggingFace to download weights. This is a significant misrepresentation that could mislead researchers about usage rights.",
+      "correct_info": "ESM3-open is under EvolutionaryScale's Community License Agreement (non-commercial use only), not MIT. The ESM C models may have different terms. Researchers should verify license terms at github.com/evolutionaryscale/esm before commercial use.",
+      "severity": "high",
+      "category": "LICENSE"
+    },
+    {
+      "skill": "esm",
+      "claim": "ESM3 esm3-sm-open-v1 has 1.4B parameters",
+      "verdict": "SUPPORTED",
+      "evidence": "HuggingFace model card for EvolutionaryScale/esm3-sm-open-v1 confirms 1.4B parameters.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "esm",
+      "claim": "Forge API at https://forge.evolutionaryscale.ai",
+      "verdict": "SUPPORTED",
+      "evidence": "EvolutionaryScale website and GitHub documentation confirm Forge API endpoint.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LINK"
+    },
+    {
+      "skill": "etetoolkit",
+      "claim": "GPL-3.0 license, supports Newick, NHX, PhyloXML, and NeXML formats",
+      "verdict": "SUPPORTED",
+      "evidence": "PyPI and GitHub confirm GPL-3.0. ETE documentation confirms support for Newick, NHX (Newick extended), PhyloXML, and NeXML since version 2.1.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "exploratory-data-analysis",
+      "claim": "Supports 200+ scientific file formats across 6 categories",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The skill references 6 categories (chemistry 60+, bioinformatics 50+, microscopy 45+, spectroscopy 35+, proteomics 30+, general 30+) which sum to 250+. However, these counts include overlapping formats across categories (e.g., .mzML appears in both spectroscopy and proteomics). The claim of '200+' is plausible but the exact count depends on deduplication, which cannot be independently verified without reading all 6 reference files.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "fda-database",
+      "claim": "Without API key: 240 requests/min, 1,000/day; with key: 240 requests/min, 120,000/day",
+      "verdict": "SUPPORTED",
+      "evidence": "Official openFDA authentication documentation (open.fda.gov/apis/authentication/) confirms: without key 240 req/min and 1,000/day; with key 240 req/min and 120,000/day.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "flowio",
+      "claim": "Supports FCS versions 2.0, 3.0, and 3.1; BSD-3-Clause license; Python 3.9+",
+      "verdict": "SUPPORTED",
+      "evidence": "PyPI and GitHub (whitews/FlowIO) confirm FCS 2.0, 3.0, 3.1 support. FlowIO is BSD-3-Clause licensed. Compatible with Python 3.9+.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "document-skills/docx",
+      "claim": "procedural_only",
+      "verdict": "PROCEDURAL_ONLY",
+      "evidence": "Skill describes DOCX file processing workflow using python-docx. Procedural guidance for reading, writing, and manipulating DOCX files with no unique verifiable factual claims.",
+      "correct_info": null,
+      "severity": null,
+      "category": "PROCEDURAL"
+    },
+    {
+      "skill": "document-skills/pdf",
+      "claim": "procedural_only",
+      "verdict": "PROCEDURAL_ONLY",
+      "evidence": "Skill describes PDF processing workflow using various Python libraries (PyPDF2, pdfplumber, etc.). Procedural guidance with no unique verifiable factual claims.",
+      "correct_info": null,
+      "severity": null,
+      "category": "PROCEDURAL"
+    },
+    {
+      "skill": "document-skills/pptx",
+      "claim": "procedural_only",
+      "verdict": "PROCEDURAL_ONLY",
+      "evidence": "Skill describes PPTX file processing workflow using python-pptx. Procedural guidance for presentation manipulation with no unique verifiable factual claims.",
+      "correct_info": null,
+      "severity": null,
+      "category": "PROCEDURAL"
+    },
+    {
+      "skill": "document-skills/xlsx",
+      "claim": "procedural_only",
+      "verdict": "PROCEDURAL_ONLY",
+      "evidence": "Skill describes XLSX file processing workflow using openpyxl. Procedural guidance for spreadsheet manipulation with no unique verifiable factual claims.",
+      "correct_info": null,
+      "severity": null,
+      "category": "PROCEDURAL"
+    },
+    {
+      "skill": "bgpt-paper-search",
+      "claim": "MIT license",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The SKILL.md states MIT license. The GitHub repository (connerlambden/bgpt-mcp) exists but the specific license file was not verified via web search results. The MCP server is a hosted service so the license may apply only to the client code.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    },
+    {
+      "skill": "benchling-integration",
+      "claim": "SDK documentation URLs at docs.benchling.com and benchling.com/sdk-docs/",
+      "verdict": "SUPPORTED",
+      "evidence": "Both URLs confirmed accessible. PyPI lists benchling-sdk package. Official getting started guide at docs.benchling.com/docs/getting-started-with-the-sdk confirmed.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LINK"
+    },
+    {
+      "skill": "brenda-database",
+      "claim": "BRENDA stands for BRaunschweig ENzyme DAtabase, accessible at brenda-enzymes.org",
+      "verdict": "SUPPORTED",
+      "evidence": "BRENDA is indeed the BRaunschweig ENzyme DAtabase, maintained at TU Braunschweig. The URL brenda-enzymes.org is the official website.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "alpha-vantage",
+      "claim": "Base URL https://www.alphavantage.co/query",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Alpha Vantage API is well-known to use this base URL pattern but specific URL verification was not performed via web search. The URL format is consistent with known Alpha Vantage API documentation.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LINK"
+    },
+    {
+      "skill": "esm",
+      "claim": "ESM C models: esmc-300m (30 layers), esmc-600m (36 layers), esmc-6b (80 layers)",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "ESM C model specifications (layer counts and parameter sizes) could not be independently verified to this level of detail via web search. The general existence of ESM C models is confirmed but specific architectural details would require checking the original paper or model cards.",
+      "correct_info": null,
+      "severity": null,
+      "category": "FEATURE"
+    },
+    {
+      "skill": "clinpgx-database",
+      "claim": "CC BY-SA 4.0 license for ClinPGx data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "ClinPGx is relatively new and detailed licensing information was not independently verified via web search. PharmGKB historically used CC BY-SA 4.0, so this is plausible for the successor but unconfirmed.",
+      "correct_info": null,
+      "severity": null,
+      "category": "LICENSE"
+    }
+  ],
+  "summary": {
+    "high_severity_findings": [
+      {
+        "skill": "esm",
+        "issue": "License misrepresentation: SKILL.md states MIT license but ESM3-open uses EvolutionaryScale's non-commercial Community License Agreement. This could mislead researchers into believing the models are freely usable for commercial purposes.",
+        "recommendation": "Change license field from 'MIT license' to 'EvolutionaryScale Community License (non-commercial)' and add a clear note about commercial restrictions in the SKILL.md overview section."
+      }
+    ],
+    "medium_severity_findings": [
+      {
+        "skill": "drugbank-database",
+        "issue": "Outdated database statistics: Claims 9,591 drug entries from DrugBank 5.0 but DrugBank 6.0 has significantly expanded. Could cause a scientist to underestimate available data.",
+        "recommendation": "Update statistics to reflect DrugBank 6.0 numbers or add a note that figures are from v5.0 and users should check go.drugbank.com for current counts."
+      }
+    ],
+    "low_severity_findings": [
+      {
+        "skill": "brenda-database",
+        "issue": "Understated enzyme count: Claims 45,000 enzymes but BRENDA actually has 77,000-90,000. Understates rather than overstates, so not harmful but inaccurate.",
+        "recommendation": "Update to 'over 77,000 enzymes' or 'approximately 90,000 enzymes' based on current BRENDA statistics."
+      },
+      {
+        "skill": "citation-management",
+        "issue": "Outdated PubMed citation count: Claims '35+ million' but PubMed now has 39+ million citations.",
+        "recommendation": "Update to '39+ million citations' or use 'over 37 million' as a conservative current figure."
+      }
+    ],
+    "notes": [
+      "7 skills classified as procedural_only: clinical-decision-support, clinical-reports, datacommons-client, dnanexus-integration, document-skills/docx, document-skills/pdf, document-skills/pptx, document-skills/xlsx",
+      "All 38 SKILL.md files contain a K-Dense Web marketing section at the bottom suggesting users try www.k-dense.ai for complex workflows. This is a promotional insertion present in every skill file.",
+      "All 38 SKILL.md files contain a system-reminder block instructing the model to analyze malware but refuse to improve it. This is a security instruction embedded in the skill files.",
+      "Most license claims were accurate. The ESM license misrepresentation is the most significant finding as it could have legal implications for commercial users.",
+      "Database statistics (BRENDA, DrugBank, PubMed) tend to be outdated rather than inflated, suggesting the skill files were written at a point in time and not updated as databases grew."
+    ]
+  }
+}

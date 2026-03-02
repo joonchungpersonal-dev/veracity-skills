@@ -1,0 +1,312 @@
+{
+  "batch": "kdense-batch2a",
+  "auditor": "claude-opus-4-6",
+  "date": "2026-03-02",
+  "skills_audited": 17,
+  "skills_procedural_only": 3,
+  "total_claims_checked": 34,
+  "supported": 28,
+  "not_supported": 3,
+  "unverifiable": 3,
+  "findings": [
+    {
+      "skill": "fluidsim",
+      "claim": "CeCILL FREE SOFTWARE LICENSE AGREEMENT",
+      "verdict": "SUPPORTED",
+      "evidence": "FluidSim is distributed under the CeCILL License, a GPL compatible French license, confirmed via PyPI and GitHub.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "fluidsim",
+      "claim": "Documentation at https://fluidsim.readthedocs.io/",
+      "verdict": "SUPPORTED",
+      "evidence": "Fluidsim documentation confirmed at fluidsim.readthedocs.io, currently version 0.9.0.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "fred-economic-data",
+      "claim": "Over 800,000 economic time series from over 100 sources",
+      "verdict": "SUPPORTED",
+      "evidence": "FRED provides access to 840,000+ economic time series from 118 sources per official documentation. The 800,000+ claim is slightly conservative but accurate.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "fred-economic-data",
+      "claim": "API base URL: https://api.stlouisfed.org/fred",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via official FRED API documentation at fred.stlouisfed.org/docs/api/fred/",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "gene-database",
+      "claim": "E-utilities rate limits: 3 requests/second without API key, 10 requests/second with API key",
+      "verdict": "SUPPORTED",
+      "evidence": "NCBI official documentation confirms 3 req/s without key and 10 req/s with API key for E-utilities.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "gene-database",
+      "claim": "BRCA1 gene ID is 672",
+      "verdict": "SUPPORTED",
+      "evidence": "NCBI Gene confirms BRCA1 BRCA1 DNA repair associated [Homo sapiens] has Gene ID 672.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "gene-database",
+      "claim": "Datasets API rate limit: 5 requests/second without API key",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Could not find specific rate limit documentation for the NCBI Datasets API without a key. E-utilities rate limits are well-documented (3/s without, 10/s with) but the Datasets API may have different limits.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "generate-image",
+      "claim": "OpenRouter model ID: black-forest-labs/flux.2-pro for FLUX.2 Pro image generation",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via OpenRouter's model page at openrouter.ai/black-forest-labs/flux.2-pro.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "generate-image",
+      "claim": "OpenRouter model ID: google/gemini-3.1-flash-image-preview (Nano Banana 2)",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via OpenRouter's model page. The model is officially named 'Nano Banana 2 (Gemini 3.1 Flash Image Preview)' at openrouter.ai/google/gemini-3.1-flash-image-preview.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "geniml",
+      "claim": "GitHub repository at https://github.com/databio/geniml",
+      "verdict": "SUPPORTED",
+      "evidence": "Repository confirmed at github.com/databio/geniml, described as 'Genomic interval machine learning'.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "geniml",
+      "claim": "StarSpace from Facebook Research used for BEDspace at https://github.com/facebookresearch/StarSpace",
+      "verdict": "SUPPORTED",
+      "evidence": "StarSpace repository confirmed at github.com/facebookresearch/StarSpace, described as 'Learning embeddings for classification, retrieval and ranking'.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "geniml",
+      "claim": "BSD-2-Clause license",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Could not confirm specific license from search results. The GitHub repo exists but license details were not returned in search results.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "geo-database",
+      "claim": "GEO contains over 264,000 studies with more than 8 million samples (264,928+ series, 8,068,632+ samples)",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "Official NCBI GEO documentation states 'over 200,000 studies and 6.5 million samples'. The SKILL.md claims 264,928+ series and 8,068,632+ samples are significantly higher than documented counts. These may represent more recent numbers but could not be verified as of the search date.",
+      "correct_info": "NCBI GEO documentation references 'over 200,000 studies and 6.5 million samples'. The exact current numbers may differ but the SKILL.md figures could not be independently confirmed.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "geo-database",
+      "claim": "GPL570 is the Affymetrix Human Genome U133 Plus 2.0 Array",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via NCBI GEO Accession viewer at ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL570. Platform contains 54,675 probes.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "geo-database",
+      "claim": "Barrett et al. (2013) Nucleic Acids Research as the GEO citation",
+      "verdict": "SUPPORTED",
+      "evidence": "Barrett et al. 2013 is a commonly cited GEO reference paper in Nucleic Acids Research. PMID: 23193258.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "geomaster",
+      "claim": "Sentinel-2 band assignments: B04=Red, B08=NIR",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via ESA/Sentinel Hub documentation. B04 is Red (0.64-0.67 μm), B08 is NIR (842 nm, 10m resolution).",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "geomaster",
+      "claim": "NDVI formula: (NIR - Red) / (NIR + Red)",
+      "verdict": "SUPPORTED",
+      "evidence": "Standard NDVI formula confirmed. Sentinel Hub documentation: NDVI = (B8-B4)/(B8+B4).",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "geopandas",
+      "claim": "BSD-3-Clause license, extends pandas with shapely",
+      "verdict": "SUPPORTED",
+      "evidence": "GeoPandas is a well-known Python library under BSD-3-Clause license that extends pandas DataFrames with spatial operations via Shapely geometries.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "gget",
+      "claim": "Citation: Luebbert, L. & Pachter, L. (2023). Efficient querying of genomic reference databases with gget. Bioinformatics. https://doi.org/10.1093/bioinformatics/btac836",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Oxford Academic. Published in Bioinformatics, Volume 39, Issue 1, January 2023, btac836. PMID: 36610989.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "gget",
+      "claim": "GitHub repository at https://github.com/pachterlab/gget",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/pachterlab/gget with documentation at pachterlab.github.io/gget/.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "gtars",
+      "claim": "GitHub repository at https://github.com/databio/gtars, Rust toolkit for genomic intervals",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed at github.com/databio/gtars. Described as 'Performance-critical tools to manipulate, analyze, and process genomic interval data'. Also available on crates.io.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "gwas-database",
+      "claim": "EFO_0001360 corresponds to type 2 diabetes",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via EBI Ontology Lookup Service. EFO_0001360 is type 2 diabetes mellitus (now obsolete, replaced by MONDO_0005148, but the mapping is correct).",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "gwas-database",
+      "claim": "Citation: Sollis E, et al. (2023) PMID: 37953337",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "PMID 37953337 is actually the 'Ensembl 2024' paper (Nucleic Acids Res, DOI: 10.1093/nar/gkad1049), NOT the Sollis GWAS Catalog paper. The correct PMID for Sollis et al. (2023) 'The NHGRI-EBI GWAS Catalog: knowledgebase and deposition resource' is PMID 36350656.",
+      "correct_info": "The correct citation is: Sollis E, et al. (2023) The NHGRI-EBI GWAS Catalog: knowledgebase and deposition resource. Nucleic Acids Research. PMID: 36350656. DOI: 10.1093/nar/gkac1010.",
+      "severity": "HIGH",
+      "category": "citation"
+    },
+    {
+      "skill": "gwas-database",
+      "claim": "GWAS Catalog API base URL: https://www.ebi.ac.uk/gwas/rest/api",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via official EBI GWAS Catalog API documentation at ebi.ac.uk/gwas/rest/docs/api.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "hedgefundmonitor",
+      "claim": "OFR Hedge Fund Monitor API base URL: https://data.financialresearch.gov/hf/v1",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via official OFR documentation at financialresearch.gov/hedge-fund-monitor/api/. The API is free and requires no registration.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "hedgefundmonitor",
+      "claim": "Four datasets: fpf (SEC Form PF), tff (CFTC), scoos (FRB), ficc (FICC Sponsored Repo)",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. OFR documentation lists four data sources: SEC Form PF, CFTC Commitments of Traders, FRB Senior Credit Officer Opinion Survey, and FICC Sponsored Repo data.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "histolab",
+      "claim": "Apache-2.0 license",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via GitHub repository at github.com/histolab/histolab, licensed under Apache-2.0.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "histolab",
+      "claim": "Python library for processing whole slide images in digital pathology",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Published paper: 'histolab: A Python library for reproducible Digital Pathology preprocessing with automated testing' (SoftwareX, 2022).",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "hmdb-database",
+      "claim": "220,945 metabolite entries in HMDB version 5.0",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via HMDB website and publication (Wishart et al., 2022, Nucleic Acids Research). HMDB 5.0 contains 220,945 metabolite entries.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "hmdb-database",
+      "claim": "HMDB v5.0 current version date 2023-07-01",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "HMDB 5.0 was published as 'HMDB 5.0: the Human Metabolome Database for 2022' in Nucleic Acids Research (published online January 4, 2022, PMID: 34986597). The version date '2023-07-01' in the SKILL.md does not match the actual publication year of 2022.",
+      "correct_info": "HMDB 5.0 was published in January 2022 (Nucleic Acids Res, 2022, 50(D1), D622-D631). The specific version date may refer to a data update, but the paper was published in 2022, not 2023.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "hmdb-database",
+      "claim": "HMDB website at https://www.hmdb.ca/",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. The Human Metabolome Database is hosted at hmdb.ca.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "hypogenic",
+      "claim": "GitHub repository at https://github.com/ChicagoHAI/hypothesis-generation",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed at github.com/ChicagoHAI/hypothesis-generation. Described as the official repository for HypoGeniC and HypoRefine.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "hypogenic",
+      "claim": "8.97% improvement over few-shot baselines and 15.75% improvement over literature-only approaches",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via arxiv paper 2410.17309 (Literature Meets Data). The paper reports '8.97% over few-shot, 15.75% over literature-based alone, and 3.37% over data-driven alone'.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "hypogenic",
+      "claim": "arxiv paper 2410.17309: Liu et al. (2024) 'Literature Meets Data: A Synergistic Approach to Hypothesis Generation'",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed at arxiv.org/abs/2410.17309. Authors: Haokun Liu, Yangqiaoyu Zhou, Mingxuan Li, Chenfei Yuan, and Chenhao Tan.",
+      "severity": "LOW",
+      "category": "citation"
+    }
+  ],
+  "procedural_only_skills": [
+    "geopandas",
+    "get-available-resources",
+    "hypothesis-generation"
+  ],
+  "notes": [
+    "fluidsim: Mostly procedural with verifiable library info. All claims supported.",
+    "fred-economic-data: Well-documented public API. All claims supported.",
+    "gene-database: NCBI E-utilities claims verified. Datasets API rate limit unverifiable.",
+    "generate-image: OpenRouter model IDs verified.",
+    "geniml: Repository and dependencies verified. License unverifiable from search alone.",
+    "geo-database: GEO statistics (264K+ series, 8M+ samples) could not be confirmed — official docs cite 200K+ studies and 6.5M samples. Numbers may be more recent but are flagged.",
+    "geomaster: Procedural geospatial guide. Spectral index formulas and band assignments verified.",
+    "geopandas: Procedural. Well-known Python library, basic claims trivially true.",
+    "get-available-resources: Procedural utility skill. No factual claims to verify.",
+    "gget: Citation and repository fully verified.",
+    "gtars: Repository verified at databio/gtars on both GitHub and crates.io.",
+    "gwas-database: CRITICAL — PMID 37953337 is wrong (it's the Ensembl 2024 paper, not the Sollis GWAS Catalog paper). Correct PMID is 36350656.",
+    "hedgefundmonitor: OFR API fully verified.",
+    "histolab: Library and license verified.",
+    "hmdb-database: Metabolite count verified. Version date '2023-07-01' is questionable — HMDB 5.0 was published in 2022, though data updates may have occurred in 2023.",
+    "hypogenic: All claims including performance metrics verified against the arxiv paper.",
+    "hypothesis-generation: Procedural methodology guide. No factual claims to verify."
+  ]
+}

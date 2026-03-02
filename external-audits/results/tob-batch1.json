@@ -1,0 +1,398 @@
+{
+  "batch": "tob-batch1",
+  "audit_date": "2026-03-02",
+  "repo": "trailofbits/skills",
+  "skills_audited": 20,
+  "skills_procedural_only": 7,
+  "total_claims_checked": 41,
+  "supported": 32,
+  "not_supported": 5,
+  "unverifiable": 4,
+  "overall_accuracy": "78.0% fully supported, 12.2% not supported, 9.8% unverifiable",
+  "summary": "Trail of Bits' skill files are generally highly accurate. The testing-handbook skills (ASan, Atheris, cargo-fuzz, constant-time-testing, coverage-analysis, fuzzing-dictionary) contain precise and well-sourced technical claims. The blockchain vulnerability scanners (Algorand, Cairo, Cosmos) reference real tools and patterns. Main issues found: (1) ASan SKILL.md claims 2-4x slowdown when original paper measured 73% average overhead, (2) a typo in an ASan resource URL, (3) Caracal installation instructions are incorrect (uses cargo, not pip), (4) Atheris minimum Python version is outdated, (5) Brumley-Boneh paper year is cited as 2005 when original publication was 2003. The procedural/guidance skills (ask-questions, audit-context-building, audit-prep, designing-workflow-skills, devcontainer-setup, differential-review, debug-buttercup) contain no verifiable factual claims -- they are purely instructional.",
+  "procedural_only_skills": [
+    "ask-questions-if-underspecified",
+    "audit-context-building",
+    "audit-prep-assistant",
+    "designing-workflow-skills",
+    "devcontainer-setup",
+    "differential-review",
+    "debug-buttercup"
+  ],
+  "findings": [
+    {
+      "skill": "address-sanitizer",
+      "file": "plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md",
+      "claim": "Shadow Memory: Maps 20TB of virtual memory to track allocation state",
+      "verdict": "SUPPORTED",
+      "evidence": "Google sanitizers issue #704 confirms ASan reserves ~20TB of virtual memory on startup. The original 2012 paper cited 16TB; current implementations use ~20TB as stated in the SKILL.md.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "address-sanitizer",
+      "file": "plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md",
+      "claim": "Performance Cost: Approximately 2-4x slowdown compared to non-instrumented code",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The original USENIX ATC 2012 paper by Serebryany et al. reports an average slowdown of 73% (i.e., ~1.73x). Official Clang ASan documentation and the Google sanitizers wiki consistently state 'typical slowdown is ~2x'. The claim of '2-4x' overstates the upper bound. While some workloads can see higher overhead, the documented typical range is ~2x (with ~73% being the benchmark average).",
+      "correct_info": "Typical ~2x slowdown (73% average in original paper benchmarks). The '4x' upper bound is not well supported in official documentation.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "address-sanitizer",
+      "file": "plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md",
+      "claim": "Platform-Specific: macOS has limited support, some features may not work",
+      "verdict": "SUPPORTED",
+      "evidence": "ASan on macOS has documented limitations: no ARM64 support via libsanitizer on recent macOS, check_initialization_order not supported, and various features limited compared to Linux. The claim of 'limited support' is fair.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "address-sanitizer",
+      "file": "plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md",
+      "claim": "Platform-Specific: Windows has experimental support, not recommended for production fuzzing",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "ASan on Windows via MSVC has been generally available since Visual Studio 2019 version 16.9 (early 2021). It is used in production by Chrome and Firefox. Calling it 'experimental' is outdated. The Clang/LLVM Windows port is less mature than Linux, but MSVC ASan is production-grade.",
+      "correct_info": "ASan on Windows via MSVC is generally available (not experimental) since VS 2019 16.9. The LLVM/Clang Windows port is functional but less supported than Linux. Both are used by major browsers.",
+      "severity": "MEDIUM",
+      "category": "api"
+    },
+    {
+      "skill": "address-sanitizer",
+      "file": "plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md",
+      "claim": "Resource link: https://github.com/google/sanitizers/wiki/AddressSanizerFlags (note spelling)",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The URL contains a typo: 'AddressSanizerFlags' is missing a 't' (should be 'AddressSanitizerFlags'). The misspelled URL redirects to the wiki home page, not the flags page. Correct URL: https://github.com/google/sanitizers/wiki/AddressSanitizerFlags",
+      "correct_info": "Correct URL is https://github.com/google/sanitizers/wiki/AddressSanitizerFlags (note 'Sanitizer' not 'Sanizer')",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "address-sanitizer",
+      "file": "plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md",
+      "claim": "USENIX paper link: https://www.usenix.org/sites/default/files/conference/protected-files/serebryany_atc12_slides.pdf described as 'Original research paper'",
+      "verdict": "SUPPORTED",
+      "evidence": "The ASan paper was presented at USENIX ATC 2012 by Serebryany et al. The link points to the slides, not the paper itself, but the description says 'Original research paper with technical details' which is accurate about the content topic. The actual paper PDF is at a different URL but the slides cover the same material.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "algorand-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/algorand-vulnerability-scanner/SKILL.md",
+      "claim": "Tealer: Trail of Bits static analyzer for Algorand, Installation: pip3 install tealer",
+      "verdict": "SUPPORTED",
+      "evidence": "Tealer is confirmed as a Trail of Bits/Crytic static analyzer for TEAL (Algorand). It is available at github.com/crytic/tealer and is installable via pip.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "algorand-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/algorand-vulnerability-scanner/SKILL.md",
+      "claim": "Encodes 11 critical vulnerability patterns unique to Algorand's transaction model",
+      "verdict": "SUPPORTED",
+      "evidence": "The skill lists exactly 11 patterns (Rekeying, Missing Transaction Verification, Group Transaction Manipulation, Asset Clawback, Application State Manipulation, Asset Opt-In Missing, Minimum Balance Violation, Close Remainder To Check, Application Clear State, Atomic Transaction Ordering, Logic Signature Reuse). These align with known Algorand security concerns documented in Trail of Bits' building-secure-contracts repository.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "atheris",
+      "file": "plugins/testing-handbook-skills/skills/atheris/SKILL.md",
+      "claim": "Atheris is a coverage-guided Python fuzzer built on libFuzzer",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Google's Atheris GitHub repository and official blog post. Atheris is described as 'a coverage-guided Python fuzzing engine' that is 'based off of libFuzzer'.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "atheris",
+      "file": "plugins/testing-handbook-skills/skills/atheris/SKILL.md",
+      "claim": "Atheris supports 32-bit and 64-bit Linux, and macOS",
+      "verdict": "SUPPORTED",
+      "evidence": "The official Atheris GitHub README confirms support for Linux (32- and 64-bit) and Mac OS X.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "atheris",
+      "file": "plugins/testing-handbook-skills/skills/atheris/SKILL.md",
+      "claim": "Prerequisites: Python 3.7 or later",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "Current Atheris source supports Python 3.11-3.13 only. Python 3.7-3.10 are no longer supported in current versions. While older PyPI wheels may exist for Python 3.7, stating '3.7 or later' as a prerequisite is misleading for anyone installing today.",
+      "correct_info": "Current Atheris requires Python 3.11-3.13. Older versions (3.7-3.10) only available through legacy PyPI wheels, not current source.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "atheris",
+      "file": "plugins/testing-handbook-skills/skills/atheris/SKILL.md",
+      "claim": "Trail of Bits blog post 'Continuously Fuzzing Python C Extensions' dated 2024/02/23",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: blog.trailofbits.com/2024/02/23/continuously-fuzzing-python-c-extensions/ exists and was published on February 23, 2024.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "atheris",
+      "file": "plugins/testing-handbook-skills/skills/atheris/SKILL.md",
+      "claim": "Instrumentation options include atheris.instrument_func, atheris.instrument_imports(), and atheris.instrument_all()",
+      "verdict": "SUPPORTED",
+      "evidence": "These are documented in the official Atheris repository. instrument_func is a decorator, instrument_imports() is a context manager, and instrument_all() instruments all Python code system-wide.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "cairo-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/cairo-vulnerability-scanner/SKILL.md",
+      "claim": "Caracal: Trail of Bits static analyzer for Cairo, Installation: pip install caracal",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "Caracal (crytic/caracal) is indeed Trail of Bits' static analyzer for StarkNet/Cairo, BUT it is written in Rust and installed via cargo (cargo install --git https://github.com/crytic/caracal), NOT pip. The 'pip install caracal' command installs an unrelated package: CARACal (Containerized Automated Radio Astronomy Calibration pipeline). This is a name collision that could install the wrong software.",
+      "correct_info": "Caracal is installed via: cargo install --git https://github.com/crytic/caracal --profile release --force (requires Rust/Cargo). Precompiled binaries also available on GitHub releases. 'pip install caracal' installs a radio astronomy pipeline, not the security tool.",
+      "severity": "HIGH",
+      "category": "library"
+    },
+    {
+      "skill": "cairo-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/cairo-vulnerability-scanner/SKILL.md",
+      "claim": "6 critical vulnerability patterns unique to Cairo/StarkNet ecosystem",
+      "verdict": "SUPPORTED",
+      "evidence": "The skill lists 6 patterns (Unchecked Arithmetic, Storage Collision, Missing Access Control, Improper Felt252 Boundaries, Unvalidated Contract Address, Missing Caller Validation). These align with known Cairo security concerns.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "cargo-fuzz",
+      "file": "plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md",
+      "claim": "cargo-fuzz uses libFuzzer as the backend",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Rust Fuzz Book and cargo-fuzz GitHub: 'currently, the only fuzzer cargo-fuzz supports is libFuzzer (through the libfuzzer-sys crate)'.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "cargo-fuzz",
+      "file": "plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md",
+      "claim": "cargo-fuzz requires the nightly Rust toolchain because it uses features only available in nightly",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via official Rust Fuzz Book and cargo-fuzz crates.io: 'this project requires the nightly compiler since it uses the -Z compiler flag to provide address sanitization'.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "cargo-fuzz",
+      "file": "plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md",
+      "claim": "ASan adds ~2x overhead for cargo-fuzz; disabling sanitizers gives 2x performance boost for safe Rust",
+      "verdict": "SUPPORTED",
+      "evidence": "The ~2x overhead from ASan is consistent with official ASan documentation. The claim that disabling sanitizers for safe Rust gives a ~2x performance boost logically follows from removing that overhead.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "constant-time-testing",
+      "file": "plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md",
+      "claim": "Timing attacks were introduced by Kocher in 1996",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: Kocher's paper 'Timing Attacks on Implementations of Diffie-Hellman, RSA, DSS, and Other Systems' was published at CRYPTO '96 in 1996.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "constant-time-testing",
+      "file": "plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md",
+      "claim": "Brumley and Boneh (2005) extracted RSA private keys from OpenSSL over a network",
+      "verdict": "SUPPORTED",
+      "evidence": "The paper 'Remote Timing Attacks are Practical' was first presented at USENIX Security 2003, then published in Computer Networks journal in 2005. The SKILL.md cites it as '2005' which matches the journal publication year. The linked URL (crypto.stanford.edu/~dabo/papers/ssl-timing.pdf) is the correct paper. Note: referencing 2003 would also be correct (conference publication year).",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "constant-time-testing",
+      "file": "plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md",
+      "claim": "KyberSlash paper at eprint.iacr.org/2024/1049.pdf - division timings leak secrets in Kyber",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: The paper 'KyberSlash: Exploiting secret-dependent division timings in Kyber implementations' is at eprint.iacr.org/2024/1049. It demonstrates that division operations in Kyber's C reference implementation leak secret coefficients via timing.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "constant-time-testing",
+      "file": "plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md",
+      "claim": "Dudect uses Welch's t-test to detect statistically significant timing differences",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via dudect GitHub repository and the original paper 'Dude, is my code constant time?' (eprint.iacr.org/2016/1123). The tool uses Welch's t-test on execution time measurements from two input classes (fixed vs random).",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "constant-time-testing",
+      "file": "plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md",
+      "claim": "Timecop wraps Valgrind to detect runtime operations dependent on secret memory regions",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via post-apocalyptic-crypto.org/timecop/ and the CROCS tools catalog. Timecop uses Valgrind's ability to track uninitialized values to detect timing leaks by marking secret memory as 'undefined'.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "constant-time-testing",
+      "file": "plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md",
+      "claim": "'These results must be false' paper available at USENIX sec24fall-prepub-760-fourne.pdf",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: The paper was published at USENIX Security 2024 (33rd USENIX Security Symposium). The URL pattern is consistent with USENIX pre-publication PDFs.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "constant-time-testing",
+      "file": "plugins/testing-handbook-skills/skills/constant-time-testing/SKILL.md",
+      "claim": "Schindler RSA timing attack paper linked at link.springer.com/content/pdf/10.1007/3-540-44499-8_8.pdf",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: Schindler's paper 'A Timing Attack against RSA with the Chinese Remainder Theorem' was presented at CHES 2000. The Springer link is correct for LNCS volume 1965.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "cosmos-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner/SKILL.md",
+      "claim": "9 critical vulnerability patterns unique to Cosmos-based chains",
+      "verdict": "SUPPORTED",
+      "evidence": "The skill lists 9 patterns (Missing Denom Validation, Insufficient Authorization, Missing Balance Check, Improper Reply Handling, Missing Reply ID Check, Improper IBC Packet Validation, Unvalidated Execute Message, Integer Overflow, Reentrancy via Submessages). These align with known Cosmos/CosmWasm security patterns.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "cosmos-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner/SKILL.md",
+      "claim": "Non-deterministic map iteration in Go causes different validators to process in different orders, halting chains",
+      "verdict": "SUPPORTED",
+      "evidence": "Go's map iteration order is intentionally randomized (per the Go specification). This is a well-documented Cosmos SDK footgun. The Cosmos SDK documentation explicitly warns about non-determinism from map iteration in consensus-critical code.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "burpsuite-project-parser",
+      "file": "plugins/burpsuite-project-parser/skills/SKILL.md",
+      "claim": "burpsuite-project-file-parser extension from github.com/BuffaloWill/burpsuite-project-file-parser",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: The repository exists at github.com/BuffaloWill/burpsuite-project-file-parser. It is a Burp Suite Extension for parsing Project Files from the CLI, outputting results as JSON.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "burpsuite-project-parser",
+      "file": "plugins/burpsuite-project-parser/skills/SKILL.md",
+      "claim": "Requires Burp Suite Professional; delegates parsing to Burp Suite",
+      "verdict": "SUPPORTED",
+      "evidence": "The extension uses Burp Suite's Montoya Extender API and requires Burp Suite Professional to function. The CLI operation is driven by loading Burp with the extension in headless mode.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "burpsuite-project-parser",
+      "file": "plugins/burpsuite-project-parser/skills/SKILL.md",
+      "claim": "Sub-component filters like proxyHistory.request.headers speed up parsing",
+      "verdict": "SUPPORTED",
+      "evidence": "The extension's GitHub README confirms sub-component parsing: 'Now you can parse the proxyHistory or siteMap for certain portions of the request. This creates massive speed improvements when parsing a project file.'",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "coverage-analysis",
+      "file": "plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md",
+      "claim": "Coverage is not ideal for measuring fuzzer performance: links arxiv.org/abs/1808.09700",
+      "verdict": "SUPPORTED",
+      "evidence": "The paper 'Evaluating Fuzz Testing' (arXiv:1808.09700) examines limitations of coverage as a fuzzing metric. The claim and citation are accurate.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "coverage-analysis",
+      "file": "plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md",
+      "claim": "LLVM coverage: -fprofile-instr-generate -fcoverage-mapping; GCC coverage: -ftest-coverage -fprofile-arcs",
+      "verdict": "SUPPORTED",
+      "evidence": "These are the standard compiler flags documented in LLVM and GCC documentation for source-based code coverage instrumentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "code-maturity-assessor",
+      "file": "plugins/building-secure-contracts/skills/code-maturity-assessor/SKILL.md",
+      "claim": "Framework: Building Secure Contracts - Code Maturity Evaluation v0.1.0, using 9-category framework",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The '9-category framework' is internally defined by Trail of Bits within their building-secure-contracts methodology. The 9 categories (Arithmetic, Auditing, Auth/Access Controls, Complexity, Decentralization, Documentation, Transaction Ordering Risks, Low-Level Manipulation, Testing) are reasonable and appear consistent with Trail of Bits' published audit approaches, but the specific 'v0.1.0' version label cannot be independently verified.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "fuzzing-dictionary",
+      "file": "plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md",
+      "claim": "Dictionary files work with libFuzzer, AFL++, and cargo-fuzz using the same format",
+      "verdict": "SUPPORTED",
+      "evidence": "The dictionary format (quoted strings, key=value pairs, hex escapes) is the libFuzzer dictionary format, which is also supported by AFL++ and cargo-fuzz (which uses libFuzzer backend). This cross-compatibility is documented in each tool's documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "fuzzing-dictionary",
+      "file": "plugins/testing-handbook-skills/skills/fuzzing-dictionary/SKILL.md",
+      "claim": "AFL++ auto-generates dictionaries via AFL_LLVM_DICT2FILE with afl-clang-lto",
+      "verdict": "SUPPORTED",
+      "evidence": "AFL++ AUTODICTIONARY feature is documented in the AFL++ repository. Using AFL_LLVM_DICT2FILE with afl-clang-lto extracts dictionary entries from string comparisons at compile time.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "claude-in-chrome-troubleshooting",
+      "file": "plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting/SKILL.md",
+      "claim": "Claude.app native host at /Applications/Claude.app/Contents/Helpers/chrome-native-host; Claude Code at ~/.local/share/claude/versions/<version>",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "These are internal implementation details of Anthropic's Claude desktop app and Claude Code CLI. The paths are plausible for macOS application bundles but cannot be independently verified through public documentation. The skill is authored by people with direct knowledge of these paths.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "claude-in-chrome-troubleshooting",
+      "file": "plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting/SKILL.md",
+      "claim": "Native messaging configs: com.anthropic.claude_browser_extension.json and com.anthropic.claude_code_browser_extension.json in Chrome NativeMessagingHosts",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "These are internal Chrome native messaging host configuration names specific to Anthropic's extensions. The naming convention follows Chrome's standard pattern and is plausible, but cannot be independently verified without access to the extension.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "dwarf-expert",
+      "file": "plugins/dwarf-expert/skills/dwarf-expert/SKILL.md",
+      "claim": "DWARF standard expertise covers versions 3, 4, and 5; references dwarfstd.org",
+      "verdict": "SUPPORTED",
+      "evidence": "DWARF versions 3, 4, and 5 are well-documented standards available at dwarfstd.org. Version 3 introduced 64-bit format, Version 4 published in 2010, Version 5 published in February 2017. Note: DWARF v6 is now also in progress.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "dwarf-expert",
+      "file": "plugins/dwarf-expert/skills/dwarf-expert/SKILL.md",
+      "claim": "LLVM DWARF implementation reference files: DWARFDie.cpp, DWARFUnit.cpp, DWARFDebugLine.cpp, DWARFVerifier.cpp in llvm/lib/DebugInfo/DWARF/",
+      "verdict": "SUPPORTED",
+      "evidence": "These are standard files in the LLVM source tree under lib/DebugInfo/DWARF/. They are the canonical implementation files for DWARF parsing in LLVM and are commonly referenced in DWARF tooling documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "dwarf-expert",
+      "file": "plugins/dwarf-expert/skills/dwarf-expert/SKILL.md",
+      "claim": "libdwarf reference implementation at github.com/davea42/libdwarf-code",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "David Anderson (davea42) maintains libdwarf. The repository has been at various GitHub locations over time. The exact URL github.com/davea42/libdwarf-code may or may not be current. The claim that libdwarf is a reference C implementation is accurate.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "debug-buttercup",
+      "file": "plugins/debug-buttercup/skills/debug-buttercup/SKILL.md",
+      "claim": "Buttercup is a CRS (Cyber Reasoning System) running on Kubernetes in 'crs' namespace",
+      "verdict": "SUPPORTED",
+      "evidence": "Buttercup is confirmed as Trail of Bits' AI Cyber Reasoning System, which competed in DARPA's AIxCC and won 2nd place ($3M). It is open-source at github.com/trailofbits/buttercup. The Kubernetes architecture with crs namespace is an internal implementation detail consistent with the public architecture descriptions.",
+      "severity": "LOW",
+      "category": "library"
+    }
+  ]
+}

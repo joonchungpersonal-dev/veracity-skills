@@ -1,0 +1,317 @@
+{
+  "batch": "kdense-batch2b",
+  "auditor": "claude-opus-4-6",
+  "timestamp": "2026-03-02T00:00:00Z",
+  "skills_audited": 17,
+  "skills_procedural_only": 4,
+  "total_claims_checked": 38,
+  "supported": 32,
+  "not_supported": 1,
+  "unverifiable": 5,
+  "findings": [
+    {
+      "skill": "imaging-data-commons",
+      "claim": "IDC data version v23 is current",
+      "verdict": "SUPPORTED",
+      "evidence": "IDC data release v23 was announced November 2025 on the IDC discourse forum, matching the skill's stated version.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "imaging-data-commons",
+      "claim": "Fedorov, A., et al. 'National Cancer Institute Imaging Data Commons: Toward Transparency, Reproducibility, and Scalability in Imaging Artificial Intelligence.' RadioGraphics 43.12 (2023). https://doi.org/10.1148/rg.230180",
+      "verdict": "SUPPORTED",
+      "evidence": "Paper confirmed at PubMed (PMID 37999984), published in RadioGraphics December 2023, volume 43 issue 12, DOI 10.1148/rg.230180. Authors, title, journal, and year all match.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "imaging-data-commons",
+      "claim": "idc-index version 0.11.9 with IDC data version v23",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "PyPI search confirms versions up to 0.10.1 exist. ReadTheDocs shows 0.9.2 stable. Version 0.11.9 is plausible given active development but could not be confirmed on PyPI or GitHub releases pages from web search alone. The idc-index-data package version 23.0.1 exists, consistent with v23 data.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "imaging-data-commons",
+      "claim": "GitHub repository at https://github.com/ImagingDataCommons/idc-claude-skill",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The ImagingDataCommons GitHub organization exists and the idc-index repo is confirmed, but the specific idc-claude-skill repository could not be verified via web search. The organization does have multiple repositories.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "infographics",
+      "claim": "Uses Nano Banana Pro AI for infographic generation",
+      "verdict": "SUPPORTED",
+      "evidence": "Nano Banana Pro is confirmed as Google's image-generation model built on Gemini 3 Pro, available on OpenRouter at google/gemini-3-pro-image-preview. It generates context-rich graphics including infographics and diagrams.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "infographics",
+      "claim": "Gemini 3 Pro reviews quality against document-type thresholds",
+      "verdict": "SUPPORTED",
+      "evidence": "Google Gemini 3 Pro was officially released November 18, 2025 and is available through Google AI Studio, Vertex AI, and OpenRouter. It is a real model that could be used for quality review.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "infographics",
+      "claim": "Wong colorblind-safe palette with Orange, sky blue, green, blue, vermillion",
+      "verdict": "SUPPORTED",
+      "evidence": "Bang Wong's colorblind-safe palette was published in Nature Methods 8(6):441 (2011). The colors listed match the well-known Wong/Okabe-Ito palette recommended by Nature journals.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "iso-13485-certification",
+      "claim": "FDA 21 CFR Part 820 harmonized with ISO 13485 as of Feb 2026 (QMSR)",
+      "verdict": "SUPPORTED",
+      "evidence": "The QMSR became effective February 2, 2026, incorporating ISO 13485:2016 by reference. Confirmed via FDA.gov official QMSR page and multiple regulatory compliance sources.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "iso-13485-certification",
+      "claim": "EU MDR 2017/745 and IVDR 2017/746 are the relevant EU regulations",
+      "verdict": "SUPPORTED",
+      "evidence": "MDR (EU) 2017/745 is the Medical Devices Regulation and IVDR (EU) 2017/746 is the In Vitro Diagnostic Regulation. Both regulation numbers are correct.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "iso-13485-certification",
+      "claim": "ISO 13485 Clause 4.2.3 requires Medical Device File with general description, label specs, product specs, manufacturing specs, etc.",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Advisera, Elsmar Cove forums, and 4EasyReg documentation that Clause 4.2.3 requires organizations to maintain MDF for each medical device type/family containing general description, product specifications, manufacturing procedures, and other elements listed.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "labarchive-integration",
+      "claim": "API endpoints: US https://api.labarchives.com/api, Australia https://auapi.labarchives.com/api, UK https://ukapi.labarchives.com/api",
+      "verdict": "SUPPORTED",
+      "evidence": "LabArchives API documentation and multiple sources confirm these regional endpoint URLs. The base US URL is api.labarchives.com/api, AU endpoint is auapi.labarchives.com/api.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "labarchive-integration",
+      "claim": "Python wrapper at https://github.com/mcmero/labarchives-py",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub repository confirmed at github.com/mcmero/labarchives-py, described as 'A python wrapper for interacting with the LabArchives API' by Marek Cmero.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "lamindb",
+      "claim": "LaminDB is an open-source data framework for biology at https://github.com/laminlabs/lamindb",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub repository confirmed at laminlabs/lamindb. Described as 'Open-source data framework for biology. Context and memory for datasets and models at scale.' YC S22 company.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "lamindb",
+      "claim": "Bionty provides biological ontologies including Genes (Ensembl), Proteins (UniProt), Cell types (CL), Tissues (Uberon), Diseases (Mondo)",
+      "verdict": "SUPPORTED",
+      "evidence": "Bionty (github.com/laminlabs/bionty) confirmed to provide access to 20+ public ontologies including Cell Ontology (CL), Uberon for tissues, Mondo for diseases, Ensembl for genes, and UniProt for proteins.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "lamindb",
+      "claim": "Installation via 'uv pip install lamindb' with extras like [gcp,zarr,fcs]",
+      "verdict": "SUPPORTED",
+      "evidence": "lamindb is available on PyPI. The GitHub README and documentation confirm pip installation with optional extras for various integrations.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "latchbio-integration",
+      "claim": "Latch is a Python framework for bioinformatics workflows built on Flyte",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Flyte case study (flyte.org) and LatchBio's own blog. The Latch SDK is built directly on Flyte for Kubernetes-native workflow orchestration. GitHub repo at github.com/latchbio/latch.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "latchbio-integration",
+      "claim": "GPU support includes K80, V100, A100",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "LatchBio documentation confirms GPU support exists with task decorators like @small_gpu_task and @large_gpu_task. Specific GPU types (K80, V100, A100) are consistent with standard cloud GPU offerings but exact availability could not be confirmed via web search.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "latex-posters",
+      "claim": "beamerposter is a LaTeX package for creating conference posters",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed on CTAN (ctan.org/pkg/beamerposter). Created by Philippe Dreuw and Thomas Deselaers. Supports DIN-A0, A1, A2, A3, A4, and custom sizes.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "latex-posters",
+      "claim": "tikzposter is a LaTeX package for creating academic posters",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed on CTAN (ctan.org/pkg/tikzposter). A document class for generating scientific posters using TikZ. Authors: Pascal Richter, Elena Botoeva, Richard Barnard, Dirk Surmann.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "literature-review",
+      "claim": "Semantic Scholar has 200M+ papers across all fields",
+      "verdict": "SUPPORTED",
+      "evidence": "Semantic Scholar's Wikipedia page states over 200 million publications as of September 2022. By mid-2025, the number grew to 225M+ papers with 2.8 billion citation edges.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "literature-review",
+      "claim": "PRISMA guidelines at http://www.prisma-statement.org/",
+      "verdict": "SUPPORTED",
+      "evidence": "PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) is a well-known reporting guideline. The URL prisma-statement.org is the official site.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "literature-review",
+      "claim": "MeSH Browser at https://meshb.nlm.nih.gov/search",
+      "verdict": "SUPPORTED",
+      "evidence": "The NLM MeSH Browser is available at meshb.nlm.nih.gov for searching Medical Subject Headings used in PubMed indexing.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "markdown-mermaid-writing",
+      "claim": "GitHub Blog 2022-02-14 'Include diagrams in your Markdown files with Mermaid'",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: Blog post by Martin Woodward & Adam Biagianti published February 14, 2022, at github.blog/developer-skills/github/include-diagrams-markdown-files-mermaid/",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "markdown-mermaid-writing",
+      "claim": "Mermaid covers 24 diagram types",
+      "verdict": "SUPPORTED",
+      "evidence": "Mermaid.js supports 20+ diagram types as of 2025, and the skill lists specific types including flowchart, sequence, ER, state, gantt, pie, C4, mindmap, timeline, class, user journey, quadrant, requirement, sankey, xy chart, block, kanban, architecture, radar, treemap, packet, git graph, zenuml, and complex examples. The count of 24 includes beta/experimental types and is reasonable.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "markitdown",
+      "claim": "MarkItDown is a Python tool developed by Microsoft at https://github.com/microsoft/markitdown",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: github.com/microsoft/markitdown is Microsoft's official repo described as 'Python tool for converting files and office documents to Markdown.'",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "markitdown",
+      "claim": "Supports PDF, DOCX, PPTX, XLSX, images, audio, HTML, CSV, JSON, XML, ZIP, EPUB, YouTube",
+      "verdict": "SUPPORTED",
+      "evidence": "Microsoft's GitHub README confirms support for PDF, PowerPoint, Word, Excel, images, audio, HTML, text-based formats (CSV, JSON, XML), ZIP archives, and YouTube transcription.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "matchms",
+      "claim": "Matchms is an open-source Python library for mass spectrometry data processing, Apache-2.0 license",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed at github.com/matchms/matchms. Described as 'Python library for processing (tandem) mass spectrometry data and for computing spectral similarities.' Apache-2.0 license is listed.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "matchms",
+      "claim": "Supports mzML, mzXML, MGF, MSP, JSON, metabolomics-USI formats",
+      "verdict": "SUPPORTED",
+      "evidence": "The matchms documentation confirms support for mzML, mzXML, msp, metabolomics-USI, MGF, and JSON formats.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "medchem",
+      "claim": "Medchem is a Python library for molecular filtering, Apache-2.0 license, from datamol-io",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed at github.com/datamol-io/medchem. Medchem is described as a Python library for molecular filtering and prioritization in drug discovery. Apache-2.0 license confirmed.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "medchem",
+      "claim": "Lilly Demerits system has 275 rules, molecules rejected at >100 demerits",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via the original publication: Bruns & Watson, 'Rules for Identifying Potentially Reactive or Promiscuous Compounds', J Med Chem 2012 (doi:10.1021/jm301008n). The system uses 275 rules with a 100-demerit rejection threshold.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "metabolomics-workbench-database",
+      "claim": "Over 4,200 processed studies (3,790+ publicly available)",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "As of February 2026, the Metabolomics Workbench has 4,559 processed studies with 4,089 publicly available. The skill understates the current count. The numbers 4,200 and 3,790 appear to be from an earlier snapshot.",
+      "correct_info": "As of Feb 2026: 4,559 total processed studies, 4,089 publicly available. The skill's numbers are outdated but directionally correct.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "metabolomics-workbench-database",
+      "claim": "NIH Common Fund-sponsored platform hosted at UCSD",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: The Metabolomics Workbench is sponsored by the NIH Common Fund and housed at the San Diego Supercomputer Center (SDSC), University of California, San Diego.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "metabolomics-workbench-database",
+      "claim": "REST API base URL: https://www.metabolomicsworkbench.org/rest/",
+      "verdict": "SUPPORTED",
+      "evidence": "The Metabolomics Workbench REST API is confirmed to exist. The URL pattern www.metabolomicsworkbench.org/rest/ followed by context/input/output/format is the documented API format.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "modal",
+      "claim": "Modal offers $30/month in free credits",
+      "verdict": "SUPPORTED",
+      "evidence": "Modal's pricing page confirms the Starter (free) plan includes $30 monthly credits for compute usage.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "modal",
+      "claim": "Available GPU types include T4, L4, A10, A100, A100-80GB, L40S, H100, H200, B200",
+      "verdict": "SUPPORTED",
+      "evidence": "Modal's blog and pricing page confirm availability of H100, H200, B200, A100, L40S, T4, L4, and A10 GPUs. B200 is confirmed available at $6.25/hr as of 2025.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "modal",
+      "claim": "Multi-GPU with syntax gpu='H100:8' for 8x H100 GPUs",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Modal confirms multi-GPU support exists. The exact syntax gpu='H100:8' is consistent with Modal's API patterns but could not be directly verified from web search results alone.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "modal",
+      "claim": "Apache-2.0 license",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Modal is a commercial platform. The license listed may refer to the SDK package rather than the platform itself. Could not confirm the specific license from web search.",
+      "severity": "LOW",
+      "category": "library"
+    }
+  ],
+  "procedural_skills": [
+    "latex-posters",
+    "market-research-reports",
+    "matlab",
+    "matplotlib"
+  ],
+  "notes": "All 17 skills were audited. 4 skills (latex-posters, market-research-reports, matlab, matplotlib) are primarily procedural/instructional with no substantive factual claims beyond well-established library names and standard usage patterns. The only NOT_SUPPORTED finding is the Metabolomics Workbench study count which is outdated (4,200 claimed vs 4,559 actual), a LOW severity discrepancy. Overall this batch has very high factual accuracy."
+}

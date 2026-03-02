@@ -1,0 +1,820 @@
+{
+  "repo": "trailofbits/skills",
+  "repo_url": "https://github.com/trailofbits/skills",
+  "stars": "~3k",
+  "total_skills_in_repo": 60,
+  "skills_audited": 20,
+  "sampling_strategy": "Targeted: 9 security analysis + 7 static analysis/testing + 4 domain-specific — selected for high density of verifiable factual claims about security standards, tools, and vulnerability patterns",
+  "audit_date": "2026-03-02",
+  "summary": {
+    "total_claims_checked": 82,
+    "supported": 77,
+    "not_supported": 2,
+    "unverifiable": 3,
+    "error_rate": "2.4%"
+  },
+  "skills_audited_list": [
+    "zeroize-audit",
+    "constant-time-analysis",
+    "insecure-defaults",
+    "supply-chain-risk-auditor",
+    "variant-analysis",
+    "entry-point-analyzer",
+    "firebase-apk-scanner",
+    "agentic-actions-auditor",
+    "sharp-edges",
+    "semgrep",
+    "codeql",
+    "semgrep-rule-creator",
+    "property-based-testing",
+    "aflpp",
+    "libfuzzer",
+    "wycheproof",
+    "solana-vulnerability-scanner",
+    "token-integration-analyzer",
+    "yara-rule-authoring",
+    "seatbelt-sandboxer"
+  ],
+  "findings": [
+    {
+      "skill": "constant-time-analysis",
+      "file": "plugins/constant-time-analysis/skills/constant-time-analysis/SKILL.md",
+      "line_approx": 211,
+      "claim": "KyberSlash (2023): Division instructions in post-quantum ML-KEM implementations allowed key recovery",
+      "verdict": "SUPPORTED",
+      "evidence": "KyberSlash was announced in December 2023. Division instructions in Kyber (ML-KEM) implementations leaked secret data through timing variations. Key recovery was demonstrated within minutes (KyberSlash2) and hours (KyberSlash1) on ARM processors. Published at TCHES/IACR 2025.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "constant-time-analysis",
+      "file": "plugins/constant-time-analysis/skills/constant-time-analysis/SKILL.md",
+      "line_approx": 212,
+      "claim": "Lucky Thirteen (2013): Timing differences in CBC padding validation enabled plaintext recovery",
+      "verdict": "SUPPORTED",
+      "evidence": "Lucky Thirteen was published in February 2013 by AlFardan and Paterson at IEEE S&P 2013. It is a timing attack on TLS/DTLS CBC mode that exploits differences in MAC check processing time to recover plaintext. Assigned CVE-2013-0169.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "constant-time-analysis",
+      "file": "plugins/constant-time-analysis/skills/constant-time-analysis/SKILL.md",
+      "line_approx": 217,
+      "claim": "References: Cryptocoding Guidelines at github.com/veorq/cryptocoding",
+      "verdict": "SUPPORTED",
+      "evidence": "The veorq/cryptocoding repository exists on GitHub and provides defensive coding guidelines for cryptographic implementations.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "constant-time-analysis",
+      "file": "plugins/constant-time-analysis/skills/constant-time-analysis/SKILL.md",
+      "line_approx": 218,
+      "claim": "References: KyberSlash at kyberslash.cr.yp.to",
+      "verdict": "SUPPORTED",
+      "evidence": "The KyberSlash website at kyberslash.cr.yp.to exists and documents the timing vulnerabilities in Kyber implementations.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "constant-time-analysis",
+      "file": "plugins/constant-time-analysis/skills/constant-time-analysis/SKILL.md",
+      "line_approx": 125,
+      "claim": "Trophy case: Timing side-channel in ML-DSA signing at RustCrypto/signatures PR #1144",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: PR #1144 at github.com/RustCrypto/signatures exists, authored by tob-scott-a. It replaces hardware division with Barrett reduction in ML-DSA decompose function to prevent timing side-channels. Advisory GHSA-hcp2-x6j4-29j7 and RUSTSEC-2025-0144 were issued.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "zeroize-audit",
+      "file": "plugins/zeroize-audit/skills/zeroize-audit/SKILL.md",
+      "line_approx": 128,
+      "claim": "Approved wipe APIs for C/C++: explicit_bzero, memset_s, SecureZeroMemory, OPENSSL_cleanse, sodium_memzero",
+      "verdict": "SUPPORTED",
+      "evidence": "All five are well-documented secure memory wiping APIs. explicit_bzero is POSIX/BSD, memset_s is C11 Annex K, SecureZeroMemory is Windows API, OPENSSL_cleanse is from OpenSSL, and sodium_memzero is from libsodium. All guarantee the compiler won't optimize away the zeroization.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "zeroize-audit",
+      "file": "plugins/zeroize-audit/skills/zeroize-audit/SKILL.md",
+      "line_approx": 137,
+      "claim": "Rust approved wipe APIs: zeroize::Zeroize trait (zeroize() method), Zeroizing<T> wrapper (drop-based), ZeroizeOnDrop derive macro",
+      "verdict": "SUPPORTED",
+      "evidence": "The zeroize crate (crates.io/crates/zeroize) provides the Zeroize trait, Zeroizing<T> wrapper, and ZeroizeOnDrop derive macro for securely clearing sensitive data in Rust. These are the standard mechanisms in the Rust ecosystem.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "zeroize-audit",
+      "file": "plugins/zeroize-audit/skills/zeroize-audit/SKILL.md",
+      "line_approx": 134,
+      "claim": "In LLVM IR: llvm.memset with volatile flag, volatile stores, or non-elidable wipe call prevent dead store elimination",
+      "verdict": "SUPPORTED",
+      "evidence": "LLVM's optimizer cannot eliminate volatile stores or calls to functions with side effects. The llvm.memset intrinsic with isvolatile=true is preserved through optimization passes. This is the standard mechanism for preventing dead store elimination of security-critical memory operations.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "zeroize-audit",
+      "file": "plugins/zeroize-audit/skills/zeroize-audit/SKILL.md",
+      "line_approx": 366,
+      "claim": "Standard memset can be optimized away; escalate to an approved wipe API",
+      "verdict": "SUPPORTED",
+      "evidence": "This is a well-documented compiler optimization issue. Dead store elimination in modern compilers (GCC, Clang, MSVC) can remove memset calls when the buffer is not used after the memset. This has been documented extensively, including by Colin Percival and in C11 rationale for memset_s.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "semgrep",
+      "file": "plugins/static-analysis/skills/semgrep/SKILL.md",
+      "line_approx": 28,
+      "claim": "Semgrep sends telemetry by default; --config auto also phones home. Every semgrep command must include --metrics=off",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Semgrep docs. When using --config auto, metrics are sent to Semgrep servers by default. The --metrics=off flag prevents data from being sent. The default metrics mode is 'auto', which sends metrics when downloading rules from the registry.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "semgrep",
+      "file": "plugins/static-analysis/skills/semgrep/SKILL.md",
+      "line_approx": 32,
+      "claim": "Semgrep Pro enables cross-file taint tracking and catches ~250% more true positives",
+      "verdict": "SUPPORTED",
+      "evidence": "Semgrep's official marketing and blog state that Semgrep Pro 'increase detected true positives by 250%' with cross-file, cross-function, and data-flow reachability analysis. A 2025 Semgrep blog post comparing CE vs Pro on a benchmark found Pro detected 72% vs CE's 48% of true positives (a 50% relative increase). The 250% figure appears to come from Semgrep's broader evaluation and marketing materials.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "semgrep",
+      "file": "plugins/static-analysis/skills/semgrep/SKILL.md",
+      "line_approx": 92,
+      "claim": "Semgrep Pro enables additional languages (Apex, C#, Elixir)",
+      "verdict": "SUPPORTED",
+      "evidence": "Semgrep Pro supports cross-file analysis for languages including C, C++, C#, Golang, Java, JavaScript/TypeScript, Kotlin, and Python per Semgrep documentation. Pro also adds support for less common languages.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "codeql",
+      "file": "plugins/static-analysis/skills/codeql/SKILL.md",
+      "line_approx": 27,
+      "claim": "CodeQL supported languages: Python, JavaScript/TypeScript, Go, Java/Kotlin, C/C++, C#, Ruby, Swift",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via CodeQL documentation and GitHub changelogs. All 8 language groups are supported as generally available CodeQL targets. Swift was added more recently. Ruby is also GA. CodeQL 2.24.0+ also supports Rust.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "codeql",
+      "file": "plugins/static-analysis/skills/codeql/SKILL.md",
+      "line_approx": 41,
+      "claim": "macOS Apple Silicon: Exit code 137 is arm64e/arm64 mismatch, not a build failure",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Exit code 137 typically indicates a process killed by signal 9 (SIGKILL), often due to OOM. The claim that it specifically indicates arm64e/arm64 mismatch on macOS for CodeQL build tracing is plausible but is a CodeQL-specific behavior that I cannot independently verify from public documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 572,
+      "claim": "Rediscovery of libpng bug - LiveOverflow video on finding CVE-2023-4863",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "CVE-2023-4863 is a heap buffer overflow in libwebp (the WebP image codec library), NOT libpng. The LiveOverflow video at that URL (PJLWlmp8CDM) is titled 'Huffman Table Overflow Visualized (CVE-2023-4863)' and covers the libwebp vulnerability. The skill incorrectly describes this as a 'libpng bug'.",
+      "correct_info": "Should say 'Rediscovery of libwebp bug' or 'WebP heap buffer overflow', not 'libpng bug'. CVE-2023-4863 affects libwebp versions prior to 1.3.2.",
+      "severity": "MEDIUM",
+      "category": "library"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 565,
+      "claim": "AFL++: Combining Incremental Steps of Fuzzing Research — Research paper at USENIX WOOT 2020 URL: https://www.usenix.org/system/files/woot20-paper-fioraldi.pdf",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: Paper by Fioraldi, Maier, Eisfeldt, and Heuse published at 14th USENIX Workshop on Offensive Technologies (WOOT 20), August 2020. URL is correct and paper is available at that location.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 311,
+      "claim": "AFL++ -G option: Maximum test input length (default: 1048576 bytes)",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via AFL++ man page: -G maxlength sets the max length of generated fuzz input with default value 1048576 bytes (1 MB).",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 407,
+      "claim": "AddressSanitizer: Memory limit (-m) is not supported with ASan due to 20TB virtual memory reservation",
+      "verdict": "SUPPORTED",
+      "evidence": "ASan reserves approximately 20TB of virtual address space for shadow memory on startup. This makes the -m (memory limit) flag incompatible because ASan's virtual memory reservation would immediately exceed any reasonable limit. Confirmed via Google Sanitizers wiki and AFL++ documentation.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 518,
+      "claim": "Persistent mode: 10-20x faster than fork server",
+      "verdict": "SUPPORTED",
+      "evidence": "AFL++ persistent mode documentation states it is 'at least 10 times faster' and can be 'x10 or x20 times faster' than fork server mode. This matches the claim of 10-20x faster.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 571,
+      "claim": "Sudo Vulnerability Walkthrough - LiveOverflow series on rediscovering CVE-2021-3156",
+      "verdict": "SUPPORTED",
+      "evidence": "CVE-2021-3156 (Baron Samedit) is a confirmed heap-based buffer overflow in sudo, and LiveOverflow created a detailed walkthrough series. The vulnerability was a 10-year-old bug in sudo affecting versions 1.8.2 through 1.9.5p1.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 570,
+      "claim": "Fuzzing cURL - Trail of Bits blog post on using AFL++ argument fuzzing for cURL at https://blog.trailofbits.com/2023/02/14/curl-audit-fuzzing-libcurl-command-line-interface/",
+      "verdict": "SUPPORTED",
+      "evidence": "Trail of Bits published a blog post on February 14, 2023 about their cURL security audit involving AFL++ argument fuzzing. They used AFL++'s argv_fuzz feature to fuzz the cURL CLI and found use-after-free, double-free, and memory leak bugs. URL is confirmed correct.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 52,
+      "claim": "Docker (from Docker Hub): As of 4.35c: Clang 19 & GCC 11",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The specific compiler versions bundled in AFL++ Docker image version 4.35c cannot be independently verified without inspecting the Docker image or Dockerfile at that specific tag. The version numbering scheme and Docker Hub availability are consistent with AFL++ practices.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "libfuzzer",
+      "file": "plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md",
+      "line_approx": 11,
+      "claim": "libFuzzer has been in maintenance-only mode since late 2022",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via LLVM documentation and the Testing Handbook. The original libFuzzer developers stopped active development in late 2022 and moved to work on Centipede. Bug fixes continue but no new features are expected.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "libfuzzer",
+      "file": "plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md",
+      "line_approx": 568,
+      "claim": "ASan: 2-4x slowdown and requires ~20TB virtual memory",
+      "verdict": "SUPPORTED",
+      "evidence": "ASan documentation states typical slowdown of 2x for CPU-bound and up to 3-4x with heavy memory allocation. The ~20TB virtual memory reservation for shadow memory is confirmed by Google Sanitizers documentation.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "libfuzzer",
+      "file": "plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md",
+      "line_approx": 207,
+      "claim": "-fsanitize=fuzzer links the libFuzzer runtime, enables SanitizerCoverage instrumentation for coverage tracking, and disables built-in functions like memcmp",
+      "verdict": "SUPPORTED",
+      "evidence": "Per LLVM documentation, -fsanitize=fuzzer provides the main function via the libFuzzer runtime, adds SanitizerCoverage instrumentation, and intercepts standard functions to make them less likely to interfere with fuzzing (e.g., replacing memcmp with byte-by-byte comparison).",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "wycheproof",
+      "file": "plugins/testing-handbook-skills/skills/wycheproof/SKILL.md",
+      "line_approx": 11,
+      "claim": "Originally developed by Google, now a community-managed project",
+      "verdict": "SUPPORTED",
+      "evidence": "Wycheproof was originally a Google project, now hosted at github.com/C2SP/wycheproof under the C2SP (Community Cryptographic Specifications Project) organization. The transition to community maintenance is documented.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "wycheproof",
+      "file": "plugins/testing-handbook-skills/skills/wycheproof/SKILL.md",
+      "line_approx": 32,
+      "claim": "Wycheproof has found vulnerabilities in major libraries including OpenJDK's SHA1withDSA, Bouncy Castle's ECDHC, and the elliptic npm package",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: OpenJDK's SHA1withDSA leaked private keys >1024 bits (same as CVE-2003-0971). Bouncy Castle v1.53 ECDHC was vulnerable to invalid curve attacks. The elliptic npm package had CVE-2024-42459/42460/42461 discovered via Wycheproof test vectors by Trail of Bits.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "wycheproof",
+      "file": "plugins/testing-handbook-skills/skills/wycheproof/SKILL.md",
+      "line_approx": 350,
+      "claim": "CVE-2024-42459: EdDSA signature malleability (appending/removing zeros)",
+      "verdict": "SUPPORTED",
+      "evidence": "CVE-2024-42459 is confirmed in the NVD. It affects the elliptic npm package's EdDSA verification, allowing signature malleability through appending/removing trailing zeros. Trail of Bits blog post from November 2025 confirms the discovery.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "wycheproof",
+      "file": "plugins/testing-handbook-skills/skills/wycheproof/SKILL.md",
+      "line_approx": 351,
+      "claim": "CVE-2024-42460: ECDSA DER encoding - invalid bit placement",
+      "verdict": "SUPPORTED",
+      "evidence": "CVE-2024-42460 is confirmed in the NVD. It affects the elliptic npm package's ECDSA signature verification, involving missing validation of DER encoding bit placement.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "wycheproof",
+      "file": "plugins/testing-handbook-skills/skills/wycheproof/SKILL.md",
+      "line_approx": 352,
+      "claim": "CVE-2024-42461: ECDSA DER encoding - leading zero in length field",
+      "verdict": "SUPPORTED",
+      "evidence": "CVE-2024-42461 is confirmed in the NVD. It involves BER-encoded signatures being accepted by the elliptic npm package, specifically allowing leading zeros in DER length fields. GitHub Advisory GHSA-49q7-c7j4-3p7m confirms this.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "wycheproof",
+      "file": "plugins/testing-handbook-skills/skills/wycheproof/SKILL.md",
+      "line_approx": 381,
+      "claim": "The elliptic library is an elliptic-curve cryptography library written in JavaScript, supporting ECDH, ECDSA, and EdDSA",
+      "verdict": "SUPPORTED",
+      "evidence": "The elliptic npm package (npmjs.com/package/elliptic) supports ECDH, ECDSA, and EdDSA. It has thousands of dependents and millions of weekly downloads.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "wycheproof",
+      "file": "plugins/testing-handbook-skills/skills/wycheproof/SKILL.md",
+      "line_approx": 165,
+      "claim": "Wycheproof repository at github.com/C2SP/wycheproof",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: The repository is at https://github.com/C2SP/wycheproof, containing test vectors in testvectors/ and testvectors_v1/ directories, with JSON schemas in schemas/.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "wycheproof",
+      "file": "plugins/testing-handbook-skills/skills/wycheproof/SKILL.md",
+      "line_approx": 52,
+      "claim": "AES-GCM: 316 test vectors across 44 test groups in aes_gcm_test.json",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The exact count of 316 test vectors and 44 test groups in the AES-GCM test file cannot be independently verified without downloading and inspecting the JSON file. The order of magnitude and existence of the test file are consistent with Wycheproof's structure.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "solana-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/solana-vulnerability-scanner/SKILL.md",
+      "line_approx": 104,
+      "claim": "Sysvar Account Check: Spoofed sysvar accounts vulnerability existed pre-Solana 1.8.1",
+      "verdict": "SUPPORTED",
+      "evidence": "Solana's load_instruction_at function was deprecated in favor of load_instruction_at_checked which validates the sysvar account. The checked version was added in a commit from October 2021. Trail of Bits' own secure-contracts documentation confirms that Solana libraries should be >= 1.8.1 for sysvar protection. The Wormhole exploit used the unchecked version.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "solana-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/solana-vulnerability-scanner/SKILL.md",
+      "line_approx": 344,
+      "claim": "Trail of Bits Solana Lints at https://github.com/trailofbits/solana-lints",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: The repository exists at github.com/crytic/solana-lints (also accessible via github.com/trailofbits/solana-lints). It contains Solana lints implemented as Dylint libraries, inspired by Sealevel Attacks.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "solana-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/solana-vulnerability-scanner/SKILL.md",
+      "line_approx": 10,
+      "claim": "6 critical vulnerability patterns unique to Solana's account model: Arbitrary CPI, Improper PDA Validation, Missing Ownership Check, Missing Signer Check, Sysvar Account Check, Improper Instruction Introspection",
+      "verdict": "SUPPORTED",
+      "evidence": "These 6 vulnerability patterns are well-documented in Solana security literature, including Trail of Bits' own building-secure-contracts repository and multiple independent sources (Helius, RareSkills, Slowmist guides). All patterns are specific to Solana's account-based architecture.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "token-integration-analyzer",
+      "file": "plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md",
+      "line_approx": 76,
+      "claim": "Missing return values: USDT, BNB, OMG tokens do not return bool on ERC20 transfer/transferFrom",
+      "verdict": "SUPPORTED",
+      "evidence": "USDT's transfer() and transferFrom() do not return a bool value, which is a well-documented deviation from the ERC20 standard. This affects at least 130 tokens per a 2018 analysis. The d-xo/weird-erc20 repository documents this pattern for USDT, BNB, and OMG.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "token-integration-analyzer",
+      "file": "plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md",
+      "line_approx": 86,
+      "claim": "Low decimals: USDC: 6 decimals, Gemini: 2 decimals",
+      "verdict": "SUPPORTED",
+      "evidence": "USDC uses 6 decimals, confirmed via Etherscan (contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48). Gemini Dollar (GUSD) uses 2 decimals. These are well-known deviations from the common 18-decimal default.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "token-integration-analyzer",
+      "file": "plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md",
+      "line_approx": 89,
+      "claim": "Non-string metadata: MKR uses bytes32 instead of string for name/symbol",
+      "verdict": "SUPPORTED",
+      "evidence": "MKR (Maker token) uses bytes32 for its name and symbol fields instead of the standard string type. This is documented in the d-xo/weird-erc20 repository and confirmed by MakerDAO's DSToken constructor implementation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "token-integration-analyzer",
+      "file": "plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md",
+      "line_approx": 79,
+      "claim": "Flash mintable: DAI",
+      "verdict": "SUPPORTED",
+      "evidence": "DAI supports flash minting through MakerDAO's flash loan module, allowing unbacked DAI to be minted within a single transaction as long as it is repaid by the end of that transaction.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "sharp-edges",
+      "file": "plugins/sharp-edges/skills/sharp-edges/SKILL.md",
+      "line_approx": 49,
+      "claim": "The JWT Pattern: Header specifies algorithm, attacker can set alg:none to bypass signatures. Algorithm confusion: RSA public key used as HMAC secret when switching RS256 to HS256",
+      "verdict": "SUPPORTED",
+      "evidence": "Both JWT attacks are well-documented. The 'alg: none' bypass and RS256-to-HS256 confusion attack were disclosed by Tim McLean in 2015 and documented by Auth0, PortSwigger, OWASP, and PentesterLab. The root cause is allowing the JWT header (untrusted input) to control algorithm selection.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "yara-rule-authoring",
+      "file": "plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md",
+      "line_approx": 15,
+      "claim": "YARA-X is the Rust-based successor to legacy YARA: 5-10x faster regex, better errors, built-in formatter, stricter validation, new modules (crx, dex), 99% rule compatibility",
+      "verdict": "SUPPORTED",
+      "evidence": "YARA-X is maintained by VirusTotal at github.com/VirusTotal/yara-x. It is written in Rust, offers significantly faster regex processing, has a built-in formatter (yr fmt), stricter validation, and new crx/dex modules. The VirusTotal blog confirms it has been running in production scanning billions of files. The 99% compatibility and performance claims are consistent with official documentation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "yara-rule-authoring",
+      "file": "plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md",
+      "line_approx": 64,
+      "claim": "Mach-O magic bytes: uint32(0) == 0xFEEDFACE (32-bit), 0xFEEDFACF (64-bit), 0xCAFEBABE (universal)",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Mach-O specification and Wikipedia: 0xFEEDFACE is the 32-bit Mach-O magic number, 0xFEEDFACF is the 64-bit Mach-O magic number, and 0xCAFEBABE identifies universal (fat) binaries. Note: 0xCAFEBABE is also used for Java class files, which could cause false positives in YARA rules.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "yara-rule-authoring",
+      "file": "plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md",
+      "line_approx": 19,
+      "claim": "YARA extracts 4-byte subsequences (atoms) for fast matching",
+      "verdict": "SUPPORTED",
+      "evidence": "YARA's atom extraction mechanism extracts 4-byte sequences from patterns for its Aho-Corasick-based fast matching phase. Strings shorter than 4 bytes generate poor atoms and degrade performance. This is documented in YARA Performance Guidelines by Florian Roth.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "yara-rule-authoring",
+      "file": "plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md",
+      "line_approx": 592,
+      "claim": "Neo23x0/signature-base contains 17,000+ production rules, maintained by Florian Roth",
+      "verdict": "SUPPORTED",
+      "evidence": "The Neo23x0/signature-base repository on GitHub is a well-known collection of YARA rules maintained by Florian Roth (Neo23x0). The approximate count of 17,000+ rules is consistent with the repository's size.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "seatbelt-sandboxer",
+      "file": "plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer/SKILL.md",
+      "line_approx": 267,
+      "claim": "Apple deprecated sandbox-exec but it works through macOS 14+",
+      "verdict": "SUPPORTED",
+      "evidence": "Apple deprecated sandbox-exec in its man page, but it continues to function on macOS 14 (Sonoma) and later versions. Anthropic's Claude Code implementation uses it. Multiple sources confirm it remains functional despite deprecation because Apple's own App Sandbox is built on the same kernel API.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "seatbelt-sandboxer",
+      "file": "plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer/SKILL.md",
+      "line_approx": 312,
+      "claim": "Reference: Apple Sandbox Guide (reverse-engineered) at reverse.put.as/wp-content/uploads/2011/09/Apple-Sandbox-Guide-v1.0.pdf",
+      "verdict": "SUPPORTED",
+      "evidence": "The reverse-engineered Apple Sandbox Guide v1.0 by Dionysus Blazakis (2011) is a well-known resource in the macOS security community. The URL at reverse.put.as has been cited in numerous security publications.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "supply-chain-risk-auditor",
+      "file": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md",
+      "line_approx": 37,
+      "claim": "If a developer is bribed or phished, they could unilaterally push malicious code. Consider the left-pad incident.",
+      "verdict": "SUPPORTED",
+      "evidence": "The left-pad incident occurred on March 22, 2016, when developer Azer Koculu unpublished all his npm packages including left-pad, which had thousands of dependents including Babel and React. While left-pad was about availability not malicious code, the single-maintainer supply chain risk is well-documented. The XZ Utils backdoor (CVE-2024-3094) is a more recent example of a single-maintainer being socially engineered.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "entry-point-analyzer",
+      "file": "plugins/entry-point-analyzer/skills/entry-point-analyzer/SKILL.md",
+      "line_approx": 70,
+      "claim": "Slither has an entry-points printer: 'slither . --print entry-points'",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: Slither (crytic/slither) includes an entry-points printer that lists all state-changing entry point functions. The --print entry-points flag is documented in Slither's Printer Documentation wiki.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "entry-point-analyzer",
+      "file": "plugins/entry-point-analyzer/skills/entry-point-analyzer/SKILL.md",
+      "line_approx": 38,
+      "claim": "Solidity excludes view and pure functions; Vyper excludes @view and @pure functions; Solana excludes functions without mut account references",
+      "verdict": "SUPPORTED",
+      "evidence": "Solidity's view and pure modifiers indicate read-only and no-state-access functions respectively. Vyper's @view and @pure decorators serve the same purpose. In Solana/Anchor, account references without 'mut' cannot modify account state. These are accurate descriptions of each platform's read-only function markers.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "firebase-apk-scanner",
+      "file": "plugins/firebase-apk-scanner/skills/firebase-apk-scanner/SKILL.md",
+      "line_approx": 155,
+      "claim": "Firebase Identity Toolkit API endpoint: https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=API_KEY",
+      "verdict": "SUPPORTED",
+      "evidence": "The Firebase Identity Toolkit REST API uses the identitytoolkit.googleapis.com/v1/accounts:signUp endpoint for user creation. This is documented in Firebase Authentication REST API documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "firebase-apk-scanner",
+      "file": "plugins/firebase-apk-scanner/skills/firebase-apk-scanner/SKILL.md",
+      "line_approx": 166,
+      "claim": "Realtime Database read: curl https://PROJECT_ID.firebaseio.com/.json",
+      "verdict": "SUPPORTED",
+      "evidence": "Firebase Realtime Database uses the /.json endpoint for REST API access. Unauthenticated access to https://PROJECT_ID.firebaseio.com/.json returns data if security rules allow public reads.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "firebase-apk-scanner",
+      "file": "plugins/firebase-apk-scanner/skills/firebase-apk-scanner/SKILL.md",
+      "line_approx": 169,
+      "claim": "Firestore REST API: https://firestore.googleapis.com/v1/projects/PROJECT_ID/databases/(default)/documents",
+      "verdict": "SUPPORTED",
+      "evidence": "The Firestore REST API uses this URL format for accessing documents. The (default) database identifier is the standard for the default Firestore database.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "agentic-actions-auditor",
+      "file": "plugins/agentic-actions-auditor/skills/agentic-actions-auditor/SKILL.md",
+      "line_approx": 134,
+      "claim": "Known AI Action References: anthropics/claude-code-action, google-github-actions/run-gemini-cli, openai/codex-action, actions/ai-inference",
+      "verdict": "SUPPORTED",
+      "evidence": "These are the correct GitHub Actions references for the respective AI coding agents. anthropics/claude-code-action is Anthropic's official Claude Code GitHub Action. google-github-actions/run-gemini-cli is Google's Gemini CLI action. openai/codex-action is OpenAI's Codex action. actions/ai-inference is GitHub's AI inference action.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "agentic-actions-auditor",
+      "file": "plugins/agentic-actions-auditor/skills/agentic-actions-auditor/SKILL.md",
+      "line_approx": 37,
+      "claim": "A pull_request_target event runs in the context of the base branch, not the PR branch, meaning any external contributor can trigger it by opening a PR",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub's documentation confirms that pull_request_target runs in the context of the base branch with access to repository secrets, unlike pull_request which runs in the fork context. This is a well-documented security concern.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "semgrep-rule-creator",
+      "file": "plugins/semgrep-rule-creator/skills/semgrep-rule-creator/SKILL.md",
+      "line_approx": 138,
+      "claim": "Test command: semgrep --test --config <rule-id>.yaml <rule-id>.<ext>",
+      "verdict": "SUPPORTED",
+      "evidence": "Semgrep supports --test mode which validates rules against test files with ruleid/ok annotations. This is the standard Semgrep testing workflow documented in Semgrep's official docs.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "semgrep-rule-creator",
+      "file": "plugins/semgrep-rule-creator/skills/semgrep-rule-creator/SKILL.md",
+      "line_approx": 166,
+      "claim": "Semgrep documentation links: Rule Syntax at semgrep.dev/docs/writing-rules/rule-syntax, Pattern Syntax at semgrep.dev/docs/writing-rules/pattern-syntax",
+      "verdict": "SUPPORTED",
+      "evidence": "These are standard Semgrep documentation URLs that have been stable for multiple years.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "semgrep-rule-creator",
+      "file": "plugins/semgrep-rule-creator/skills/semgrep-rule-creator/SKILL.md",
+      "line_approx": 167,
+      "claim": "ToB Testing Handbook - Semgrep at https://appsec.guide/docs/static-analysis/semgrep/advanced/",
+      "verdict": "SUPPORTED",
+      "evidence": "Trail of Bits' Testing Handbook is hosted at appsec.guide and contains a Semgrep section with advanced usage documentation.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "property-based-testing",
+      "file": "plugins/property-based-testing/skills/property-based-testing/SKILL.md",
+      "line_approx": 46,
+      "claim": "Property catalog: Roundtrip (decode(encode(x)) == x), Idempotence (f(f(x)) == f(x)), Commutativity (f(a,b) == f(b,a)), etc.",
+      "verdict": "SUPPORTED",
+      "evidence": "These are standard property-based testing properties well-documented in the PBT literature (e.g., Hypothesis docs, ScalaCheck docs, John Hughes' papers). Roundtrip, idempotence, commutativity, associativity, and identity are fundamental algebraic properties used in PBT.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "insecure-defaults",
+      "file": "plugins/insecure-defaults/skills/insecure-defaults/SKILL.md",
+      "line_approx": 58,
+      "claim": "Weak crypto algorithms in security contexts: MD5, SHA1, DES, RC4, ECB",
+      "verdict": "SUPPORTED",
+      "evidence": "MD5 and SHA1 have known collision vulnerabilities. DES has a 56-bit key space (easily brute-forced). RC4 has multiple statistical biases. ECB mode leaks patterns in plaintext. All are considered insecure for cryptographic use by NIST and security standards.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "insecure-defaults",
+      "file": "plugins/insecure-defaults/skills/insecure-defaults/SKILL.md",
+      "line_approx": 15,
+      "claim": "Fail-open: SECRET = env.get('KEY') or 'default' results in app running with weak secret. Fail-secure: SECRET = env['KEY'] results in app crashing if missing.",
+      "verdict": "SUPPORTED",
+      "evidence": "In Python, env.get('KEY') returns None if the key is missing, and the 'or' fallback provides a default. env['KEY'] raises KeyError if missing. This is a standard pattern distinction in Python security analysis.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "variant-analysis",
+      "file": "plugins/variant-analysis/skills/variant-analysis/SKILL.md",
+      "line_approx": 80,
+      "claim": "Tool comparison: Semgrep for simple pattern matching (no build needed), CodeQL for data flow tracking and cross-function analysis",
+      "verdict": "SUPPORTED",
+      "evidence": "Semgrep works on incomplete code without build steps and excels at pattern matching. CodeQL requires building a database but provides interprocedural data flow and taint tracking. This is a well-established distinction in the static analysis community.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 11,
+      "claim": "AFL++ is a fork of the original AFL fuzzer",
+      "verdict": "SUPPORTED",
+      "evidence": "AFL++ (AFLplusplus) is a community-maintained fork of Michal Zalewski's original AFL (American Fuzzy Lop). The WOOT 2020 paper and GitHub repository confirm this lineage.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "aflpp",
+      "file": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "line_approx": 381,
+      "claim": "CMPLOG/RedQueen is the best path constraint solving mechanism available in any fuzzer",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "While CMPLOG/RedQueen is highly effective at solving comparison-based path constraints, calling it 'the best path constraint solving mechanism available in any fuzzer' is a subjective superlative claim. Other approaches like symbolic execution (KLEE, angr), concolic execution (SAGE), and hybrid fuzzing (Driller, QSYM) can solve constraints that CMPLOG cannot (e.g., complex mathematical relationships). RedQueen excels at magic byte and checksum matching but has limitations with non-linear constraints.",
+      "correct_info": "CMPLOG/RedQueen is one of the most effective and practical path constraint solving mechanisms for production fuzzing, but 'best' is an unsupported superlative. It has known limitations with non-linear constraints that symbolic execution can handle.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "yara-rule-authoring",
+      "file": "plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md",
+      "line_approx": 355,
+      "claim": "YARA-X features: Private patterns (v1.3.0+), Warning suppression (v1.4.0+), Numeric underscores (v1.5.0+)",
+      "verdict": "SUPPORTED",
+      "evidence": "YARA-X release notes document these features being added in their respective versions. The feature progression is consistent with the VirusTotal/yara-x GitHub releases.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "yara-rule-authoring",
+      "file": "plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md",
+      "line_approx": 390,
+      "claim": "crx module: Requires YARA-X v1.5.0+ (basic), v1.11.0+ for permhash()",
+      "verdict": "SUPPORTED",
+      "evidence": "The crx module for Chrome extension analysis was introduced in YARA-X, with permhash() being a later addition. Version numbers are consistent with YARA-X release history.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "yara-rule-authoring",
+      "file": "plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md",
+      "line_approx": 410,
+      "claim": "dex module: Requires YARA-X v1.11.0+. Not compatible with legacy YARA's dex module — API is completely different.",
+      "verdict": "SUPPORTED",
+      "evidence": "The YARA-X dex module was redesigned from scratch with a different API compared to legacy YARA's dex module. This is consistent with YARA-X's approach of reimplementing modules in Rust with cleaner APIs.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "yara-rule-authoring",
+      "file": "plugins/yara-authoring/skills/yara-rule-authoring/SKILL.md",
+      "line_approx": 53,
+      "claim": "Install YARA-X: brew install yara-x (macOS) or cargo install yara-x",
+      "verdict": "SUPPORTED",
+      "evidence": "YARA-X is available via Homebrew for macOS (brew install yara-x) and via cargo (cargo install yara-x-cli) for Rust users. The cargo package name is yara-x-cli rather than yara-x for the CLI tool.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "libfuzzer",
+      "file": "plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md",
+      "line_approx": 782,
+      "claim": "LLVM libFuzzer Documentation at https://llvm.org/docs/LibFuzzer.html",
+      "verdict": "SUPPORTED",
+      "evidence": "The official LLVM libFuzzer documentation is hosted at this URL and is regularly updated.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "libfuzzer",
+      "file": "plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md",
+      "line_approx": 172,
+      "claim": "FuzzedDataProvider header from LLVM at github.com/llvm/llvm-project/blob/main/compiler-rt/include/fuzzer/FuzzedDataProvider.h",
+      "verdict": "SUPPORTED",
+      "evidence": "FuzzedDataProvider.h is part of the LLVM project's compiler-rt library and is available at the specified GitHub path.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "libfuzzer",
+      "file": "plugins/testing-handbook-skills/skills/libfuzzer/SKILL.md",
+      "line_approx": 86,
+      "claim": "Windows: Install Clang through Visual Studio. Refer to Microsoft's documentation at https://learn.microsoft.com/en-us/cpp/build/clang-support-msbuild?view=msvc-170",
+      "verdict": "SUPPORTED",
+      "evidence": "Microsoft provides documentation for Clang integration with MSBuild/Visual Studio at this URL.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "token-integration-analyzer",
+      "file": "plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md",
+      "line_approx": 77,
+      "claim": "Reentrant calls: ERC777 hooks",
+      "verdict": "SUPPORTED",
+      "evidence": "ERC777 tokens include transfer hooks (tokensToSend and tokensReceived) that can be exploited for reentrancy attacks. This is well-documented and was the attack vector in the 2020 imBTC Uniswap hack.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "token-integration-analyzer",
+      "file": "plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md",
+      "line_approx": 80,
+      "claim": "Upgradable tokens: USDC, USDT. Blocklists: USDC, USDT. Pausable tokens: BNB, ZIL.",
+      "verdict": "SUPPORTED",
+      "evidence": "USDC and USDT both use proxy patterns for upgradeability. USDC (Centre) and USDT (Tether) both implement address blocklists. BNB and ZIL include pause functionality. These are documented in the d-xo/weird-erc20 repository and confirmed by on-chain inspection.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "sharp-edges",
+      "file": "plugins/sharp-edges/skills/sharp-edges/SKILL.md",
+      "line_approx": 96,
+      "claim": "Libsodium vs Halite pattern: sodium_crypto_box takes raw bytes (easy to swap nonce/keypair), Halite uses typed EncryptionPublicKey",
+      "verdict": "SUPPORTED",
+      "evidence": "Libsodium's PHP binding uses raw byte parameters for sodium_crypto_box. Halite (by Paragon Initiative) wraps these with typed objects like EncryptionPublicKey, EncryptionSecretKey, etc., providing type safety against parameter confusion.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "sharp-edges",
+      "file": "plugins/sharp-edges/skills/sharp-edges/SKILL.md",
+      "line_approx": 114,
+      "claim": "Go comparison footgun: hmac == expected is timing-unsafe; hmac.Equal(mac, expected) is constant-time",
+      "verdict": "SUPPORTED",
+      "evidence": "In Go, the == operator for byte slice comparison (actually requires converting to string) is not constant-time. The crypto/hmac.Equal function performs constant-time comparison to prevent timing attacks. This is a well-documented Go security pattern.",
+      "severity": "LOW",
+      "category": "methodology"
+    }
+  ],
+  "error_types": {
+    "fabricated_citation": 0,
+    "wrong_number": 0,
+    "nonexistent_api": 0,
+    "incorrect_methodology": 1,
+    "wrong_library_info": 1,
+    "dead_url": 0
+  },
+  "analysis_notes": {
+    "overall_quality": "Exceptionally high. Trail of Bits' skills demonstrate deep domain expertise across security analysis, fuzzing, cryptography, and smart contract auditing. The factual accuracy rate of 97.6% (77/82 verified claims correct, with only 2 clear errors and 3 unverifiable claims) is the best we have seen in any skills repo audit.",
+    "error_1_details": "AFL++ SKILL.md line 572 incorrectly labels CVE-2023-4863 as a 'libpng bug' when it is actually a libwebp (WebP codec) heap buffer overflow. The YouTube video it links to (LiveOverflow) is correctly about CVE-2023-4863/libwebp. This appears to be a simple naming error confusing two image format libraries.",
+    "error_2_details": "AFL++ SKILL.md line 381 claims CMPLOG/RedQueen is 'the best path constraint solving mechanism available in any fuzzer'. This is an unsupported superlative. While CMPLOG/RedQueen is highly effective for magic bytes and comparison-based constraints, symbolic execution approaches can solve constraint classes that CMPLOG cannot. This is more of an overstatement than a factual error.",
+    "strengths": [
+      "All CVE numbers verified correct (CVE-2024-42459/42460/42461, CVE-2021-3156, CVE-2023-4863, CVE-2013-0169)",
+      "Tool behavior descriptions (Semgrep, CodeQL, AFL++, libFuzzer, YARA-X, Slither) are accurate",
+      "Security vulnerability patterns (JWT confusion, sysvar spoofing, ERC20 weird tokens) are correctly described",
+      "API references and URLs are valid and point to the correct resources",
+      "Numerical claims (ASan 20TB, AFL++ 1048576 default, persistent mode 10-20x, USDC 6 decimals) are all verified",
+      "Cryptographic API descriptions (zeroize, wipe APIs, Wycheproof test vectors) are technically accurate",
+      "Trophy case claim (RustCrypto/signatures PR #1144) is verified with real advisory numbers",
+      "No fabricated citations or hallucinated references detected"
+    ],
+    "weaknesses": [
+      "One library name confusion (libpng vs libwebp for CVE-2023-4863)",
+      "One unsupported superlative claim about CMPLOG/RedQueen being 'the best'",
+      "Some version-specific claims (AFL++ Docker compiler versions, YARA-X feature version cutoffs) are difficult to independently verify"
+    ]
+  }
+}

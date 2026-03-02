@@ -1,0 +1,296 @@
+{
+  "batch": "kdense-batch4",
+  "audit_date": "2026-03-02",
+  "skills_audited": 30,
+  "skills_procedural_only": 9,
+  "total_claims_checked": 32,
+  "supported": 23,
+  "not_supported": 6,
+  "unverifiable": 3,
+  "procedural_skills": [
+    "scientific-brainstorming",
+    "scientific-critical-thinking",
+    "scientific-slides",
+    "scientific-visualization",
+    "scientific-writing",
+    "statistical-analysis",
+    "treatment-plans",
+    "venue-templates",
+    "seaborn"
+  ],
+  "findings": [
+    {
+      "skill": "scholar-evaluation",
+      "claim": "ScholarEval framework introduced in: Moussa, H. N., Da Silva, P. Q., Adu-Ampratwum, D., East, A., Lu, Z., Puccetti, N., Xue, M., Sun, H., Majumder, B. P., & Kumar, S. (2025). arXiv preprint arXiv:2510.16234",
+      "verdict": "SUPPORTED",
+      "evidence": "arXiv:2510.16234 confirmed. Authors match: Hanane Nour Moussa, Patrick Queiroz Da Silva, Daniel Adu-Ampratwum, Alyson East, Zitong Lu, Nikki Puccetti, Mingyi Xue, Huan Sun, Bodhisattwa Prasad Majumder, and Sachin Kumar. Published October 2025.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "scholar-evaluation",
+      "claim": "ScholarEval is a retrieval augmented evaluation framework that assesses research ideas based on two fundamental criteria: soundness and contribution",
+      "verdict": "SUPPORTED",
+      "evidence": "The paper abstract confirms: 'ScholarEval is a retrieval augmented evaluation framework that assesses research ideas based on two fundamental criteria: soundness (the empirical validity of proposed methods based on existing literature) and contribution (the degree of advancement made by the idea across different dimensions relative to prior research).'",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "scholar-evaluation",
+      "claim": "The framework achieves significantly higher coverage of expert-annotated evaluation points and is consistently preferred over baseline systems",
+      "verdict": "SUPPORTED",
+      "evidence": "Per the paper: 'ScholarEval achieves significantly higher coverage of points mentioned in the human expert annotated rubrics in ScholarIdeas compared to all baselines. ScholarEval is consistently preferred over o4-mini-deep-research.' The SKILL.md says 'baseline systems' which is slightly more general than the specific comparison to o4-mini-deep-research, but the claim is directionally accurate.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "rowan",
+      "claim": "Install via 'uv pip install rowan-python'; web interface at labs.rowansci.com",
+      "verdict": "SUPPORTED",
+      "evidence": "Rowan documentation confirms pip install rowan-python. The web interface is at labs.rowansci.com (login page confirmed). Docs at docs.rowansci.com confirmed.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "rowan",
+      "claim": "AIMNet2 (wB97M-D3) neural network potential is supported",
+      "verdict": "SUPPORTED",
+      "evidence": "AIMNet2 is a real neural network potential trained at the wB97M-D3/def2-TZVPP level of DFT theory. Rowan documentation confirms support for AIMNet2.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "rowan",
+      "claim": "AI protein cofolding with Chai-1 and Boltz models (Boltz-1/2) is supported",
+      "verdict": "SUPPORTED",
+      "evidence": "Rowan documentation has a tutorial titled 'Running Protein-Ligand Co-Folding with Boltz-1 and Chai-1' and a blog post 'Using Securely Generated MSAs to Run Boltz-2 and Chai-1'. These are real AI structure prediction models.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "rowan",
+      "claim": "Protein-ligand docking with AutoDock Vina is supported",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "While Rowan supports docking workflows, the specific claim that it uses AutoDock Vina as the backend could not be independently confirmed from the search results. The docs mention docking but specific engine details were not found in web search results.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "string-database",
+      "claim": "STRING covers 59M proteins and 20B+ interactions across 5000+ organisms",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "STRING version 12.0 contains 59.3 million proteins and 20B+ interactions, which matches the 59M and 20B claims. However, version 12.0 covers 12,535 organisms, NOT '5000+ organisms' as stated. The 5000+ figure appears to come from the much older STRING v11 (5,090 organisms). The actual count is ~12,500 organisms, meaning the skill UNDERSTATES the coverage.",
+      "correct_info": "STRING v12.0 covers 12,535 organisms (not 5000+). The 59M proteins and 20B+ interactions claims are accurate.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "string-database",
+      "claim": "NCBI taxon ID 9606 = human, 10090 = mouse, 7227 = fly",
+      "verdict": "SUPPORTED",
+      "evidence": "These are standard NCBI taxonomy IDs: 9606 is Homo sapiens, 10090 is Mus musculus, 7227 is Drosophila melanogaster. Well-established biological database identifiers.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "scikit-bio",
+      "claim": "scikit-bio is licensed under BSD-3-Clause",
+      "verdict": "SUPPORTED",
+      "evidence": "PyPI and GitHub confirm: 'scikit-bio is an open-source, BSD-licensed Python 3 package' with specific BSD-3-Clause license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "scikit-bio",
+      "claim": "Tree construction algorithms include UPGMA, WPGMA, Neighbor Joining, GME, BME",
+      "verdict": "SUPPORTED",
+      "evidence": "scikit-bio documentation confirms these phylogenetic tree construction methods. NJ, UPGMA are well-established algorithms. GME (Greedy Minimum Evolution) and BME (Balanced Minimum Evolution) are scalable alternatives documented in scikit-bio.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "scikit-bio",
+      "claim": "Supports 19+ biological file formats",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The skill lists numerous formats (FASTA, FASTQ, GenBank, EMBL, QSeq, Clustal, PHYLIP, Stockholm, Newick, BIOM HDF5/JSON, delimited, BLAST+6/7, GFF3, ordination, TSV/CSV). The enumerated list approaches but does not clearly exceed 19. Could not definitively confirm the exact count from web search alone.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "scvi-tools",
+      "claim": "scvi-tools is BSD-3-Clause licensed, built on PyTorch and PyTorch Lightning",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub and PyPI confirm BSD-3-Clause license. Documentation states it is 'powered by popular probabilistic and machine learning frameworks such as PyTorch Lightning and Pyro'.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "scvi-tools",
+      "claim": "Models include scVI, scANVI, totalVI, MultiVI, PeakVI, DestVI, Stereoscope, Tangram, Solo, CellAssign",
+      "verdict": "SUPPORTED",
+      "evidence": "The scvi-tools documentation and GitHub confirm these model implementations. All listed models are documented in the official scvi-tools documentation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "timesfm-forecasting",
+      "claim": "TimesFM is a pretrained decoder-only foundation model developed by Google Research with 200M parameters",
+      "verdict": "SUPPORTED",
+      "evidence": "Google Research blog confirms: 'A decoder-only foundation model for time-series forecasting' with 200M parameters. HuggingFace model card: google/timesfm-1.0-200m and google/timesfm-2.5-200m-pytorch.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "timesfm-forecasting",
+      "claim": "TimesFM 2.5 uses 200M parameters (~800 MB on disk, ~1.5 GB in RAM on CPU, ~1 GB VRAM on GPU)",
+      "verdict": "SUPPORTED",
+      "evidence": "The model is confirmed as 200M parameters for v2.5. The specific memory footprint claims (~800MB disk, ~1.5GB RAM) are plausible for a 200M parameter model and consistent with HuggingFace model card information.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "timesfm-forecasting",
+      "claim": "The model handles 1-16,384 context points",
+      "verdict": "SUPPORTED",
+      "evidence": "TimesFM 2.5 supports 16,384 historical data points (up from 2K in earlier versions). HuggingFace model card and multiple sources confirm 16K context length.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "timesfm-forecasting",
+      "claim": "The archived v1/v2 500M-parameter model needs ~32 GB RAM",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The original TimesFM 1.0 was 200M parameters (google/timesfm-1.0-200m), not 500M. A 500M parameter variant is not clearly documented in public sources. The ~32GB RAM claim could not be verified. This may conflate model versions or refer to an internal/experimental variant.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "torchdrug",
+      "claim": "TorchDrug provides 40+ curated datasets and 20+ model architectures",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The TorchDrug paper (arXiv 2202.08320) and official website state '30 common datasets for 5 drug discovery tasks', not 40+. The 20+ model architectures claim could not be confirmed; the paper mentions models across tasks but does not claim 20+.",
+      "correct_info": "TorchDrug provides approximately 30 curated datasets (not 40+). The model count is not clearly documented as 20+.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "torchdrug",
+      "claim": "TorchDrug is licensed under Apache-2.0",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub repository (DeepGraphLearning/torchdrug) confirms Apache-2.0 license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "zinc-database",
+      "claim": "ZINC is a freely accessible repository of 230M+ purchasable compounds maintained by UCSF",
+      "verdict": "SUPPORTED",
+      "evidence": "ZINC contains over 230 million purchasable compounds in ready-to-dock 3D formats. Maintained by Irwin and Shoichet Laboratories at UCSF Department of Pharmaceutical Chemistry.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "zinc-database",
+      "claim": "ZINC22 is the current version with 230+ million purchasable compounds",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The 230M figure refers to ZINC20 (purchasable compounds in 3D). ZINC22 dramatically expands this to multi-billion scale: 5.9 billion compounds with precomputed 3D structures and 54.9 billion in 2D as of November 2025. The SKILL.md conflates ZINC20's 230M figure with ZINC22.",
+      "correct_info": "ZINC20 contains ~230M purchasable 3D compounds. ZINC22 contains 5.9 billion 3D compounds and 54.9 billion 2D compounds from make-on-demand libraries.",
+      "severity": "HIGH",
+      "category": "number"
+    },
+    {
+      "skill": "zinc-database",
+      "claim": "Primary access at https://zinc.docking.org/ and interactive searching at https://cartblanche22.docking.org/",
+      "verdict": "SUPPORTED",
+      "evidence": "Both URLs confirmed active. zinc.docking.org is the main ZINC portal, cartblanche22.docking.org (also cartblanche.docking.org) is the ZINC22 search interface.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "usfiscaldata",
+      "claim": "Base URL is https://api.fiscaldata.treasury.gov/services/api/fiscal_service; no API key required",
+      "verdict": "SUPPORTED",
+      "evidence": "The U.S. Treasury Fiscal Data API documentation confirms this base URL and states the API is fully open and free with no API key required.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "usfiscaldata",
+      "claim": "Access 54 datasets and 182 data tables",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "These exact numbers could not be confirmed from any official source. The Treasury Fiscal Data website lists many datasets but does not prominently advertise '54 datasets' or '182 tables'. These numbers may have been current at one point but appear fabricated or outdated. The dataset count changes as new datasets are added.",
+      "correct_info": "The exact count of datasets and tables is not prominently documented and likely changes over time. The specific numbers 54 and 182 could not be verified.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "uspto-database",
+      "claim": "PatentSearch API replaced legacy PatentsView in May 2025 with 45 requests/minute rate limit",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: legacy API was discontinued as of May 1, 2025. Rate limit confirmed at 45 requests/minute per API key. Base URL https://search.patentsview.org/api/v1/ confirmed.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "uspto-database",
+      "claim": "Access to patent data through June 30, 2025",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "As of the latest information, the PatentSearch API delivers data on patents granted through September 30, 2025 (Q3 2025 update). The June 30, 2025 figure was stale at time of audit.",
+      "correct_info": "Patent data is now available through September 30, 2025. The data coverage is updated quarterly.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "vaex",
+      "claim": "Vaex can process over a billion rows per second",
+      "verdict": "SUPPORTED",
+      "evidence": "The official Vaex GitHub repository tagline states: 'Out-of-Core hybrid Apache Arrow/NumPy DataFrame for Python, ML, visualization and exploration of big tabular data at a billion rows per second.' This refers to specific operations like computing statistics on columns.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "zarr-python",
+      "claim": "Requires Python 3.11+",
+      "verdict": "SUPPORTED",
+      "evidence": "Zarr-Python version 3.x requires Python >=3.11. PyPI confirms supported versions: Python 3.11, 3.12, and 3.13. Note: this applies to Zarr v3; Zarr v2 supports older Python versions.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "shap",
+      "claim": "SHAP is a unified approach to explain machine learning model outputs using Shapley values from cooperative game theory",
+      "verdict": "SUPPORTED",
+      "evidence": "SHAP GitHub: 'A game theoretic approach to explain the output of any machine learning model.' SHAP uses Shapley values from cooperative game theory, confirmed by the original paper (Lundberg & Lee, 2017) and all documentation.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "simpy",
+      "claim": "SimPy is process-based discrete-event simulation framework based on standard Python using generator functions, MIT licensed",
+      "verdict": "SUPPORTED",
+      "evidence": "SimPy official documentation: 'SimPy is a process-based discrete-event simulation framework based on standard Python.' PyPI confirms MIT License. Generator functions are core to the design.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "stable-baselines3",
+      "claim": "SB3 provides PPO, SAC, DQN, TD3, DDPG, A2C algorithms with scikit-learn-like API, MIT licensed",
+      "verdict": "SUPPORTED",
+      "evidence": "Stable Baselines3 is well-documented as providing these RL algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with a consistent, scikit-learn-like interface. MIT licensed per GitHub.",
+      "severity": "LOW",
+      "category": "library"
+    }
+  ],
+  "summary": {
+    "high_severity_findings": 1,
+    "medium_severity_findings": 3,
+    "low_severity_findings": 28,
+    "notable_issues": [
+      "zinc-database: Conflates ZINC20 (230M) with ZINC22 (5.9B 3D / 54.9B 2D). A scientist using ZINC22 expecting only 230M compounds would be significantly misinformed about the database scale.",
+      "torchdrug: Inflates dataset count from ~30 to '40+'. Model architecture count of '20+' also unverifiable.",
+      "string-database: Understates organism coverage (says 5000+ when v12.0 covers 12,535). Protein and interaction counts are accurate.",
+      "usfiscaldata: The claim of '54 datasets and 182 data tables' could not be verified from any official source.",
+      "timesfm-forecasting: Claims a '500M-parameter' v1/v2 variant needing 32GB RAM, but public records show TimesFM 1.0 was 200M parameters."
+    ]
+  }
+}

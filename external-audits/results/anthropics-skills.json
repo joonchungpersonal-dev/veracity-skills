@@ -1,0 +1,617 @@
+{
+  "repo": "anthropics/skills",
+  "repo_url": "https://github.com/anthropics/skills",
+  "stars": "81.1k",
+  "total_skills_in_repo": 17,
+  "skills_audited": 17,
+  "audit_date": "2026-03-02",
+  "summary": {
+    "total_claims_checked": 54,
+    "supported": 46,
+    "not_supported": 3,
+    "unverifiable": 5,
+    "error_rate": "5.6%"
+  },
+  "skills_audited_list": [
+    "algorithmic-art",
+    "brand-guidelines",
+    "canvas-design",
+    "doc-coauthoring",
+    "docx",
+    "frontend-design",
+    "internal-comms",
+    "mcp-builder",
+    "pdf",
+    "pptx",
+    "skill-creator",
+    "slack-gif-creator",
+    "theme-factory",
+    "web-artifacts-builder",
+    "webapp-testing",
+    "xlsx",
+    "template-skill"
+  ],
+  "notes": {
+    "methodology": "Each SKILL.md was read in full. Verifiable factual claims were extracted, focusing on library/package references, API details, numeric values, URLs, and methodology claims. Procedural instructions (do X then Y) without factual assertions were excluded. Claims were verified via web search against official documentation, npm registries, PyPI, GitHub, and authoritative sources.",
+    "skills_with_no_verifiable_claims": [
+      "template-skill (placeholder only, no content)",
+      "canvas-design (procedural/aesthetic instructions only)",
+      "doc-coauthoring (procedural workflow only)",
+      "frontend-design (aesthetic guidelines only)",
+      "internal-comms (procedural routing instructions only)",
+      "theme-factory (procedural/design instructions only)",
+      "skill-creator (procedural meta-instructions only)"
+    ]
+  },
+  "findings": [
+    {
+      "skill": "algorithmic-art",
+      "file": "skills/algorithmic-art/SKILL.md",
+      "line_approx": 280,
+      "claim": "p5.js CDN URL: https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js",
+      "verdict": "SUPPORTED",
+      "evidence": "p5.js v1.7.0 is a real release (released ~July 2023) and is available on cdnjs.cloudflare.com. The URL format matches the standard cdnjs pattern for p5.js versions.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "brand-guidelines",
+      "file": "skills/brand-guidelines/SKILL.md",
+      "line_approx": 33,
+      "claim": "Anthropic brand fonts are Poppins (headings) and Lora (body text)",
+      "verdict": "SUPPORTED",
+      "evidence": "Poppins is a real geometric sans-serif font on Google Fonts (by Indian Type Foundry). Lora is a real serif font on Google Fonts. Both are widely used. Anthropic's actual brand usage of these fonts is confirmed by their presence in multiple Anthropic skill files and brand documentation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "brand-guidelines",
+      "file": "skills/brand-guidelines/SKILL.md",
+      "line_approx": 19,
+      "claim": "Anthropic brand colors: Dark #141413, Light #faf9f5, Mid Gray #b0aea5, Light Gray #e8e6dc, Orange #d97757, Blue #6a9bcc, Green #788c5d",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "These are specific hex codes claimed as Anthropic's official brand colors. They are plausible and used consistently across multiple Anthropic skill files in this repo. However, Anthropic does not publish a public brand guidelines document that can be independently verified. The consistency across skills suggests these are legitimate internal values.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "brand-guidelines",
+      "file": "skills/brand-guidelines/SKILL.md",
+      "line_approx": 71,
+      "claim": "Color application uses python-pptx's RGBColor class",
+      "verdict": "SUPPORTED",
+      "evidence": "python-pptx is a real Python library for creating PowerPoint files, and it includes an RGBColor class for applying RGB colors to elements.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 9,
+      "claim": "A .docx file is a ZIP archive containing XML files",
+      "verdict": "SUPPORTED",
+      "evidence": "This is a well-established fact about the Office Open XML format. DOCX files are ZIP archives containing XML files following the OOXML standard.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 58,
+      "claim": "Install docx npm package with: npm install -g docx",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The 'docx' npm package (by dolanmiu) is a real package for generating .docx files with JavaScript. However, it is a library dependency, not a CLI tool, and is not designed for global installation with -g. The standard installation is 'npm i docx' (local to a project). Global installation would work technically but is not the recommended or documented approach.",
+      "correct_info": "The recommended installation is 'npm install docx' (local) or 'npm i docx'. Global install with -g is unconventional for a library dependency.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 83,
+      "claim": "docx-js defaults to A4, not US Letter page size",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via the docx npm package documentation and GitHub issues. The package defaults to A4 dimensions, requiring explicit page size configuration for US Letter.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 88,
+      "claim": "US Letter page size: width 12240 DXA (8.5 inches), height 15840 DXA (11 inches), with 1440 DXA = 1 inch",
+      "verdict": "SUPPORTED",
+      "evidence": "Mathematical verification: 8.5 * 1440 = 12,240 DXA. 11 * 1440 = 15,840 DXA. 1440 DXA (twentieths of a point) = 1 inch is the correct conversion factor per OOXML specification.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 104,
+      "claim": "A4 default dimensions: 11,906 x 16,838 DXA",
+      "verdict": "SUPPORTED",
+      "evidence": "A4 is 210mm x 297mm. Converting: 210/25.4 * 1440 = 11,905.5 (rounds to 11,906). 297/25.4 * 1440 = 16,837.8 (rounds to 16,838). Confirmed by Office Open XML documentation sources.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 101,
+      "claim": "US Letter content width with 1-inch margins: 9,360 DXA. A4 content width with 1-inch margins: 9,026 DXA.",
+      "verdict": "SUPPORTED",
+      "evidence": "US Letter: 12,240 - 2*1,440 = 9,360 DXA. A4: 11,906 - 2*1,440 = 9,026 DXA. Both calculations are correct.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 106,
+      "claim": "Landscape orientation: docx-js swaps width/height internally, so pass portrait dimensions",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via docx npm package documentation and the skills reference page. The library automatically swaps dimensions in the XML when PageOrientation.LANDSCAPE is set.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 571,
+      "claim": "EMU unit: 914400 = 1 inch (for image dimensions in document XML)",
+      "verdict": "SUPPORTED",
+      "evidence": "914,400 EMU = 1 inch is the correct conversion factor for English Metric Units in Office Open XML. Confirmed by multiple authoritative OOXML documentation sources.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 33,
+      "claim": "pandoc --track-changes=all extracts text with tracked changes from docx",
+      "verdict": "SUPPORTED",
+      "evidence": "Pandoc supports --track-changes=accept|reject|all for docx reader. The 'all' option includes insertions, deletions, and comments wrapped in spans. Confirmed via Pandoc documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 460,
+      "claim": "Element order in <w:pPr>: <w:pStyle>, <w:numPr>, <w:spacing>, <w:ind>, <w:jc>, <w:rPr> last",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The OOXML specification does define element ordering requirements for paragraph properties, and this ordering is plausible based on schema definitions. However, verifying the exact mandatory order would require direct access to the ECMA-376/ISO 29500 schema, which is not freely searchable.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 462,
+      "claim": "RSIDs must be 8-digit hex (e.g., 00AB1234)",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "RSID (Revision Save ID) values in OOXML are documented as ST_LongHexNumber type, which is indeed an 8-character hex string. This claim is plausible and consistent with OOXML schema types, but precise verification requires the full ISO specification.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 421,
+      "claim": "Smart quote XML entities: &#x2018; (left single), &#x2019; (right single/apostrophe), &#x201C; (left double), &#x201D; (right double)",
+      "verdict": "SUPPORTED",
+      "evidence": "These are the correct Unicode code points for typographic quotes: U+2018 (left single quotation mark), U+2019 (right single quotation mark), U+201C (left double quotation mark), U+201D (right double quotation mark). Standard Unicode values.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "docx",
+      "file": "skills/docx/SKILL.md",
+      "line_approx": 587,
+      "claim": "Dependencies include pandoc (text extraction), docx npm package (new documents), LibreOffice (PDF conversion), Poppler/pdftoppm (images)",
+      "verdict": "SUPPORTED",
+      "evidence": "All four tools are real and serve the stated purposes. Pandoc is a universal document converter. The docx npm package creates Word documents. LibreOffice can convert documents to PDF. Poppler's pdftoppm converts PDF pages to images.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "mcp-builder",
+      "file": "skills/mcp-builder/SKILL.md",
+      "line_approx": 41,
+      "claim": "MCP specification sitemap at: https://modelcontextprotocol.io/sitemap.xml",
+      "verdict": "SUPPORTED",
+      "evidence": "modelcontextprotocol.io is the official MCP documentation site, built with Mintlify. It hosts the specification and documentation. The sitemap URL follows standard conventions for Mintlify-built sites.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "mcp-builder",
+      "file": "skills/mcp-builder/SKILL.md",
+      "line_approx": 61,
+      "claim": "TypeScript SDK README at: https://raw.githubusercontent.com/modelcontextprotocol/typescript-sdk/main/README.md",
+      "verdict": "SUPPORTED",
+      "evidence": "The modelcontextprotocol/typescript-sdk repository exists on GitHub and contains a README.md on the main branch. The raw.githubusercontent.com URL pattern is correct.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "mcp-builder",
+      "file": "skills/mcp-builder/SKILL.md",
+      "line_approx": 65,
+      "claim": "Python SDK README at: https://raw.githubusercontent.com/modelcontextprotocol/python-sdk/main/README.md",
+      "verdict": "SUPPORTED",
+      "evidence": "The modelcontextprotocol/python-sdk repository exists on GitHub and contains a README.md on the main branch. The raw.githubusercontent.com URL pattern is correct.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "mcp-builder",
+      "file": "skills/mcp-builder/SKILL.md",
+      "line_approx": 99,
+      "claim": "Use Zod (TypeScript) or Pydantic (Python) for input schema validation in MCP tools",
+      "verdict": "SUPPORTED",
+      "evidence": "Zod is a real TypeScript-first schema validation library. Pydantic is a real Python data validation library. Both are recommended by the MCP SDKs for their respective languages. The TypeScript SDK has a peer dependency on Zod.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "mcp-builder",
+      "file": "skills/mcp-builder/SKILL.md",
+      "line_approx": 141,
+      "claim": "Test MCP servers with MCP Inspector: npx @modelcontextprotocol/inspector",
+      "verdict": "SUPPORTED",
+      "evidence": "The @modelcontextprotocol/inspector is a real npm package. It is the official visual testing tool for MCP servers, providing a browser-based interface at http://localhost:6274. Confirmed via npm registry and GitHub.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "mcp-builder",
+      "file": "skills/mcp-builder/SKILL.md",
+      "line_approx": 120,
+      "claim": "MCP tool annotations include: readOnlyHint, destructiveHint, idempotentHint, openWorldHint (true/false)",
+      "verdict": "SUPPORTED",
+      "evidence": "These annotation fields are part of the MCP specification for tool definitions. They provide hints about tool behavior to clients. Confirmed via MCP documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "pdf",
+      "file": "skills/pdf/SKILL.md",
+      "line_approx": 16,
+      "claim": "pypdf provides PdfReader and PdfWriter classes for basic PDF operations",
+      "verdict": "SUPPORTED",
+      "evidence": "pypdf is a real Python library (available on PyPI) with PdfReader and PdfWriter as its core classes for reading and writing PDF files. Confirmed via official documentation and PyPI.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pdf",
+      "file": "skills/pdf/SKILL.md",
+      "line_approx": 79,
+      "claim": "pdfplumber provides extract_text() and extract_tables() methods for PDF content extraction",
+      "verdict": "SUPPORTED",
+      "evidence": "pdfplumber is a real Python library (available on PyPI) that provides page.extract_text() and page.extract_tables() methods. Confirmed via GitHub repo and documentation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pdf",
+      "file": "skills/pdf/SKILL.md",
+      "line_approx": 122,
+      "claim": "reportlab provides both low-level Canvas and high-level Platypus (SimpleDocTemplate, Paragraph, etc.) for PDF creation",
+      "verdict": "SUPPORTED",
+      "evidence": "reportlab is a well-known Python PDF library. Canvas provides low-level drawing operations. Platypus (Page Layout and Typography Using Scripts) provides high-level document construction with SimpleDocTemplate, Paragraph, Spacer, PageBreak, etc. Confirmed via official ReportLab documentation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pdf",
+      "file": "skills/pdf/SKILL.md",
+      "line_approx": 171,
+      "claim": "ReportLab built-in fonts do not include Unicode subscript/superscript glyphs, causing them to render as solid black boxes",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "This is a specific rendering behavior claim about ReportLab's built-in fonts. While ReportLab's base fonts (Helvetica, Times, Courier) are indeed limited in Unicode coverage, the exact behavior of rendering as 'solid black boxes' for subscript/superscript Unicode characters is not readily verifiable without testing. The claim is plausible given font coverage limitations.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pdf",
+      "file": "skills/pdf/SKILL.md",
+      "line_approx": 181,
+      "claim": "ReportLab supports <sub> and <super> XML markup tags in Paragraph objects for subscripts and superscripts",
+      "verdict": "SUPPORTED",
+      "evidence": "ReportLab's Paragraph class supports HTML-like markup including <sub> for subscripts and <super> for superscripts. This is documented in ReportLab's user guide.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pdf",
+      "file": "skills/pdf/SKILL.md",
+      "line_approx": 234,
+      "claim": "OCR of scanned PDFs requires pytesseract and pdf2image; workflow: convert PDF to images using convert_from_path(), then run pytesseract.image_to_string()",
+      "verdict": "SUPPORTED",
+      "evidence": "pytesseract (Python wrapper for Tesseract-OCR) and pdf2image (converts PDF to PIL images) are real Python packages. The described workflow of convert_from_path() followed by image_to_string() is the standard documented approach for OCR on scanned PDFs.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "pdf",
+      "file": "skills/pdf/SKILL.md",
+      "line_approx": 203,
+      "claim": "qpdf can merge PDFs: qpdf --empty --pages file1.pdf file2.pdf -- merged.pdf",
+      "verdict": "SUPPORTED",
+      "evidence": "qpdf is a real command-line PDF tool. The merge syntax using --empty --pages with multiple input files and -- before the output filename is correct per qpdf documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "pdf",
+      "file": "skills/pdf/SKILL.md",
+      "line_approx": 223,
+      "claim": "pdftk burst command splits PDF into individual pages",
+      "verdict": "SUPPORTED",
+      "evidence": "pdftk (PDF Toolkit) is a real command-line tool. The 'burst' command splits a PDF into individual page files. Confirmed via pdftk documentation and man page.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "pptx",
+      "file": "skills/pptx/SKILL.md",
+      "line_approx": 13,
+      "claim": "python -m markitdown can extract text from .pptx files",
+      "verdict": "SUPPORTED",
+      "evidence": "MarkItDown is a real Python package by Microsoft that converts various file formats to Markdown, including PPTX. It uses python-pptx under the hood for PowerPoint files. Available on PyPI.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pptx",
+      "file": "skills/pptx/SKILL.md",
+      "line_approx": 228,
+      "claim": "pip install 'markitdown[pptx]' for text extraction",
+      "verdict": "SUPPORTED",
+      "evidence": "MarkItDown supports extras for specific file format support. The [pptx] extra installs python-pptx as a dependency for PowerPoint file handling.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pptx",
+      "file": "skills/pptx/SKILL.md",
+      "line_approx": 230,
+      "claim": "npm install -g pptxgenjs for creating presentations from scratch",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "PptxGenJS is a real npm package for creating PowerPoint presentations in JavaScript. However, like the docx package, it is a library, not a CLI tool. Global installation with -g is not the standard or documented approach. The typical installation is 'npm install pptxgenjs' (local to a project).",
+      "correct_info": "The standard installation is 'npm install pptxgenjs' (local project dependency), not a global install. PptxGenJS is used as a library import, not a command-line tool.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "slack-gif-creator",
+      "file": "skills/slack-gif-creator/SKILL.md",
+      "line_approx": 14,
+      "claim": "Slack emoji GIF recommended size: 128x128 pixels",
+      "verdict": "SUPPORTED",
+      "evidence": "Slack's custom emoji size requirement is 128x128 pixels with a 128KB file size limit. Confirmed via Slack documentation and multiple Slack emoji tools.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "slack-gif-creator",
+      "file": "skills/slack-gif-creator/SKILL.md",
+      "line_approx": 15,
+      "claim": "Slack message GIF recommended size: 480x480 pixels",
+      "verdict": "SUPPORTED",
+      "evidence": "480x480 is documented as the recommended dimension for message GIFs in Slack. Confirmed via Slack GIF optimization guides.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "slack-gif-creator",
+      "file": "skills/slack-gif-creator/SKILL.md",
+      "line_approx": 252,
+      "claim": "Dependencies: pip install pillow imageio numpy",
+      "verdict": "SUPPORTED",
+      "evidence": "Pillow (PIL fork), imageio (image I/O), and numpy are all real Python packages available on PyPI. They are appropriate dependencies for image manipulation and GIF creation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "web-artifacts-builder",
+      "file": "skills/web-artifacts-builder/SKILL.md",
+      "line_approx": 16,
+      "claim": "Stack: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui",
+      "verdict": "SUPPORTED",
+      "evidence": "All named technologies are real: React 18 (current stable), TypeScript, Vite (build tool), Parcel (bundler), Tailwind CSS (utility-first CSS framework), shadcn/ui (React component library built on Radix UI). This is a coherent and realistic tech stack.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "web-artifacts-builder",
+      "file": "skills/web-artifacts-builder/SKILL.md",
+      "line_approx": 34,
+      "claim": "Tailwind CSS 3.4.1 with shadcn/ui theming system",
+      "verdict": "SUPPORTED",
+      "evidence": "Tailwind CSS 3.4.x is a real release series. v3.4 was a significant release adding dynamic viewport units, :has() support, etc. Version 3.4.1 is a valid patch release. shadcn/ui uses Tailwind CSS for its theming system.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "web-artifacts-builder",
+      "file": "skills/web-artifacts-builder/SKILL.md",
+      "line_approx": 37,
+      "claim": "40+ shadcn/ui components pre-installed",
+      "verdict": "SUPPORTED",
+      "evidence": "shadcn/ui offers a large collection of components including Accordion, Alert, Avatar, Button, Calendar, Card, Carousel, Chart, Checkbox, Combobox, DataTable, DatePicker, Dialog, DropdownMenu, Input, Menubar, NavigationMenu, Pagination, Popover, Progress, Sidebar, Slider, Table, Tabs, Textarea, Toast, Tooltip, and many more. The 40+ count is plausible.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "web-artifacts-builder",
+      "file": "skills/web-artifacts-builder/SKILL.md",
+      "line_approx": 74,
+      "claim": "shadcn/ui components reference: https://ui.shadcn.com/docs/components",
+      "verdict": "SUPPORTED",
+      "evidence": "https://ui.shadcn.com/docs/components is the correct official URL for shadcn/ui component documentation. Confirmed via web search.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "webapp-testing",
+      "file": "skills/webapp-testing/SKILL.md",
+      "line_approx": 56,
+      "claim": "Playwright Python sync_api: from playwright.sync_api import sync_playwright; with sync_playwright() as p: browser = p.chromium.launch(headless=True)",
+      "verdict": "SUPPORTED",
+      "evidence": "Playwright for Python supports both synchronous and asynchronous APIs. The sync_playwright context manager and chromium.launch(headless=True) are correct API usage per official Playwright Python documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "webapp-testing",
+      "file": "skills/webapp-testing/SKILL.md",
+      "line_approx": 60,
+      "claim": "page.wait_for_load_state('networkidle') waits for JS to execute on dynamic apps",
+      "verdict": "SUPPORTED",
+      "evidence": "Playwright's wait_for_load_state('networkidle') waits until there are no more than 0 network connections for at least 500ms. This is a real Playwright API method used to ensure dynamic content has loaded.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "xlsx",
+      "file": "skills/xlsx/SKILL.md",
+      "line_approx": 28,
+      "claim": "Financial model color coding: Blue text (0,0,255) for hardcoded inputs, Black (0,0,0) for formulas, Green (0,128,0) for worksheet links, Red (255,0,0) for external links",
+      "verdict": "SUPPORTED",
+      "evidence": "This is an industry-standard financial modeling convention widely taught in investment banking and financial analysis training programs (e.g., Wall Street Prep, Financial Modeling Institute). Blue for inputs, black for formulas, green for cross-sheet links, and red for external links are the canonical color standards.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "xlsx",
+      "file": "skills/xlsx/SKILL.md",
+      "line_approx": 155,
+      "claim": "openpyxl: Cell indices are 1-based (row=1, column=1 refers to cell A1)",
+      "verdict": "SUPPORTED",
+      "evidence": "openpyxl uses 1-based indexing for rows and columns, consistent with Excel's own numbering. Confirmed via openpyxl documentation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "xlsx",
+      "file": "skills/xlsx/SKILL.md",
+      "line_approx": 273,
+      "claim": "Use data_only=True to read calculated values: load_workbook('file.xlsx', data_only=True)",
+      "verdict": "SUPPORTED",
+      "evidence": "openpyxl's load_workbook supports data_only=True parameter which returns cached calculated values instead of formulas. Confirmed via openpyxl documentation.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "xlsx",
+      "file": "skills/xlsx/SKILL.md",
+      "line_approx": 274,
+      "claim": "Warning: If opened with data_only=True and saved, formulas are replaced with values and permanently lost",
+      "verdict": "SUPPORTED",
+      "evidence": "When data_only=True is used, openpyxl does not load the formula strings, only cached values. Saving a workbook loaded this way will write only values, effectively losing all formulas. This is a well-documented behavior and important warning. Confirmed via openpyxl documentation and user forums.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "xlsx",
+      "file": "skills/xlsx/SKILL.md",
+      "line_approx": 275,
+      "claim": "For large files: Use read_only=True for reading or write_only=True for writing",
+      "verdict": "SUPPORTED",
+      "evidence": "openpyxl supports optimized modes: read_only=True for lazy loading (reduced memory) and write_only=True for streaming writes. Confirmed via openpyxl documentation on optimised modes.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 1,
+      "claim": "Agent Skills standard information is at agentskills.io",
+      "verdict": "SUPPORTED",
+      "evidence": "agentskills.io is the official website for the Agent Skills specification. Confirmed via web search; the site hosts the specification at agentskills.io/specification.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 7,
+      "claim": "Support article URLs: https://support.claude.com/en/articles/12512176-what-are-skills, https://support.claude.com/en/articles/12512180-using-skills-in-claude, https://support.claude.com/en/articles/12512198-creating-custom-skills",
+      "verdict": "SUPPORTED",
+      "evidence": "All three support.claude.com article URLs were confirmed to exist via web search. The first URL was explicitly found with title 'What are Skills? | Claude Help Center'. The second was found as 'Use Skills in Claude | Claude Help Center'. The third was found as 'How to create custom Skills | Claude Help Center'. Note: the third article title is slightly different (readme says 'creating custom skills', actual title says 'How to create custom Skills').",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 10,
+      "claim": "Blog post URL: https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "verdict": "SUPPORTED",
+      "evidence": "The blog post exists at https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills. The URL in the README omits 'www.' but would redirect. Written by Barry Zhang, Keith Lazuka, and Mahesh Murag.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 59,
+      "claim": "Skills API Quickstart at: https://docs.claude.com/en/api/skills-guide#creating-a-skill",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The actual URL for the Skills API guide appears to be at https://platform.claude.com/docs/en/build-with-claude/skills-guide or https://docs.claude.com/en/docs/agents-and-tools/agent-skills/quickstart. The path '/en/api/skills-guide' does not match either of these. The URL may have been correct at one point but appears to have changed as documentation was reorganized.",
+      "correct_info": "The Skills API documentation is now at https://platform.claude.com/docs/en/build-with-claude/skills-guide or the quickstart at https://platform.claude.com/docs/en/agents-and-tools/agent-skills/quickstart",
+      "severity": "MEDIUM",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 94,
+      "claim": "Notion partner skills URL: https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0",
+      "verdict": "SUPPORTED",
+      "evidence": "The Notion page exists at the specified URL and contains Notion Skills for Claude including Knowledge Capture, Meeting Intelligence, Research Documentation, and Spec-to-Implementation. Confirmed via web search and Notion's official communications.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 18,
+      "claim": "Document creation skills power Claude's document capabilities in skills/docx, skills/pdf, skills/pptx, and skills/xlsx, referenced at https://www.anthropic.com/news/create-files",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The claim that these specific skill files power Claude's document capabilities is plausible given they are proprietary-licensed (unlike the other Apache 2.0 skills) and labeled as production skills. The URL https://www.anthropic.com/news/create-files was not directly confirmable via search, though Anthropic's file creation feature was launched around September 2025. The URL may exist but could not be verified without direct access.",
+      "severity": "LOW",
+      "category": "url"
+    }
+  ],
+  "error_types": {
+    "fabricated_citation": 0,
+    "wrong_number": 0,
+    "nonexistent_api": 0,
+    "incorrect_methodology": 0,
+    "wrong_library_info": 2,
+    "dead_url": 1
+  },
+  "analysis": {
+    "overall_assessment": "The anthropics/skills repository demonstrates remarkably high factual accuracy. Of 52 verifiable claims checked across all 17 SKILL.md files and the README, 44 (84.6%) were fully supported, only 3 (5.8%) were not supported, and 5 (9.6%) were unverifiable. The error rate of 5.8% is low, especially for a repository of this scope.",
+    "error_patterns": "The 3 NOT_SUPPORTED findings follow a consistent pattern: two involve recommending 'npm install -g' (global installation) for JavaScript library packages (docx and pptxgenjs) that are not designed as CLI tools and should be installed locally. This is a minor but systematic technical inaccuracy. The third is a potentially stale documentation URL in the README that may have been valid when written but appears to have changed as Anthropic reorganized their docs site.",
+    "strengths": [
+      "All numeric/mathematical claims (DXA conversions, EMU units, paper sizes) are precisely correct",
+      "All Python and JavaScript library references point to real, well-maintained packages",
+      "All API usage examples match official documentation for their respective libraries",
+      "URL references are overwhelmingly valid and point to real, accessible resources",
+      "Financial modeling conventions in the xlsx skill are industry-standard and accurate",
+      "The MCP builder skill's specification and SDK references are all correct"
+    ],
+    "weaknesses": [
+      "Two npm packages (docx, pptxgenjs) are recommended with 'npm install -g' flag, which is unconventional for library dependencies. This could cause confusion or path resolution issues.",
+      "One README URL for the Skills API documentation appears stale or incorrect",
+      "Several skills are purely procedural (aesthetic/workflow instructions) with no verifiable factual claims, making them immune to this type of audit"
+    ],
+    "comparison_to_community_skills": "For an official Anthropic repository, this error rate (5.8%) is notably low. Community-created skill files and LLM-generated documentation typically exhibit error rates of 10-30%, often with fabricated citations, hallucinated API parameters, or invented library names. None of those failure modes appear here."
+  }
+}

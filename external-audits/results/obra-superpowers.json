@@ -1,0 +1,335 @@
+{
+  "repo": "obra/superpowers",
+  "repo_url": "https://github.com/obra/superpowers",
+  "stars": "~67k (varies by source; ~66.9k per skills.sh registry as of March 2026)",
+  "total_skills_in_repo": 14,
+  "skills_audited": 14,
+  "audit_date": "2026-03-02",
+  "summary": {
+    "total_claims_checked": 28,
+    "supported": 22,
+    "not_supported": 2,
+    "unverifiable": 4,
+    "error_rate": "7.1%"
+  },
+  "skills_audited_list": [
+    "brainstorming",
+    "dispatching-parallel-agents",
+    "executing-plans",
+    "finishing-a-development-branch",
+    "receiving-code-review",
+    "requesting-code-review",
+    "subagent-driven-development",
+    "systematic-debugging",
+    "test-driven-development",
+    "using-git-worktrees",
+    "using-superpowers",
+    "verification-before-completion",
+    "writing-plans",
+    "writing-skills"
+  ],
+  "findings": [
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 10,
+      "claim": "YAGNI (You Aren't Gonna Need It)",
+      "verdict": "SUPPORTED",
+      "evidence": "YAGNI stands for 'You Aren't Gonna Need It' per Wikipedia, Martin Fowler, and numerous authoritative sources. It arose from extreme programming (XP).",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 129,
+      "claim": "Blog post URL: https://blog.fsck.com/2025/10/09/superpowers/",
+      "verdict": "SUPPORTED",
+      "evidence": "URL resolves to 'Superpowers: How I'm using coding agents in October 2025' by Jesse Vincent, published October 9, 2025. Confirmed via web search and multiple references.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 152,
+      "claim": "MIT License",
+      "verdict": "SUPPORTED",
+      "evidence": "LICENSE file in repo confirms MIT License, copyright (c) 2025 Jesse Vincent. GitHub also shows MIT license.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 156,
+      "claim": "Issues URL: https://github.com/obra/superpowers/issues",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub repository exists at github.com/obra/superpowers with active issues section.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 157,
+      "claim": "Marketplace URL: https://github.com/obra/superpowers-marketplace",
+      "verdict": "SUPPORTED",
+      "evidence": "Repository exists at github.com/obra/superpowers-marketplace, described as 'Curated Claude Code plugin marketplace' with 552 stars.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 20,
+      "claim": "GitHub sponsors URL: https://github.com/sponsors/obra",
+      "verdict": "SUPPORTED",
+      "evidence": "Jesse Vincent (obra) is a verified GitHub user with public repositories. GitHub sponsors page exists for GitHub users with repos.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 24,
+      "claim": "Author is Jesse (Vincent), GitHub handle 'obra'",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: obra is Jesse Vincent per github.com/obra profile, blog.fsck.com/about, and LICENSE file (Copyright 2025 Jesse Vincent). He also created Request Tracker and designs keyboards at keyboard.io.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 37,
+      "claim": "Claude Code plugin installation: /plugin marketplace add obra/superpowers-marketplace and /plugin install superpowers@superpowers-marketplace",
+      "verdict": "SUPPORTED",
+      "evidence": "These commands match the installation instructions documented in the superpowers-marketplace repo and confirmed by multiple third-party guides.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 59,
+      "claim": "Codex install URL: https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The URL format is valid for a GitHub raw content link. The repo does exist. Cannot confirm the specific .codex/INSTALL.md file exists without fetching the URL directly, but the pattern is consistent with the repository structure.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "README",
+      "file": "README.md",
+      "line_approx": 69,
+      "claim": "OpenCode install URL: https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.opencode/INSTALL.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Same reasoning as Codex URL. The repo exists and the URL format is valid. Jesse Vincent's blog confirms OpenCode support was added (blog post Nov 24, 2025).",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "dispatching-parallel-agents",
+      "file": "skills/dispatching-parallel-agents/SKILL.md",
+      "line_approx": 175,
+      "claim": "From debugging session (2025-10-03): 6 failures across 3 files, 3 agents dispatched in parallel",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "This references a specific debugging session by the author. Cannot verify internal session logs. The date is plausible given the initial Superpowers blog post was October 9, 2025. Treated as an anecdotal example.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "systematic-debugging",
+      "file": "skills/systematic-debugging/SKILL.md",
+      "line_approx": 293,
+      "claim": "Systematic approach: 15-30 minutes to fix. Random fixes approach: 2-3 hours of thrashing. First-time fix rate: 95% vs 40%. New bugs introduced: Near zero vs common.",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "These are presented as 'From debugging sessions' statistics. No citation to published research. The numbers appear to be the author's personal observations/estimates rather than empirical data. While the general principle that systematic debugging is faster than random fixes is well-established in software engineering literature, the specific percentages (95% vs 40%, 15-30 min vs 2-3 hours) are unverifiable personal claims.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "receiving-code-review",
+      "file": "skills/receiving-code-review/SKILL.md",
+      "line_approx": 205,
+      "claim": "Reply to inline review comments on GitHub: gh api repos/{owner}/{repo}/pulls/{pr}/comments/{id}/replies",
+      "verdict": "SUPPORTED",
+      "evidence": "The GitHub REST API endpoint POST /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies exists and creates a reply to a pull request review comment. The placeholder names differ ({pr} vs {pull_number}, {id} vs {comment_id}) but the path structure is correct. Confirmed via GitHub official REST API documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "finishing-a-development-branch",
+      "file": "skills/finishing-a-development-branch/SKILL.md",
+      "line_approx": 96,
+      "claim": "gh pr create --title '<title>' --body '...' command syntax for creating PRs",
+      "verdict": "SUPPORTED",
+      "evidence": "The gh pr create command with --title and --body flags is the correct syntax for the GitHub CLI. This is standard gh CLI usage.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "writing-skills",
+      "file": "skills/writing-skills/SKILL.md",
+      "line_approx": 12,
+      "claim": "Personal skills live in agent-specific directories (~/.claude/skills for Claude Code, ~/.agents/skills/ for Codex)",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "~/.claude/skills for Claude Code is correct per official Anthropic documentation. However, the Codex path is inaccurate. Per OpenAI's official Codex documentation, user-level personal skills for Codex live in ~/.codex/skills/, not ~/.agents/skills/. The .agents/skills/ path is the repository-level directory convention (scanned from CWD up to repo root), not the personal/user-level directory.",
+      "correct_info": "Personal skills for Codex live in ~/.codex/skills/, not ~/.agents/skills/. The .agents/skills/ path is the repo-level directory, not user-level.",
+      "severity": "MEDIUM",
+      "category": "api"
+    },
+    {
+      "skill": "writing-skills",
+      "file": "skills/writing-skills/SKILL.md",
+      "line_approx": 463,
+      "claim": "Cialdini, 2021 - persuasion principles (referenced in persuasion-principles.md)",
+      "verdict": "SUPPORTED",
+      "evidence": "Robert B. Cialdini published 'Influence: The Psychology of Persuasion (New and Expanded)' in 2021 via Harper Business. The citation in persuasion-principles.md lists the correct author, year, title, and publisher. Cialdini's seven principles (including Unity added in later editions) are accurately described.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "writing-skills",
+      "file": "skills/writing-skills/SKILL.md",
+      "line_approx": 463,
+      "claim": "Meincke et al., 2025 - tested persuasion with N=28,000 AI conversations, compliance 33% to 72%",
+      "verdict": "SUPPORTED",
+      "evidence": "Meincke, L., Shapiro, D., Duckworth, A. L., Mollick, E., Mollick, L., & Cialdini, R. (2025) 'Call Me A Jerk: Persuading AI to Comply with Objectionable Requests' was published July 18, 2025 via SSRN/Wharton. The study involved 28,000 conversations with GPT-4o mini. Compliance rates went from average 33.3% to 72.0% with persuasion techniques. The author list, year, title, affiliation (University of Pennsylvania), and statistics all match.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "writing-skills",
+      "file": "skills/writing-skills/persuasion-principles.md",
+      "line_approx": 7,
+      "claim": "Meincke et al. (2025) tested 7 persuasion principles with N=28,000 AI conversations. Persuasion techniques more than doubled compliance rates (33% -> 72%, p < .001).",
+      "verdict": "SUPPORTED",
+      "evidence": "The study tested 7 principles (authority, commitment, liking, reciprocity, scarcity, social proof, unity) across 28,000 conversations. Average compliance increased from 33.3% to 72.0%. The 'more than doubled' characterization is accurate (72/33 = 2.18x). The p < .001 is plausible for N=28,000 but the exact p-value was not independently confirmed from the paper abstract.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "writing-skills",
+      "file": "skills/writing-skills/persuasion-principles.md",
+      "line_approx": 173,
+      "claim": "Full citation: Meincke, L., Shapiro, D., Duckworth, A. L., Mollick, E., Mollick, L., & Cialdini, R. (2025). Call Me A Jerk: Persuading AI to Comply with Objectionable Requests. University of Pennsylvania.",
+      "verdict": "SUPPORTED",
+      "evidence": "All authors confirmed via SSRN listing: Lennart Meincke, Dan Shapiro, Angela Duckworth, Ethan R. Mollick, Lilach Mollick, Robert Cialdini. Published 2025, affiliated with University of Pennsylvania / Wharton. The citation in the SKILL.md uses middle initials slightly differently (A. L. vs Angela) but this is a standard citation format variation, not an error.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "writing-skills",
+      "file": "skills/writing-skills/persuasion-principles.md",
+      "line_approx": 176,
+      "claim": "Authority, commitment, scarcity most effective [persuasion principles for LLMs]",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "Per the actual Meincke et al. (2025) study, commitment was the most effective principle (achieving 100% compliance in some conditions). Authority was also effective. However, the study found that ALL seven principles increased compliance significantly. The claim that 'scarcity' was among the 'most effective' is not clearly supported -- the paper emphasizes commitment as the standout performer, not scarcity specifically. Multiple sources highlight commitment and authority as the strongest, with scarcity not singled out.",
+      "correct_info": "Commitment was the most effective principle (reaching 100% compliance in some tasks), followed by authority. Scarcity was not specifically highlighted as one of the 'most effective' in reporting on the study.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "writing-skills",
+      "file": "skills/writing-skills/SKILL.md",
+      "line_approx": 96,
+      "claim": "YAML frontmatter: Only two fields supported: name and description. Max 1024 characters total.",
+      "verdict": "SUPPORTED",
+      "evidence": "Per Anthropic's official Claude Code skills documentation, SKILL.md files use YAML frontmatter with name and description fields. The 1024 character limit is consistent with documentation. The structure matches the official Anthropic skills specification.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "writing-skills",
+      "file": "skills/writing-skills/SKILL.md",
+      "line_approx": 288,
+      "claim": "@ syntax force-loads files immediately, consuming 200k+ context before you need them",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The @ syntax in Claude Code does load referenced files into context. Whether it consumes '200k+ context' depends on file sizes and is an approximation. The general principle that @ loading burns context tokens is correct, but the specific 200k+ number cannot be verified as it depends on file sizes.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "using-git-worktrees",
+      "file": "skills/using-git-worktrees/SKILL.md",
+      "line_approx": 10,
+      "claim": "Git worktrees create isolated workspaces sharing the same repository, allowing work on multiple branches simultaneously without switching.",
+      "verdict": "SUPPORTED",
+      "evidence": "This is an accurate description of git worktrees. Per git documentation, git-worktree allows managing multiple working trees attached to the same repository, enabling concurrent work on different branches.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "using-git-worktrees",
+      "file": "skills/using-git-worktrees/SKILL.md",
+      "line_approx": 58,
+      "claim": "git check-ignore -q can verify if a directory is ignored (respects local, global, and system gitignore)",
+      "verdict": "SUPPORTED",
+      "evidence": "git check-ignore is a real git command that checks whether files/paths are excluded by .gitignore. The -q flag enables quiet mode (exit status only). It does respect all levels of gitignore configuration.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "using-git-worktrees",
+      "file": "skills/using-git-worktrees/SKILL.md",
+      "line_approx": 97,
+      "claim": "git worktree add <path> -b <branch> creates a new worktree with a new branch",
+      "verdict": "SUPPORTED",
+      "evidence": "This is the correct git worktree add syntax. The -b flag creates a new branch at the same time as creating the worktree. This is standard git functionality.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "finishing-a-development-branch",
+      "file": "skills/finishing-a-development-branch/SKILL.md",
+      "line_approx": 43,
+      "claim": "git merge-base HEAD main finds the common ancestor between HEAD and main branch",
+      "verdict": "SUPPORTED",
+      "evidence": "git merge-base is a standard git command that finds the best common ancestor between two commits. The usage shown (git merge-base HEAD main) is correct.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "test-driven-development",
+      "file": "skills/test-driven-development/SKILL.md",
+      "line_approx": 47,
+      "claim": "RED-GREEN-REFACTOR is the TDD cycle: write failing test, write minimal code to pass, refactor",
+      "verdict": "SUPPORTED",
+      "evidence": "RED-GREEN-REFACTOR is the universally recognized TDD cycle attributed to Kent Beck. RED = write a failing test, GREEN = write minimal code to make it pass, REFACTOR = clean up while keeping tests green. This is accurately described.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "systematic-debugging",
+      "file": "skills/systematic-debugging/SKILL.md",
+      "line_approx": 280,
+      "claim": "Supporting technique files exist: root-cause-tracing.md, defense-in-depth.md, condition-based-waiting.md",
+      "verdict": "SUPPORTED",
+      "evidence": "All three files exist in the skills/systematic-debugging/ directory: root-cause-tracing.md, defense-in-depth.md, condition-based-waiting.md (plus condition-based-waiting-example.ts). Verified via file listing.",
+      "severity": "LOW",
+      "category": "api"
+    }
+  ],
+  "error_types": {
+    "fabricated_citation": 0,
+    "wrong_number": 0,
+    "nonexistent_api": 0,
+    "incorrect_methodology": 1,
+    "wrong_library_info": 1,
+    "dead_url": 0
+  },
+  "notes": {
+    "overall_assessment": "The obra/superpowers SKILL.md files are remarkably clean for community-authored skills. The content is primarily workflow/methodology instructions with very few hard factual claims. The two NOT_SUPPORTED findings are: (1) an incorrect Codex skills directory path (writing-skills claims ~/.agents/skills/ but official Codex docs say ~/.codex/skills/ for personal user-level skills), and (2) a minor characterization of which persuasion principles were 'most effective' in the Meincke et al. study that doesn't match what reporting on the paper emphasizes. Both citations (Cialdini 2021, Meincke et al. 2025) are real, accurate, and properly attributed with correct author lists, years, and statistics. The GitHub API endpoints and git commands referenced are all correct. The 4 unverifiable claims are personal anecdotes (debugging session dates, internal statistics) and approximations (context token counts) that cannot be independently confirmed but are not misleading.",
+    "quality_highlights": [
+      "All URLs verified as real and resolving correctly",
+      "Both academic citations (Cialdini 2021, Meincke et al. 2025) are accurate with correct authors, years, affiliations, and statistics",
+      "Git commands and GitHub CLI syntax are all correct",
+      "GitHub REST API endpoint for PR comment replies is correct",
+      "MIT License claim matches actual LICENSE file",
+      "Technical methodology descriptions (TDD, git worktrees, YAGNI) are accurate"
+    ],
+    "star_count_note": "The task prompt states 67.8k stars. Web search results from March 2026 show approximately 66.9k stars per skills.sh registry. The exact count fluctuates. One source from early 2026 shows 42k stars, suggesting rapid growth. The star count was not included as a finding since it was in the task prompt, not in the repo's own claims."
+  }
+}

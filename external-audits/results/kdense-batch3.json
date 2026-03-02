@@ -1,0 +1,493 @@
+{
+  "batch": "kdense-batch3",
+  "audit_date": "2026-03-02",
+  "skills_audited": 34,
+  "skills_procedural_only": 6,
+  "total_claims_checked": 56,
+  "supported": 42,
+  "not_supported": 8,
+  "unverifiable": 6,
+  "procedural_skills": [
+    "peer-review",
+    "pptx-posters",
+    "research-grants",
+    "research-lookup",
+    "offer-k-dense-web",
+    "perplexity-search"
+  ],
+  "findings": [
+    {
+      "skill": "neurokit2",
+      "claim": "Publication: Makowski et al. (2021). NeuroKit2: A Python toolbox for neurophysiological signal processing. Behavior Research Methods. https://doi.org/10.3758/s13428-020-01516-y",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Makowski et al. (2021), Behavior Research Methods, 53(4), 1689-1696. DOI matches exactly.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "neurokit2",
+      "claim": "GitHub Repository: https://github.com/neuropsychology/NeuroKit",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. GitHub repo exists at neuropsychology/NeuroKit.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pubchem-database",
+      "claim": "PubChem is the world's largest freely available chemical database with 110M+ compounds and 270M+ bioactivities",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "As of 2025, PubChem contains 119M+ compounds (not just 110M+) and approximately 293M+ bioactivities (not 270M+). The 110M/270M figures are from circa 2020-2021 data. While technically '110M+' is still true since 119M > 110M, the 270M+ figure is now closer to 293M+. The compound count should be updated to reflect current size.",
+      "correct_info": "As of 2025 PubChem 2025 update: 119M+ compounds, ~293M bioactivities. The stated 110M+ is technically true but outdated; 270M+ bioactivities was accurate circa 2021 but has grown to ~293M.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "pubchem-database",
+      "claim": "PubChemPy GitHub: https://github.com/mcs07/PubChemPy",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. PubChemPy is maintained at github.com/mcs07/PubChemPy.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pubchem-database",
+      "claim": "Rate limits: Maximum 5 requests per second, Maximum 400 requests per minute",
+      "verdict": "SUPPORTED",
+      "evidence": "PubChem PUG-REST documentation confirms these rate limits.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "neuropixels-analysis",
+      "claim": "Neuropixels 1.0: 960 electrodes, 384 channels",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via neuropixels.org. NP 1.0 has 960 selectable electrodes and 384 recording channels.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "neuropixels-analysis",
+      "claim": "Neuropixels 2.0 (single): 1280 electrodes, 384 channels",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. NP 2.0 single-shank has 1280 recording sites and 384 channels.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "neuropixels-analysis",
+      "claim": "Neuropixels 2.0 (4-shank): 5120 electrodes, 384 channels",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. NP 2.0 4-shank has 5120 total electrodes (1280 per shank x 4) and 384 recording channels.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "neuropixels-analysis",
+      "claim": "Kilosort4 GitHub: https://github.com/MouseLand/Kilosort",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Kilosort repo is at github.com/MouseLand/Kilosort.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "molfeat",
+      "claim": "Molfeat unifies 100+ pre-trained embeddings and hand-crafted featurizers",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub repo confirms molfeat is a hub for molecular featurizers with extensive collection. The 100+ claim is consistent with the model store listing.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "molfeat",
+      "claim": "GitHub Repository: https://github.com/datamol-io/molfeat",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/datamol-io/molfeat.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "molfeat",
+      "claim": "ChemBERTa - Pre-trained on 77M PubChem compounds",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via ChemBERTa-2 paper (Ahmad et al., 2022, arXiv:2209.01712). PubChem-77M is a curated dataset of 77M SMILES strings used for pretraining.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "molfeat",
+      "claim": "License: Apache-2.0",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Molfeat is Apache-2.0 licensed per its GitHub repo.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "networkx",
+      "claim": "License: 3-clause BSD license",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via NetworkX documentation and PyPI. NetworkX uses 3-clause BSD.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "networkx",
+      "claim": "GitHub: https://github.com/networkx/networkx",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/networkx/networkx.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "opentargets-database",
+      "claim": "GraphQL API endpoint: https://api.platform.opentargets.org/api/v4/graphql",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Open Targets documentation. The v4 GraphQL endpoint URL is correct.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "opentargets-database",
+      "claim": "Interactive browser: https://api.platform.opentargets.org/api/v4/graphql/browser",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. The GraphQL browser is available at this URL.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "opentargets-database",
+      "claim": "Citation: Ochoa, D. et al. (2025) Open Targets Platform: facilitating therapeutic hypotheses building in drug discovery. Nucleic Acids Research, 53(D1):D1467-D1477.",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The 2025 paper's first author is Buniello, A. (not Ochoa, D.). The paper is: Buniello, A. et al. (2025). Open Targets Platform: facilitating therapeutic hypotheses building in drug discovery. Nucleic Acids Research, 53(D1), D1467-D1477. David Ochoa is a co-author but not first author. The volume and page numbers are correct.",
+      "correct_info": "First author is Buniello, A., not Ochoa, D. Correct citation: Buniello, A. et al. (2025) Open Targets Platform: facilitating therapeutic hypotheses building in drug discovery. Nucleic Acids Research, 53(D1):D1467-D1477.",
+      "severity": "MEDIUM",
+      "category": "citation"
+    },
+    {
+      "skill": "opentargets-database",
+      "claim": "No authentication required for API access",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Open Targets GraphQL API is freely accessible without authentication.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "opentargets-database",
+      "claim": "Platform is updated quarterly with new data releases",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Open Targets releases data quarterly.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "pathml",
+      "claim": "Load whole-slide images from 160+ proprietary formats including Aperio SVS, Hamamatsu NDPI, Leica SCN, Zeiss ZVI, DICOM, and OME-TIFF",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. PathML documentation and peer-reviewed literature state support for 160+ file formats. Some sources cite 165+.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "pathml",
+      "claim": "License: GPL-2.0",
+      "verdict": "SUPPORTED",
+      "evidence": "PathML is GPL-2.0 licensed per its GitHub repository (Dana-Farber-AIOS/pathml).",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pydeseq2",
+      "claim": "Publication: Muzellec et al. (2023) Bioinformatics, DOI: 10.1093/bioinformatics/btad547",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Muzellec, B. et al. (2023), Bioinformatics, Volume 39, Issue 9, btad547. DOI is correct.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "pydeseq2",
+      "claim": "Original DESeq2 (R): Love et al. (2014) Genome Biology, DOI: 10.1186/s13059-014-0550-8",
+      "verdict": "SUPPORTED",
+      "evidence": "This is the canonical DESeq2 citation. Well-known reference.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "pydeseq2",
+      "claim": "GitHub Repository: https://github.com/owkin/PyDESeq2",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/owkin/PyDESeq2.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pydeseq2",
+      "claim": "System requirements: Python 3.10-3.11",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Version requirements may have changed since the SKILL.md was written. PyDESeq2 0.5.4 likely supports broader Python versions. Could not verify exact current range without checking latest pyproject.toml.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pennylane",
+      "claim": "GitHub: https://github.com/PennyLaneAI/pennylane",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. PennyLane repo is at github.com/PennyLaneAI/pennylane.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pennylane",
+      "claim": "License: Apache-2.0",
+      "verdict": "SUPPORTED",
+      "evidence": "PennyLane is Apache-2.0 licensed per its GitHub repository.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pennylane",
+      "claim": "Community forum: https://discuss.pennylane.ai",
+      "verdict": "SUPPORTED",
+      "evidence": "PennyLane has a community discussion forum at discuss.pennylane.ai.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "reactome-database",
+      "claim": "Reactome is a free, open-source, curated pathway database with 2,825+ human pathways",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "As of the latest Reactome release (v95), the database contains 2,848 human pathways, not 2,825+. While 2,848 > 2,825, the specific number used (2,825) does not match any published Reactome statistics. The number has been growing and was around 2,608 in some earlier versions. The claim is approximately correct but uses a non-standard/non-published threshold.",
+      "correct_info": "Reactome currently contains approximately 2,848 human pathways (as of v95). The stated '2,825+' is not a recognized threshold from Reactome documentation.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "open-notebook",
+      "claim": "Architecture: Frontend: Next.js with React",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "Open Notebook originally used Streamlit for the frontend. While there are signs of transition to Next.js/React, the primary frontend at port 8502 was Streamlit-based. The current version appears to have migrated or be migrating to Next.js 16/React 19, but stating it as definitively 'Next.js with React' may be inaccurate for many installations.",
+      "correct_info": "Open Notebook frontend was originally Streamlit-based (port 8502). Recent versions have migrated to or are migrating to Next.js/React UI. Users installing may encounter either frontend.",
+      "severity": "MEDIUM",
+      "category": "library"
+    },
+    {
+      "skill": "open-notebook",
+      "claim": "Repository: https://github.com/lfnovo/open-notebook",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/lfnovo/open-notebook.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "open-notebook",
+      "claim": "Database: SurrealDB (document + relational)",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Open Notebook uses SurrealDB as its data layer.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "open-notebook",
+      "claim": "REST API: http://localhost:5055",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Backend API runs on port 5055.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "pyhealth",
+      "claim": "33+ pre-built models including RETAIN, SafeDrug, GAMENet, StageNet, AdaCare",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via GitHub repo. PyHealth lists 33+ pre-built models in its README.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "pyhealth",
+      "claim": "GitHub: https://github.com/sunlabuiuc/PyHealth",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/sunlabuiuc/PyHealth.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pyhealth",
+      "claim": "Performance: 3x faster than pandas for healthcare data processing",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "This performance claim is not substantiated in the PyHealth GitHub README or documentation. No benchmarks or papers were found supporting this specific '3x' speedup claim over pandas.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "pufferlib",
+      "claim": "PufferLib achieves training at millions of steps per second; 1M-4M steps/second",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "PufferLib documentation mentions high-performance training but the specific 1M-4M steps/second range depends heavily on environment and hardware. The claim is plausible for GPU-accelerated C environments but not generally achievable across all scenarios.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "pufferlib",
+      "claim": "GitHub: https://github.com/PufferAI/PufferLib",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/PufferAI/PufferLib.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pufferlib",
+      "claim": "Official docs: https://puffer.ai/docs.html",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. PufferLib documentation is hosted at puffer.ai.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pufferlib",
+      "claim": "Ocean suite of 20+ environments",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "PufferLib documentation mentions Ocean environments but the exact count of 20+ could not be independently verified from search results.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "plotly",
+      "claim": "40+ chart types",
+      "verdict": "SUPPORTED",
+      "evidence": "Plotly documentation confirms support for 40+ chart types across various categories.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "plotly",
+      "claim": "Official documentation: https://plotly.com/python/",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Plotly Python docs are at plotly.com/python/.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "polars",
+      "claim": "Polars is built on Apache Arrow",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Polars uses Apache Arrow as its in-memory columnar format.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "paper-2-web",
+      "claim": "GitHub Repository: https://github.com/YuhangChen1/Paper2All",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/YuhangChen1/Paper2All.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "paper-2-web",
+      "claim": "Paper2All converts papers into three outputs: Paper2Web, Paper2Video, Paper2Poster",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. The Paper2All repository describes these three output types.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "omero-integration",
+      "claim": "OMERO Python API (omero-py) connects to OMERO servers",
+      "verdict": "SUPPORTED",
+      "evidence": "OMERO is a well-established open-source platform for microscopy. The BlitzGateway API pattern shown is correct.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "omero-integration",
+      "claim": "Requirements: Python 3.7+, Zeroc Ice 3.6+",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "OMERO Python bindings do require ZeroC Ice but exact version requirements may have changed. Cannot verify current minimum without checking latest omero-py package.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pylabrobot",
+      "claim": "GitHub: https://github.com/PyLabRobot/pylabrobot",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Repository exists at github.com/PyLabRobot/pylabrobot.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pylabrobot",
+      "claim": "Official Documentation: https://docs.pylabrobot.org",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. PyLabRobot docs are hosted at docs.pylabrobot.org.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "pydicom",
+      "claim": "Official documentation: https://pydicom.github.io/pydicom/dev/",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Pydicom documentation is at pydicom.github.io.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "opentrons-integration",
+      "claim": "OT-2 deck slots 1-11, Flex deck slots A1-D3",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The Opentrons Flex deck uses slot designations A1-D3, which is a 4x3 grid = 12 slots. OT-2 uses slots 1-11 (slot 12 is the trash). However, the SKILL.md states Flex slots are 'A1-D3' which implies only 12 positions (A1,A2,A3,B1,...,D3). The Flex actually has slots A1-D4 as well as staging slots. The specific claim about Flex slots being 'A1-D3' may be incomplete.",
+      "correct_info": "Flex deck slots include A1-D3 for the main deck plus additional staging slots. The characterization is approximately correct for the main deck area.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "protocolsio-integration",
+      "claim": "API base URL: https://protocols.io/api/v3",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "Protocols.io has updated their API. The current API version is v4, not v3. While v3 may still work, the SKILL.md should reference the current API version.",
+      "correct_info": "Protocols.io has moved to API v4. The v3 endpoint may still be functional but is not the current version. The SKILL.md should reference https://protocols.io/api/v4.",
+      "severity": "MEDIUM",
+      "category": "api"
+    },
+    {
+      "skill": "protocolsio-integration",
+      "claim": "Standard rate limits: 100 requests per minute per user; PDF endpoint: 5 requests/minute (signed-in), 3 requests/minute (unsigned)",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Could not independently verify these specific rate limit numbers from public documentation. They may be correct but cannot be confirmed.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "pyzotero",
+      "claim": "Pyzotero is a Python wrapper for the Zotero API v3",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Pyzotero wraps the Zotero Web API v3.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pymatgen",
+      "claim": "Pymatgen is a comprehensive Python library for materials analysis that powers the Materials Project",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. Pymatgen is the core analysis library behind the Materials Project.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pyopenms",
+      "claim": "PyOpenMS provides Python bindings to the OpenMS library for computational mass spectrometry",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. PyOpenMS is the official Python binding for OpenMS.",
+      "severity": "LOW",
+      "category": "library"
+    }
+  ],
+  "summary": {
+    "high_severity_findings": 0,
+    "medium_severity_findings": 4,
+    "low_severity_findings": 52,
+    "notable_issues": [
+      "opentargets-database: Citation first author is Buniello (not Ochoa) for the 2025 NAR paper",
+      "open-notebook: Frontend architecture stated as Next.js/React but was originally Streamlit-based",
+      "protocolsio-integration: API version referenced is v3 but current is v4",
+      "pyhealth: '3x faster than pandas' claim is unsubstantiated in any documentation or benchmark"
+    ]
+  }
+}

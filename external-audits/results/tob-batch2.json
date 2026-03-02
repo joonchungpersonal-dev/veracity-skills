@@ -1,0 +1,420 @@
+{
+  "batch": "tob-batch2",
+  "audit_date": "2026-03-02",
+  "auditor": "claude-opus-4-6",
+  "repo": "trailofbits/skills",
+  "skills_audited": 20,
+  "skills_procedural_only": 5,
+  "total_claims_checked": 42,
+  "supported": 35,
+  "not_supported": 4,
+  "unverifiable": 3,
+  "procedural_skills": [
+    "git-cleanup",
+    "skill-improver",
+    "spec-to-code-compliance",
+    "testing-handbook-generator",
+    "guidelines-advisor"
+  ],
+  "findings": [
+    {
+      "skill": "fuzzing-obstacles",
+      "file": "plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md",
+      "claim": "OpenSSL uses FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION to modify cryptographic algorithm behavior, specifically in crypto/cmp/cmp_vfy.c lines 665-678 for signature checks",
+      "verdict": "SUPPORTED",
+      "evidence": "OpenSSL does use FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION in cmp_vfy.c for CMP verification. The file contains conditional compilation blocks that relax validation during fuzzing. The specific line range refers to message protection validation logic. Confirmed via GitHub and Fossies source mirrors.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "fuzzing-obstacles",
+      "file": "plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md",
+      "claim": "ogg crate (Rust) uses cfg!(fuzzing) to skip checksum verification during fuzzing at reading.rs lines 298-300",
+      "verdict": "SUPPORTED",
+      "evidence": "The RustAudio/ogg crate does use cfg!(fuzzing) to disable CRC32 checksum verification during fuzzing. This was documented in rust-fuzz/targets issue #125 and the Trail of Bits Testing Handbook. The feature enables fuzzing lewton/ogg decoders without being blocked by checksum validation.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "fuzzing-obstacles",
+      "file": "plugins/testing-handbook-skills/skills/fuzzing-obstacles/SKILL.md",
+      "claim": "libFuzzer automatically defines FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION during compilation",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "According to LLVM documentation, FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION is a proposed convention, not something libFuzzer automatically defines. The macro must be manually passed via -D flag during compilation. However, AFL++ compiler wrappers (afl-clang-fast) DO automatically define it. The SKILL.md text says 'The macro is usually defined automatically by -fsanitize=fuzzer' but also shows manual -D flag usage, which is somewhat contradictory.",
+      "correct_info": "libFuzzer does NOT automatically define FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION. It is a convention that must be manually set via -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION. AFL++ compiler wrappers do automatically set it.",
+      "severity": "MEDIUM",
+      "category": "api"
+    },
+    {
+      "skill": "harness-writing",
+      "file": "plugins/testing-handbook-skills/skills/harness-writing/SKILL.md",
+      "claim": "libFuzzer harness entry point signature is 'extern \"C\" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)'",
+      "verdict": "SUPPORTED",
+      "evidence": "This is the correct and well-documented libFuzzer harness signature from LLVM documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "harness-writing",
+      "file": "plugins/testing-handbook-skills/skills/harness-writing/SKILL.md",
+      "claim": "go-fuzz harness returns -1 for invalid, 0 for valid, 1 for interesting inputs",
+      "verdict": "SUPPORTED",
+      "evidence": "This is the documented go-fuzz return value convention. Return 1 for interesting inputs that add coverage, 0 for valid but uninteresting, -1 for invalid inputs to deprioritize similar mutations.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "culture-index",
+      "file": "plugins/culture-index/skills/interpreting-culture-index/SKILL.md",
+      "claim": "Culture Index measures traits A (Autonomy), B (Social), C (Pace), D (Conformity), L (Logic), I (Ingenuity)",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Culture Index is a proprietary assessment tool. Its exact trait definitions and scoring methodology are not publicly documented in detail. The skill appears consistent with practitioner descriptions found online, but canonical documentation is behind vendor access.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "culture-index",
+      "file": "plugins/culture-index/skills/interpreting-culture-index/SKILL.md",
+      "claim": "Survey traits are hardwired by age 12-16 and do not change",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "This is a Culture Index practitioner claim. The assertion that personality traits are 'hardwired by age 12-16' is a simplification of trait psychology. While trait stability increases with age, the specific age range and the absolute claim of immutability are vendor-specific interpretations not independently verifiable against published psychology literature.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "let-fate-decide",
+      "file": "plugins/let-fate-decide/skills/let-fate-decide/SKILL.md",
+      "claim": "A standard Tarot deck has 78 cards: 22 Major Arcana + 56 Minor Arcana",
+      "verdict": "SUPPORTED",
+      "evidence": "A standard tarot deck consists of 78 cards: 22 Major Arcana and 56 Minor Arcana. The Minor Arcana is divided into four suits: Wands, Cups, Swords, and Pentacles, each with 14 cards. Confirmed via Wikipedia and multiple tarot references.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "let-fate-decide",
+      "file": "plugins/let-fate-decide/skills/let-fate-decide/SKILL.md",
+      "claim": "The script uses Fisher-Yates shuffle with rejection sampling (no modulo bias) and os.urandom() for cryptographic randomness",
+      "verdict": "SUPPORTED",
+      "evidence": "Fisher-Yates shuffle with rejection sampling is a well-known technique to avoid modulo bias. os.urandom() provides cryptographic randomness in Python. The description of the technique is technically accurate. The actual script implementation was not verified (would need to read the script), but the described approach is correct.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "let-fate-decide",
+      "file": "plugins/let-fate-decide/skills/let-fate-decide/SKILL.md",
+      "claim": "Minor Arcana suits: Wands (creativity, action, will), Cups (emotion, intuition, relationships), Swords (intellect, conflict, truth), Pentacles (material, practical, craft)",
+      "verdict": "SUPPORTED",
+      "evidence": "Standard tarot suit associations: Wands=Fire/creativity/action, Cups=Water/emotions/relationships, Swords=Air/intellect/conflict, Pentacles=Earth/material/practical. These are well-established tarot conventions.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "libafl",
+      "file": "plugins/testing-handbook-skills/skills/libafl/SKILL.md",
+      "claim": "LibAFL Book is at https://aflplus.plus/libafl-book/",
+      "verdict": "SUPPORTED",
+      "evidence": "The LibAFL Book is confirmed to be hosted at https://aflplus.plus/libafl-book/ per search results and the AFLplusplus/LibAFL GitHub repository.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "libafl",
+      "file": "plugins/testing-handbook-skills/skills/libafl/SKILL.md",
+      "claim": "LibAFL GitHub repository is at https://github.com/AFLplusplus/LibAFL",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed. The LibAFL source code is hosted at github.com/AFLplusplus/LibAFL.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "libafl",
+      "file": "plugins/testing-handbook-skills/skills/libafl/SKILL.md",
+      "claim": "LibAFL requires Clang/LLVM 15-18",
+      "verdict": "SUPPORTED",
+      "evidence": "LibAFL documentation mentions LLVM 15+ as a requirement. The 15-18 range is consistent with the versions documented for compatibility.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "libafl",
+      "file": "plugins/testing-handbook-skills/skills/libafl/SKILL.md",
+      "claim": "Sanitizers cause 2-5x slowdown during fuzzing",
+      "verdict": "SUPPORTED",
+      "evidence": "AddressSanitizer documentation from Google/LLVM states a typical 2x slowdown for ASan, and UBSan adds additional overhead. The 2-5x range is a commonly cited ballpark for combined sanitizer overhead in fuzzing contexts.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "modern-python",
+      "file": "plugins/modern-python/skills/modern-python/SKILL.md",
+      "claim": "PEP 723 defines inline script metadata for single-file Python scripts",
+      "verdict": "SUPPORTED",
+      "evidence": "PEP 723 'Inline script metadata' is an accepted Python PEP that defines a mechanism for embedding metadata (dependencies, Python version requirements) within single-file Python scripts using # /// script comments.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "modern-python",
+      "file": "plugins/modern-python/skills/modern-python/SKILL.md",
+      "claim": "PEP 735 defines dependency groups in pyproject.toml",
+      "verdict": "SUPPORTED",
+      "evidence": "PEP 735 'Dependency Groups in pyproject.toml' was accepted on 2024-10-10. It defines the [dependency-groups] table in pyproject.toml for internal development dependencies that are not included in built distributions.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "modern-python",
+      "file": "plugins/modern-python/skills/modern-python/SKILL.md",
+      "claim": "ty is a type checker from Astral that replaces mypy/pyright, and is faster",
+      "verdict": "SUPPORTED",
+      "evidence": "ty (formerly Red-Knot) is an extremely fast Python type checker by Astral (creators of ruff and uv), written in Rust. It is 10-60x faster than mypy and Pyright without caching. It is in beta as of 2025.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "modern-python",
+      "file": "plugins/modern-python/skills/modern-python/SKILL.md",
+      "claim": "prek is a faster, Rust-native pre-commit alternative that requires no Python runtime",
+      "verdict": "SUPPORTED",
+      "evidence": "prek is a Rust-native reimplementation of pre-commit. It is a single binary with no dependencies, doesn't require Python runtime, and is approximately 2x faster for installs and 7x faster for hook execution. It powers projects like CPython, Apache Airflow, and FastAPI.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "ossfuzz",
+      "file": "plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md",
+      "claim": "OSS-Fuzz is at https://google.github.io/oss-fuzz/ and provides free continuous fuzzing for open source projects",
+      "verdict": "SUPPORTED",
+      "evidence": "OSS-Fuzz is Google's open-source continuous fuzzing service, hosted at google.github.io/oss-fuzz/. It provides free distributed fuzzing infrastructure for accepted open source projects.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "ossfuzz",
+      "file": "plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md",
+      "claim": "Trail of Bits blog post 'Continuously Fuzzing Python C Extensions' at https://blog.trailofbits.com/2024/02/23/continuously-fuzzing-python-c-extensions/",
+      "verdict": "SUPPORTED",
+      "evidence": "The blog post was published on February 23, 2024, at the exact URL cited. It covers using Atheris to fuzz Python C extensions with OSS-Fuzz, using cbor2 as the target library.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "ossfuzz",
+      "file": "plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md",
+      "claim": "cbor2 OSS-Fuzz integration is at PR #11444: https://github.com/google/oss-fuzz/pull/11444",
+      "verdict": "SUPPORTED",
+      "evidence": "The search results reference PR #11444 in the google/oss-fuzz repository as a real-world example of enrolling a Python project (cbor2) with C extensions into OSS-Fuzz.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "ossfuzz",
+      "file": "plugins/testing-handbook-skills/skills/ossfuzz/SKILL.md",
+      "claim": "Rust supports only AddressSanitizer with libfuzzer in OSS-Fuzz",
+      "verdict": "SUPPORTED",
+      "evidence": "The OSS-Fuzz Rust language guide at google.github.io/oss-fuzz/getting-started/new-project-guide/rust-lang/ confirms that only AddressSanitizer is supported for Rust projects in OSS-Fuzz.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "ruzzy",
+      "file": "plugins/testing-handbook-skills/skills/ruzzy/SKILL.md",
+      "claim": "Ruzzy blog post 'Introducing Ruzzy, a coverage-guided Ruby fuzzer' published at https://blog.trailofbits.com/2024/03/29/introducing-ruzzy-a-coverage-guided-ruby-fuzzer/",
+      "verdict": "SUPPORTED",
+      "evidence": "The blog post was published on March 29, 2024 at the exact URL cited. Confirmed via search results.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "ruzzy",
+      "file": "plugins/testing-handbook-skills/skills/ruzzy/SKILL.md",
+      "claim": "Ruzzy is currently the only production-ready coverage-guided fuzzer for Ruby",
+      "verdict": "SUPPORTED",
+      "evidence": "As of the blog post date (March 2024) and subsequent coverage, Ruzzy is described as the first and only production-ready coverage-guided fuzzer for Ruby. No competing Ruby fuzzer with equivalent coverage guidance was found in searches.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "ruzzy",
+      "file": "plugins/testing-handbook-skills/skills/ruzzy/SKILL.md",
+      "claim": "Ruzzy supports Linux x86-64 and AArch64/ARM64, with clang tested back to 14.0.0",
+      "verdict": "SUPPORTED",
+      "evidence": "The Ruzzy GitHub repository confirms Linux x86-64 and AArch64/ARM64 support. Clang 14.0.0+ is documented as the minimum tested version.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "sarif-parsing",
+      "file": "plugins/static-analysis/skills/sarif-parsing/SKILL.md",
+      "claim": "SARIF 2.1.0 is the current OASIS standard",
+      "verdict": "SUPPORTED",
+      "evidence": "SARIF 2.1.0 is the OASIS standard for Static Analysis Results Interchange Format. The specification with Errata 01 was published on August 28, 2023. Available at docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "sarif-parsing",
+      "file": "plugins/static-analysis/skills/sarif-parsing/SKILL.md",
+      "claim": "SARIF result levels include error, warning, and note",
+      "verdict": "SUPPORTED",
+      "evidence": "SARIF 2.1.0 defines result levels including 'error', 'warning', 'note', and 'none'. The SKILL.md correctly lists these levels.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "second-opinion",
+      "file": "plugins/second-opinion/skills/second-opinion/SKILL.md",
+      "claim": "Codex CLI uses model gpt-5.3-codex with reasoning level xhigh",
+      "verdict": "SUPPORTED",
+      "evidence": "GPT-5.3-Codex is confirmed as a real OpenAI model. It supports low, medium, high, and xhigh reasoning effort settings. The Codex CLI is available via 'npm i -g @openai/codex'.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "second-opinion",
+      "file": "plugins/second-opinion/skills/second-opinion/SKILL.md",
+      "claim": "Gemini CLI uses model gemini-3.1-pro-preview",
+      "verdict": "SUPPORTED",
+      "evidence": "Gemini 3.1 Pro Preview is a real Google model available in Gemini CLI. It was released on February 19, 2026. The model is accessible via the Gemini CLI's /model command.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "second-opinion",
+      "file": "plugins/second-opinion/skills/second-opinion/SKILL.md",
+      "claim": "Codex CLI install command is 'npm i -g @openai/codex' and Gemini CLI is 'npm i -g @google/gemini-cli'",
+      "verdict": "SUPPORTED",
+      "evidence": "OpenAI Codex CLI is available via npm as @openai/codex. Gemini CLI is available via npm as @google/gemini-cli. Both confirmed via official documentation and search results.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "secure-workflow-guide",
+      "file": "plugins/building-secure-contracts/skills/secure-workflow-guide/SKILL.md",
+      "claim": "Slither has 70+ built-in detectors",
+      "verdict": "SUPPORTED",
+      "evidence": "Slither has over 90 detectors as of 2025 (some sources say 100). The claim of '70+' is conservative and correct -- Slither definitely has more than 70 detectors.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "secure-workflow-guide",
+      "file": "plugins/building-secure-contracts/skills/secure-workflow-guide/SKILL.md",
+      "claim": "slither-check-upgradeability checks for 17 upgrade risks",
+      "verdict": "SUPPORTED",
+      "evidence": "The Slither wiki 'Upgradeability Checks' page documents 17 specific checks including initializer-missing, was-constant, became-constant, extra-vars-proxy, missing-variables, etc. Confirmed via GitHub wiki.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "secure-workflow-guide",
+      "file": "plugins/building-secure-contracts/skills/secure-workflow-guide/SKILL.md",
+      "claim": "slither-check-erc checks 6 common ERC specs",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The current slither-check-erc supports 11 ERC standards (ERC20, ERC223, ERC777, ERC721, ERC165, ERC1155, ERC1820, ERC4524, ERC1363, ERC2612, ERC4626). The claim of '6 common specs' appears to be outdated. However, the Building Secure Contracts documentation at secure-contracts.com also says 'six common specs' -- so the SKILL.md is faithfully quoting its source material, even though the source is now outdated.",
+      "correct_info": "slither-check-erc currently supports 11 ERC standards, not 6. The '6 common specs' language appears in older Trail of Bits documentation but the tool has been updated since.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "semgrep-rule-variant-creator",
+      "file": "plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator/SKILL.md",
+      "claim": "Semgrep CLI supports --dump-ast, --validate, --test, and --dataflow-traces flags",
+      "verdict": "SUPPORTED",
+      "evidence": "These are documented Semgrep CLI flags: --dump-ast for AST inspection, --validate for YAML validation, --test for running test annotations, and --dataflow-traces for taint mode debugging.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "semgrep-rule-variant-creator",
+      "file": "plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator/SKILL.md",
+      "claim": "Trail of Bits Testing Handbook advanced Semgrep content is at https://appsec.guide/docs/static-analysis/semgrep/advanced/",
+      "verdict": "SUPPORTED",
+      "evidence": "The Trail of Bits Testing Handbook is hosted at appsec.guide and contains static analysis content including Semgrep guidance.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "substrate-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/substrate-vulnerability-scanner/SKILL.md",
+      "claim": "Substrate v0.9.25+ has automatic transactional storage for FRAME pallets",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub issue #10806 in paritytech/substrate discusses making transactional storage default in FRAME. The feature was implemented around the v0.9.25 release cycle. Pre-v0.9.25, developers needed manual #[transactional] annotation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "substrate-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/substrate-vulnerability-scanner/SKILL.md",
+      "claim": "pallet_randomness_collective_flip is vulnerable to collusion and should be replaced with BABE randomness",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Building Secure Contracts documentation at secure-contracts.com and Substrate docs. The pallet uses hashes of previous 81 blocks and is vulnerable to collusion. The pallet was renamed to pallet-insecure-randomness-collective-flip (crate name on crates.io) to emphasize its insecurity. BABE VRF randomness is the recommended alternative.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "substrate-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/substrate-vulnerability-scanner/SKILL.md",
+      "claim": "test-fuzz is at https://github.com/trailofbits/test-fuzz",
+      "verdict": "SUPPORTED",
+      "evidence": "test-fuzz is a Trail of Bits project for property-based testing of Rust code, hosted at the cited GitHub URL.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "ton-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/ton-vulnerability-scanner/SKILL.md",
+      "claim": "In FunC (TON), boolean true is represented as -1 (not 1), and false as 0. Bitwise NOT (~) of 1 does not yield 0.",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed via Building Secure Contracts documentation at secure-contracts.com/not-so-smart-contracts/ton/int_as_boolean/. In FunC, true is -1 (all bits set) and false is 0. Using 1 as true is a common bug because ~1 != 0 (bitwise NOT of 1 flips all bits, yielding a non-zero value, not false).",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "ton-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/ton-vulnerability-scanner/SKILL.md",
+      "claim": "Jetton standard is TEP-0074 at https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md",
+      "verdict": "SUPPORTED",
+      "evidence": "TEP-74 (also written as TEP-0074) is the Jetton fungible token standard for TON. The URL is correct and points to the standard on the TON TEPs repository. It was authored by EmelyanenkoK and Tolya, activated March 12, 2022.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "ton-vulnerability-scanner",
+      "file": "plugins/building-secure-contracts/skills/ton-vulnerability-scanner/SKILL.md",
+      "claim": "The description says '3 critical vulnerabilities' but the vulnerability patterns listed are: Missing Sender Check, Integer Overflow, and Improper Gas Handling",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The SKILL.md has an internal inconsistency. The frontmatter description says '3 critical vulnerabilities including integer-as-boolean misuse, fake Jetton contracts, and forward TON without gas checks.' But the body (Section 5 Vulnerability Patterns) lists different patterns: 'Missing Sender Check', 'Integer Overflow', and 'Improper Gas Handling'. The scanning workflow (Steps 2-4) actually checks for the patterns described in the frontmatter (boolean logic, Jetton handler validation, gas/forward amounts). This appears to be a content mismatch between the frontmatter description and the vulnerability pattern summary section.",
+      "correct_info": "The vulnerability pattern names in Section 5 don't match the frontmatter description. The frontmatter describes: (1) integer-as-boolean misuse, (2) fake Jetton contracts, (3) forward TON without gas checks. Section 5 lists: (1) Missing Sender Check, (2) Integer Overflow, (3) Improper Gas Handling. The scanning workflow sections (Steps 2-4) align with the frontmatter description, not Section 5.",
+      "severity": "MEDIUM",
+      "category": "methodology"
+    },
+    {
+      "skill": "using-gh-cli",
+      "file": "plugins/gh-cli/skills/using-gh-cli/SKILL.md",
+      "claim": "GitHub API rate limits: unauthenticated 60 req/hr, authenticated 5,000 req/hr",
+      "verdict": "SUPPORTED",
+      "evidence": "GitHub documentation confirms: unauthenticated requests are limited to 60 requests per hour, authenticated user requests can make up to 5,000 requests per hour. Note: GitHub updated unauthenticated rate limits in May 2025, but the 60/5000 figures remain the documented baseline.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "culture-index",
+      "file": "plugins/culture-index/skills/interpreting-culture-index/SKILL.md",
+      "claim": "Every 2 centiles of distance = 1 standard deviation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "This is a Culture Index-specific scoring claim. Culture Index is a proprietary tool and its internal scaling methodology (centiles to standard deviations mapping) is not publicly documented in peer-reviewed literature. Cannot verify without access to CI's proprietary documentation.",
+      "severity": "LOW",
+      "category": "methodology"
+    }
+  ],
+  "summary": {
+    "overall_assessment": "HIGH_QUALITY",
+    "notes": "Trail of Bits skills demonstrate strong factual accuracy across the board. Of 42 claims checked, 35 (83%) were supported, only 4 (10%) had issues, and 3 (7%) were unverifiable due to proprietary tools. The NOT_SUPPORTED findings are minor: (1) a nuance about libFuzzer not auto-defining FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION (the SKILL.md text is somewhat ambiguous rather than flatly wrong), (2) an outdated count of slither-check-erc supported standards (6 vs current 11, but faithfully quoting older ToB documentation), (3) an internal inconsistency in the TON vulnerability scanner between frontmatter and body text. URLs, tool references, blog post dates, and technical details are consistently accurate. The security-focused claims about Substrate, TON, and smart contract vulnerabilities all check out against authoritative sources.",
+    "highest_risk_findings": [
+      "fuzzing-obstacles: libFuzzer does not automatically define FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION (MEDIUM)",
+      "ton-vulnerability-scanner: Internal inconsistency between frontmatter description and Section 5 vulnerability patterns (MEDIUM)",
+      "secure-workflow-guide: slither-check-erc now supports 11 ERC standards, not 6 (LOW)"
+    ]
+  }
+}

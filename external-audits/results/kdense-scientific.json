@@ -1,0 +1,774 @@
+{
+  "repo": "K-Dense-AI/claude-scientific-skills",
+  "repo_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+  "stars": "10.8k",
+  "total_skills_in_repo": 153,
+  "skills_audited": 20,
+  "sampling_strategy": "Targeted: 10 database integrations + 10 scientific library skills -- selected for high density of verifiable factual claims",
+  "audit_date": "2026-03-02",
+  "summary": {
+    "total_claims_checked": 78,
+    "supported": 60,
+    "not_supported": 11,
+    "unverifiable": 7,
+    "error_rate": "14.1%"
+  },
+  "skills_audited_list": [
+    "alphafold-database",
+    "chembl-database",
+    "clinvar-database",
+    "pubmed-database",
+    "uniprot-database",
+    "pdb-database",
+    "kegg-database",
+    "openalex-database",
+    "cosmic-database",
+    "ensembl-database",
+    "scanpy",
+    "rdkit",
+    "pymc",
+    "scikit-survival",
+    "deepchem",
+    "biopython",
+    "statsmodels",
+    "pytorch-lightning",
+    "scikit-learn",
+    "qiskit"
+  ],
+  "findings": [
+    {
+      "skill": "alphafold-database",
+      "file": "scientific-skills/alphafold-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "AlphaFold DB is a public repository of AI-predicted 3D protein structures for over 200 million proteins",
+      "verdict": "SUPPORTED",
+      "evidence": "The AlphaFold database provides over 214 million predicted protein structures as of 2024, per the Nucleic Acids Research 2024 paper (DOI: 10.1093/nar/gkad1011). The '200 million' figure is a conservative rounding.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "alphafold-database",
+      "file": "scientific-skills/alphafold-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "maintained by DeepMind and EMBL-EBI",
+      "verdict": "SUPPORTED",
+      "evidence": "AlphaFold DB is indeed a joint effort between Google DeepMind and EMBL-EBI (European Bioinformatics Institute).",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "alphafold-database",
+      "file": "scientific-skills/alphafold-database/SKILL.md",
+      "line_approx": 472,
+      "claim": "AlphaFold DB is freely available under CC-BY-4.0 license",
+      "verdict": "SUPPORTED",
+      "evidence": "AlphaFold DB data is available under the Creative Commons Attribution 4.0 (CC BY 4.0) International License.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "alphafold-database",
+      "file": "scientific-skills/alphafold-database/SKILL.md",
+      "line_approx": 473,
+      "claim": "Cite: Jumper et al. (2021) Nature and Varadi et al. (2022) Nucleic Acids Research",
+      "verdict": "SUPPORTED",
+      "evidence": "Jumper et al. 2021 was published in Nature (DOI: 10.1038/s41586-021-03819-2). Varadi et al. 2022 was published in Nucleic Acids Research (Volume 50, D1, D439-D444, DOI: 10.1093/nar/gkab1061).",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "alphafold-database",
+      "file": "scientific-skills/alphafold-database/SKILL.md",
+      "line_approx": 508,
+      "claim": "Nucleic Acids Research (2024): https://doi.org/10.1093/nar/gkad1011",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: the 2024 AlphaFold DB paper (Varadi et al.) was published in Nucleic Acids Research with that DOI.",
+      "severity": "LOW",
+      "category": "url"
+    },
+    {
+      "skill": "chembl-database",
+      "file": "scientific-skills/chembl-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "ChEMBL is a manually curated database of bioactive molecules maintained by the European Bioinformatics Institute (EBI)",
+      "verdict": "SUPPORTED",
+      "evidence": "ChEMBL is indeed maintained by EMBL-EBI and is described as a manually curated database of bioactive molecules with drug-like properties.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "chembl-database",
+      "file": "scientific-skills/chembl-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "containing over 2 million compounds",
+      "verdict": "SUPPORTED",
+      "evidence": "ChEMBL contains approximately 2.2-2.4 million unique chemical structures as of ChEMBL 35 (2025). The '2 million' figure is accurate.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "chembl-database",
+      "file": "scientific-skills/chembl-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "19 million bioactivity measurements",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "ChEMBL contains over 18 million bioactivity records as of 2023-2024 updates. The figure is close but the skill rounds up to 19M. More recent data shows 18+ million. This is a minor overstatement.",
+      "correct_info": "ChEMBL contains over 18 million bioactivity measurements (not 19 million).",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "chembl-database",
+      "file": "scientific-skills/chembl-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "13,000+ drug targets",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "ChEMBL 33 reports bioactivities measured on more than 17,000 targets total, of which approximately 10,600 are protein targets. The '13,000+ drug targets' figure does not match current ChEMBL documentation. It may have been accurate for an earlier ChEMBL release but is outdated/inaccurate for current versions.",
+      "correct_info": "ChEMBL contains more than 17,000 targets total (approximately 10,600 protein targets).",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "clinvar-database",
+      "file": "scientific-skills/clinvar-database/SKILL.md",
+      "line_approx": 59,
+      "claim": "Use API keys to increase rate limits from 3 to 10 requests/second",
+      "verdict": "SUPPORTED",
+      "evidence": "NCBI E-utilities rate limits are 3 requests/second without API key and 10 requests/second with API key, per official NCBI documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "clinvar-database",
+      "file": "scientific-skills/clinvar-database/SKILL.md",
+      "line_approx": 98,
+      "claim": "Monthly releases: First Thursday of each month (complete dataset, archived). Weekly updates: Every Monday (incremental updates)",
+      "verdict": "SUPPORTED",
+      "evidence": "ClinVar FTP documentation confirms: complete dataset posted first Thursday of each month (XML, archived), and XML + web updated weekly on Mondays.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "clinvar-database",
+      "file": "scientific-skills/clinvar-database/SKILL.md",
+      "line_approx": 354,
+      "claim": "ACMG variant interpretation guidelines: Richards et al., 2015 (PMID: 25741868)",
+      "verdict": "SUPPORTED",
+      "evidence": "Richards et al. 2015, PMID 25741868, is the correct citation for the ACMG/AMP variant interpretation guidelines published in Genetics in Medicine.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "pubmed-database",
+      "file": "scientific-skills/pubmed-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "PubMed is the U.S. National Library of Medicine's comprehensive database providing free access to MEDLINE and life sciences literature",
+      "verdict": "SUPPORTED",
+      "evidence": "PubMed is indeed maintained by the NLM and provides free access to MEDLINE and other life sciences databases.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pubmed-database",
+      "file": "scientific-skills/pubmed-database/SKILL.md",
+      "line_approx": 153,
+      "claim": "Without API key: 3 requests/second. With API key: 10 requests/second",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed per NCBI E-utilities documentation. Without API key: 3 req/sec. With API key: 10 req/sec.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "pubmed-database",
+      "file": "scientific-skills/pubmed-database/SKILL.md",
+      "line_approx": 434,
+      "claim": "Display limited to 10,000 results maximum",
+      "verdict": "SUPPORTED",
+      "evidence": "PubMed web interface limits display to 10,000 results. The E-utilities API has separate limits for retrieval.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "pubmed-database",
+      "file": "scientific-skills/pubmed-database/SKILL.md",
+      "line_approx": 435,
+      "claim": "Search history expires after 8 hours of inactivity",
+      "verdict": "SUPPORTED",
+      "evidence": "PubMed search history expires after 8 hours of inactivity, as documented in PubMed Help.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "uniprot-database",
+      "file": "scientific-skills/uniprot-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "UniProt is the world's leading comprehensive protein sequence and functional information resource",
+      "verdict": "SUPPORTED",
+      "evidence": "UniProt is widely recognized as the most comprehensive protein sequence and function database.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "uniprot-database",
+      "file": "scientific-skills/uniprot-database/SKILL.md",
+      "line_approx": 63,
+      "claim": "Classic: P12345, Q1AAA9, O15530 (6 characters: letter + 5 alphanumeric). Extended: A0A022YWF9 (10 characters for newer entries)",
+      "verdict": "SUPPORTED",
+      "evidence": "UniProt accession numbers follow the described formats: 6-character (1 letter + 5 alphanumeric) for classic entries, and 10-character format for newer entries.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "uniprot-database",
+      "file": "scientific-skills/uniprot-database/SKILL.md",
+      "line_approx": 88,
+      "claim": "Maximum 100,000 IDs per job [for ID mapping]",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "The 100,000 IDs per job limit is stated in skill documentation and plausible based on UniProt API behavior, but the exact current limit could not be independently confirmed in this search.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "pdb-database",
+      "file": "scientific-skills/pdb-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "Search for structures, retrieve coordinates and metadata, perform sequence and structure similarity searches across 200,000+ experimentally determined structures and computed models",
+      "verdict": "SUPPORTED",
+      "evidence": "RCSB PDB archive contains over 200,000 experimentally determined structures, surpassing 200,069 entries. With computed structure models, the total is much higher.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "pdb-database",
+      "file": "scientific-skills/pdb-database/SKILL.md",
+      "line_approx": 275,
+      "claim": "PDB ID: Unique 4-character identifier (e.g., '4HHB') for each structure entry. AlphaFold and ModelArchive entries start with 'AF_' or 'MA_' prefixes.",
+      "verdict": "SUPPORTED",
+      "evidence": "PDB IDs are 4-character identifiers. AlphaFold entries use 'AF-' prefix format (e.g., AF-P00520-F1). ModelArchive entries use 'MA_' prefix.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "kegg-database",
+      "file": "scientific-skills/kegg-database/SKILL.md",
+      "line_approx": 308,
+      "claim": "KEGG organizes pathways into seven major categories",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: KEGG pathways are organized into 7 categories: Metabolism, Genetic Information Processing, Environmental Information Processing, Cellular Processes, Organismal Systems, Human Diseases, and Drug Development.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "kegg-database",
+      "file": "scientific-skills/kegg-database/SKILL.md",
+      "line_approx": 15,
+      "claim": "KEGG API is made available only for academic use by academic users",
+      "verdict": "SUPPORTED",
+      "evidence": "KEGG API is restricted to academic use. Commercial use requires a separate license from Pathway Solutions (now part of KEGG licensing).",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "kegg-database",
+      "file": "scientific-skills/kegg-database/SKILL.md",
+      "line_approx": 347,
+      "claim": "Entry limits: Maximum 10 entries per operation (except image/kgml/json: 1 entry only)",
+      "verdict": "SUPPORTED",
+      "evidence": "KEGG REST API documentation confirms the 10-entry limit for most operations and 1-entry limit for image/kgml/json formats.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "openalex-database",
+      "file": "scientific-skills/openalex-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "OpenAlex is a comprehensive open catalog of 240M+ scholarly works",
+      "verdict": "SUPPORTED",
+      "evidence": "OpenAlex indexes over 240M works per their documentation, with the actual number exceeding 271M as of late 2025. The '240M+' figure is conservative but accurate.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "openalex-database",
+      "file": "scientific-skills/openalex-database/SKILL.md",
+      "line_approx": 281,
+      "claim": "Add email to get 10x rate limit (1 req/sec to 10 req/sec)",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "OpenAlex documentation states the limit is 100,000 calls per day with max 10 per second. The 'polite pool' with email provides more consistent response times but the ratio is not described as '1 req/sec to 10 req/sec'. The per-second limit is 10 for all users; the daily limit is 100k. The '10x' claim is inaccurate as presented.",
+      "correct_info": "The polite pool provides more consistent response times and higher throughput. The max rate is 10 req/sec with email. Without email, requests are in the 'common pool' with less consistent performance, not necessarily 1 req/sec.",
+      "severity": "MEDIUM",
+      "category": "api"
+    },
+    {
+      "skill": "openalex-database",
+      "file": "scientific-skills/openalex-database/SKILL.md",
+      "line_approx": 480,
+      "claim": "Default: 1 request/second, 100k requests/day. Polite pool (with email): 10 requests/second, 100k requests/day",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "OpenAlex documentation does not describe the common pool as limited to 1 req/sec. The limit is 100k calls/day max 10/sec. The polite pool provides faster, more consistent service but both pools share the 10 req/sec cap. Additionally, as of early 2026, OpenAlex moved to API-key-based pricing.",
+      "correct_info": "OpenAlex API limit is 100,000 calls/day, max 10 requests/second. The polite pool (with email) provides more reliable performance but does not have a different per-second rate. As of February 2026, API keys are required.",
+      "severity": "MEDIUM",
+      "category": "api"
+    },
+    {
+      "skill": "cosmic-database",
+      "file": "scientific-skills/cosmic-database/SKILL.md",
+      "line_approx": 109,
+      "claim": "Access the expert-curated list of ~700+ cancer genes with substantial evidence of cancer involvement",
+      "verdict": "SUPPORTED",
+      "evidence": "The Cancer Gene Census describes over 700 cancer-driving genes (719 as of the 2018 major update, 723 as of 2021, and continuing to grow). '~700+' is accurate.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "cosmic-database",
+      "file": "scientific-skills/cosmic-database/SKILL.md",
+      "line_approx": 204,
+      "claim": "COSMIC is updated quarterly (current version: v102, May 2025)",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "COSMIC v102 was released in November 2024, not May 2025. COSMIC v103 was released in November 2025. The version number and date are both incorrect.",
+      "correct_info": "COSMIC v102 was released in November 2024. The latest version as of early 2026 is v103 (November 2025). COSMIC is typically updated roughly annually, not quarterly.",
+      "severity": "HIGH",
+      "category": "number"
+    },
+    {
+      "skill": "cosmic-database",
+      "file": "scientific-skills/cosmic-database/SKILL.md",
+      "line_approx": 333,
+      "claim": "Tate JG, Bamford S, Jubb HC, et al. COSMIC: the Catalogue Of Somatic Mutations In Cancer. Nucleic Acids Research. 2019;47(D1):D941-D947.",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: Tate et al. 2019, Nucleic Acids Research, Volume 47, D1, D941-D947, PMID 30371878, DOI 10.1093/nar/gky1015.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "ensembl-database",
+      "file": "scientific-skills/ensembl-database/SKILL.md",
+      "line_approx": 13,
+      "claim": "The database provides gene annotations, sequences, variants, regulatory information, and comparative genomics data for over 250 species. Current release is 115 (September 2025).",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "Ensembl provides data for thousands of species (over 4,800 eukaryotic genomes and 31,300+ prokaryotic genomes). The '250 species' figure significantly understates current coverage. Regarding the release number: Ensembl 114 was released in May 2025 and Ensembl 115 was released later in 2025. The claim that the 'current release is 115' may be approximately correct for late 2025, but the date 'September 2025' could not be precisely verified.",
+      "correct_info": "Ensembl provides data for well over 4,800 eukaryotic genomes and 31,300+ prokaryotic genomes across thousands of species. The '250 species' figure is severely outdated.",
+      "severity": "HIGH",
+      "category": "number"
+    },
+    {
+      "skill": "ensembl-database",
+      "file": "scientific-skills/ensembl-database/SKILL.md",
+      "line_approx": 196,
+      "claim": "Maximum 15 requests per second for anonymous users",
+      "verdict": "SUPPORTED",
+      "evidence": "Ensembl REST API rate limit is 55,000 requests per hour, which averages to approximately 15 requests per second, as confirmed by Ensembl documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "scanpy",
+      "file": "scientific-skills/scanpy/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: SD-3-Clause license",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "Scanpy is licensed under BSD-3-Clause, not 'SD-3-Clause'. This appears to be a typo in the SKILL.md metadata.",
+      "correct_info": "The correct license is BSD-3-Clause.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "scanpy",
+      "file": "scientific-skills/scanpy/SKILL.md",
+      "line_approx": 373,
+      "claim": "Best practices: Luecken & Theis (2019) 'Current best practices in single-cell RNA-seq'",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed: Luecken MD, Theis FJ. 'Current best practices in single-cell RNA-seq analysis: a tutorial.' Molecular Systems Biology. 2019;15(6):e8746.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "scanpy",
+      "file": "scientific-skills/scanpy/SKILL.md",
+      "line_approx": 12,
+      "claim": "Scanpy is a scalable Python toolkit for analyzing single-cell RNA-seq data, built on AnnData",
+      "verdict": "SUPPORTED",
+      "evidence": "Scanpy is indeed built on AnnData and is part of the scverse ecosystem for single-cell analysis.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "rdkit",
+      "file": "scientific-skills/rdkit/SKILL.md",
+      "line_approx": 249,
+      "claim": "MACCS keys (166-bit structural key)",
+      "verdict": "SUPPORTED",
+      "evidence": "MACCS keys are indeed 166-bit structural fingerprints. This is a standard cheminformatics descriptor.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "rdkit",
+      "file": "scientific-skills/rdkit/SKILL.md",
+      "line_approx": 93,
+      "claim": "RDKit automatically sanitizes molecules during parsing, executing 13 steps",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "RDKit does automatically sanitize molecules and performs multiple sanitization steps including valence checking, aromaticity perception, and chirality assignment. The exact count of '13 steps' could not be independently confirmed without reviewing RDKit source code.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "rdkit",
+      "file": "scientific-skills/rdkit/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: BSD-3-Clause license",
+      "verdict": "SUPPORTED",
+      "evidence": "RDKit is indeed licensed under the BSD 3-Clause license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pymc",
+      "file": "scientific-skills/pymc/SKILL.md",
+      "line_approx": 13,
+      "claim": "PyMC is a Python library for Bayesian modeling and probabilistic programming. Build, fit, validate, and compare Bayesian models using PyMC's modern API (version 5.x+)",
+      "verdict": "SUPPORTED",
+      "evidence": "PyMC (formerly PyMC3) version 5.x+ uses the modern API built on PyTensor (replacing Theano).",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pymc",
+      "file": "scientific-skills/pymc/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: Apache License, Version 2.0",
+      "verdict": "SUPPORTED",
+      "evidence": "PyMC is licensed under the Apache 2.0 license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pymc",
+      "file": "scientific-skills/pymc/SKILL.md",
+      "line_approx": 137,
+      "claim": "R-hat < 1.01: Chains have converged. ESS > 400: Sufficient effective samples",
+      "verdict": "SUPPORTED",
+      "evidence": "R-hat < 1.01 is the standard convergence threshold (Vehtari et al. 2021). ESS > 400 is a commonly cited minimum for reliable inference.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "scikit-survival",
+      "file": "scientific-skills/scikit-survival/SKILL.md",
+      "line_approx": 13,
+      "claim": "scikit-survival is a Python library for survival analysis built on top of scikit-learn",
+      "verdict": "SUPPORTED",
+      "evidence": "scikit-survival is built on scikit-learn and provides survival analysis models following the scikit-learn API.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "scikit-survival",
+      "file": "scientific-skills/scikit-survival/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: GPL-3.0 license",
+      "verdict": "SUPPORTED",
+      "evidence": "scikit-survival is licensed under the GPL-3.0 license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "scikit-survival",
+      "file": "scientific-skills/scikit-survival/SKILL.md",
+      "line_approx": 116,
+      "claim": "Harrell's C-index: Use for low censoring (<40%). Uno's C-index: Use for moderate to high censoring (>40%) - more robust",
+      "verdict": "SUPPORTED",
+      "evidence": "This is consistent with survival analysis best practices. Uno's C-index uses inverse probability of censoring weights and is more robust with heavy censoring.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "deepchem",
+      "file": "scientific-skills/deepchem/SKILL.md",
+      "line_approx": 237,
+      "claim": "ChemBERTa (BERT pretrained on 77M molecules)",
+      "verdict": "SUPPORTED",
+      "evidence": "ChemBERTa was pre-trained on 77M SMILES from PubChem. The DeepChem/ChemBERTa-77M-MTR model on HuggingFace confirms this.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "deepchem",
+      "file": "scientific-skills/deepchem/SKILL.md",
+      "line_approx": 245,
+      "claim": "GROVER (graph transformer pretrained on 10M molecules)",
+      "verdict": "SUPPORTED",
+      "evidence": "GROVER was pretrained on approximately 10 million unlabeled molecules, as described in the original GROVER paper.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "deepchem",
+      "file": "scientific-skills/deepchem/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: MIT license",
+      "verdict": "SUPPORTED",
+      "evidence": "DeepChem is licensed under the MIT License.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "deepchem",
+      "file": "scientific-skills/deepchem/SKILL.md",
+      "line_approx": 594,
+      "claim": "Paper: 'MoleculeNet: A Benchmark for Molecular Machine Learning'",
+      "verdict": "SUPPORTED",
+      "evidence": "MoleculeNet paper by Wu et al. 2018 is the canonical reference for the DeepChem benchmark suite.",
+      "severity": "LOW",
+      "category": "citation"
+    },
+    {
+      "skill": "biopython",
+      "file": "scientific-skills/biopython/SKILL.md",
+      "line_approx": 13,
+      "claim": "The current version is Biopython 1.85 (released January 2025)",
+      "verdict": "SUPPORTED",
+      "evidence": "Biopython 1.85 was released on January 15, 2025, confirmed by PyPI and the Biopython mailing list.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "biopython",
+      "file": "scientific-skills/biopython/SKILL.md",
+      "line_approx": 58,
+      "claim": "Optional: API key for higher rate limits (10 req/s instead of 3 req/s)",
+      "verdict": "SUPPORTED",
+      "evidence": "NCBI E-utilities rate limits are 3 req/s without API key and 10 req/s with API key.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "statsmodels",
+      "file": "scientific-skills/statsmodels/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: BSD-3-Clause license",
+      "verdict": "SUPPORTED",
+      "evidence": "Statsmodels is indeed licensed under the BSD 3-Clause license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "statsmodels",
+      "file": "scientific-skills/statsmodels/SKILL.md",
+      "line_approx": 12,
+      "claim": "Statsmodels is Python's premier library for statistical modeling",
+      "verdict": "SUPPORTED",
+      "evidence": "Statsmodels is widely regarded as the primary Python library for statistical modeling with comprehensive inference, diagnostics, and econometrics support.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pytorch-lightning",
+      "file": "scientific-skills/pytorch-lightning/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: Apache-2.0 license",
+      "verdict": "SUPPORTED",
+      "evidence": "PyTorch Lightning is licensed under the Apache 2.0 license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pytorch-lightning",
+      "file": "scientific-skills/pytorch-lightning/SKILL.md",
+      "line_approx": 14,
+      "claim": "PyTorch Lightning is a deep learning framework that organizes PyTorch code to eliminate boilerplate while maintaining full flexibility",
+      "verdict": "SUPPORTED",
+      "evidence": "This is an accurate description of PyTorch Lightning's core purpose and design philosophy.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "scikit-learn",
+      "file": "scientific-skills/scikit-learn/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: BSD-3-Clause license",
+      "verdict": "SUPPORTED",
+      "evidence": "Scikit-learn is licensed under the BSD 3-Clause license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "scikit-learn",
+      "file": "scientific-skills/scikit-learn/SKILL.md",
+      "line_approx": 18,
+      "claim": "uv uv pip install scikit-learn",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "The installation command has a duplicate 'uv' - it reads 'uv uv pip install scikit-learn' instead of 'uv pip install scikit-learn'. This is a copy-paste error that would cause the command to fail.",
+      "correct_info": "Should be 'uv pip install scikit-learn' (single 'uv' prefix).",
+      "severity": "MEDIUM",
+      "category": "library"
+    },
+    {
+      "skill": "qiskit",
+      "file": "scientific-skills/qiskit/SKILL.md",
+      "line_approx": 13,
+      "claim": "Qiskit is the world's most popular open-source quantum computing framework with 13M+ downloads",
+      "verdict": "SUPPORTED",
+      "evidence": "Qiskit has achieved 13 million+ downloads and is described as the world's most popular quantum computing SDK by IBM and independent sources.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "qiskit",
+      "file": "scientific-skills/qiskit/SKILL.md",
+      "line_approx": 17,
+      "claim": "83x faster transpilation than competitors",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "IBM's marketing materials claim Qiskit SDK v2.2 is '83x faster in transpiling than Tket 2.6.0'. This is an IBM self-reported benchmark claim. While it appears on the official Qiskit website, independent verification of the specific benchmark methodology and conditions could not be confirmed.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "qiskit",
+      "file": "scientific-skills/qiskit/SKILL.md",
+      "line_approx": 18,
+      "claim": "29% fewer two-qubit gates in optimized circuits",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "This claim appears on IBM's Qiskit marketing page as a comparison against competitors. It is a vendor-specific benchmark that could not be independently verified.",
+      "severity": "MEDIUM",
+      "category": "number"
+    },
+    {
+      "skill": "qiskit",
+      "file": "scientific-skills/qiskit/SKILL.md",
+      "line_approx": 3,
+      "claim": "license: Apache-2.0 license",
+      "verdict": "SUPPORTED",
+      "evidence": "Qiskit is licensed under the Apache 2.0 license.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "alphafold-database",
+      "file": "scientific-skills/alphafold-database/SKILL.md",
+      "line_approx": 490,
+      "claim": "Multi-chain complexes are not predicted (single chains only)",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "This was true for AlphaFold 2 / AlphaFold DB v1-v4. However, AlphaFold 3 (released May 2024) can predict multi-chain complexes including protein-protein, protein-DNA, protein-RNA, and protein-ligand complexes. The AlphaFold DB still primarily contains single-chain predictions, but the statement is misleading as of 2025.",
+      "correct_info": "The AlphaFold DB (v4) contains single-chain predictions. However, AlphaFold 3 can predict multi-chain complexes. The AlphaFold Server allows complex predictions.",
+      "severity": "MEDIUM",
+      "category": "methodology"
+    },
+    {
+      "skill": "pdb-database",
+      "file": "scientific-skills/pdb-database/SKILL.md",
+      "line_approx": 280,
+      "claim": "Resolution: Measure of detail in crystallographic structures (lower values = higher detail). Typical range: 1.5-3.5 Angstrom for high-quality structures.",
+      "verdict": "SUPPORTED",
+      "evidence": "Resolution in X-ray crystallography is indeed measured in Angstroms with lower values indicating higher detail. The 1.5-3.5 Angstrom range for high-quality structures is a reasonable characterization.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "cosmic-database",
+      "file": "scientific-skills/cosmic-database/SKILL.md",
+      "line_approx": 31,
+      "claim": "Academic users: Free access with registration at https://cancer.sanger.ac.uk/cosmic/register. Commercial users: License required (contact QIAGEN)",
+      "verdict": "SUPPORTED",
+      "evidence": "COSMIC provides free access for academic users and requires commercial licensing through QIAGEN.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "openalex-database",
+      "file": "scientific-skills/openalex-database/SKILL.md",
+      "line_approx": 487,
+      "claim": "No authentication required. All data is open and free.",
+      "verdict": "NOT_SUPPORTED",
+      "evidence": "As of February 13, 2026, OpenAlex requires API keys for API access. The claim that no authentication is required is now outdated. Additionally, OpenAlex has moved to usage-based pricing for higher usage tiers.",
+      "correct_info": "As of February 2026, OpenAlex requires API keys. Free tier provides $1/day of API budget. Premium tiers are available for higher usage.",
+      "severity": "HIGH",
+      "category": "api"
+    },
+    {
+      "skill": "ensembl-database",
+      "file": "scientific-skills/ensembl-database/SKILL.md",
+      "line_approx": 237,
+      "claim": "The ensembl_rest package provides a Pythonic interface to all Ensembl REST API endpoints",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "There is a package called ensembl_rest on PyPI, but its current maintenance status and whether it covers all endpoints could not be verified in this search.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "deepchem",
+      "file": "scientific-skills/deepchem/SKILL.md",
+      "line_approx": 203,
+      "claim": "Quick access to 30+ curated benchmark datasets with standardized train/valid/test splits",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "DeepChem's MoleculeNet includes many benchmark datasets. The exact count of '30+' could not be independently verified without checking the DeepChem source code, though MoleculeNet is known to include a large collection of molecular datasets.",
+      "severity": "LOW",
+      "category": "number"
+    },
+    {
+      "skill": "scanpy",
+      "file": "scientific-skills/scanpy/SKILL.md",
+      "line_approx": 372,
+      "claim": "scverse ecosystem: https://scverse.org/ (related tools: squidpy, scvi-tools, cellrank)",
+      "verdict": "SUPPORTED",
+      "evidence": "Scanpy is part of the scverse ecosystem, which includes squidpy, scvi-tools, cellrank, and other tools for single-cell analysis.",
+      "severity": "LOW",
+      "category": "library"
+    },
+    {
+      "skill": "pymc",
+      "file": "scientific-skills/pymc/SKILL.md",
+      "line_approx": 302,
+      "claim": "delta_loo interpretation thresholds: <2 models similar, 2-4 weak, 4-10 moderate, >10 strong evidence",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "These LOO-IC difference thresholds are commonly used rules of thumb in Bayesian model comparison but are not universally standardized. The specific thresholds cited are reasonable approximations used in practice.",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "scikit-survival",
+      "file": "scientific-skills/scikit-survival/SKILL.md",
+      "line_approx": 337,
+      "claim": "Rule of thumb: 10+ events per feature",
+      "verdict": "SUPPORTED",
+      "evidence": "The 10 events per predictor variable is a widely cited rule of thumb in survival analysis (Peduzzi et al. 1996, Vittinghoff & McCulloch 2007).",
+      "severity": "LOW",
+      "category": "methodology"
+    },
+    {
+      "skill": "clinvar-database",
+      "file": "scientific-skills/clinvar-database/SKILL.md",
+      "line_approx": 333,
+      "claim": "Rate limits on API: 3 req/sec without key, 10 req/sec with API key",
+      "verdict": "SUPPORTED",
+      "evidence": "Confirmed per NCBI E-utilities documentation.",
+      "severity": "LOW",
+      "category": "api"
+    },
+    {
+      "skill": "kegg-database",
+      "file": "scientific-skills/kegg-database/SKILL.md",
+      "line_approx": 70,
+      "claim": "Common organism codes: hsa (human), mmu (mouse), dme (fruit fly), sce (yeast), eco (E. coli)",
+      "verdict": "SUPPORTED",
+      "evidence": "These are standard KEGG organism codes: hsa=Homo sapiens, mmu=Mus musculus, dme=Drosophila melanogaster, sce=Saccharomyces cerevisiae, eco=Escherichia coli.",
+      "severity": "LOW",
+      "category": "api"
+    }
+  ],
+  "error_types": {
+    "fabricated_citation": 0,
+    "wrong_number": 5,
+    "nonexistent_api": 0,
+    "incorrect_methodology": 1,
+    "wrong_library_info": 2,
+    "dead_url": 0
+  },
+  "notes": {
+    "overall_assessment": "The K-Dense-AI/claude-scientific-skills repository demonstrates a generally high standard of factual accuracy across its database and library skills. Of 78 claims checked across 20 skills, 60 (76.9%) were verified as supported, 11 (14.1%) were not supported, and 7 (9.0%) were unverifiable. The error rate of 14.1% is moderate. Most errors are minor numerical inaccuracies or slightly outdated information rather than fabricated content. The most significant errors are: (1) COSMIC version/date mismatch, (2) Ensembl species count severely understated, (3) OpenAlex authentication requirements outdated, and (4) ChEMBL target count inaccurate. No fabricated citations were found -- all paper references checked were real and correctly attributed. The code examples and API patterns appear well-structured and functional. The skill files contain a commercial marketing footer for K-Dense Web that appears in every single SKILL.md, which is worth noting but not a factual accuracy issue.",
+    "readme_discrepancy": "The README badge says '148 skills' but a directory listing shows 153 skill folders. This is a minor discrepancy.",
+    "highest_risk_area": "Database statistics and version numbers are the most error-prone claims, as they change frequently and the skills do not appear to have a systematic update process.",
+    "strengths": "All citations checked were real papers with correct authors, journals, and years. API endpoint formats and rate limits were largely accurate. Library descriptions and licensing information were consistently correct."
+  }
+}

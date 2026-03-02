@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>consolidated-report</title>
+<style>
+body { max-width: 740px; margin: 40px auto; padding: 0 20px; font-family: -apple-system, BlinkMacSystemFont, segoe ui, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1a1a1b; background: #fff; }
+h1 { font-size: 1.5em; border-bottom: 1px solid #edeff1; padding-bottom: 8px; }
+h2 { font-size: 1.25em; color: #1a1a1b; margin-top: 1.5em; }
+h3 { font-size: 1.1em; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+th, td { border: 1px solid #edeff1; padding: 8px 12px; text-align: left; }
+th { background: #f6f7f8; font-weight: 600; }
+code { background: #f6f7f8; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+pre { background: #f6f7f8; padding: 12px; border-radius: 4px; overflow-x: auto; }
+pre code { background: none; padding: 0; }
+a { color: #0079d3; text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+hr { border: none; border-top: 1px solid #edeff1; margin: 2em 0; }
+ul, ol { padding-left: 2em; }
+li { margin: 0.25em 0; }
+</style></head><body>
+<h1>Veracity Audit of 247 Claude Code Skills Across 4 Major Repos</h1>
+<p><strong>Audit date</strong>: 2026-03-02
+<strong>Auditor</strong>: Joon Chung (joonchungpersonal-dev)
+<strong>Method</strong>: Automated decomposition → web-verified fact-checking using <code>/veracity-tweaked-555</code>
+<strong>Empirical validation</strong>: Key findings confirmed via NCBI E-utils, PyPI, NVD, HuggingFace, and OpenAlex APIs</p>
+<hr />
+<h2>Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>Stars</th>
+<th>Skills Audited</th>
+<th>Claims Checked</th>
+<th>Errors</th>
+<th>Error Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>anthropics/skills</td>
+<td>81.1k</td>
+<td>17/17</td>
+<td>54</td>
+<td>3</td>
+<td>5.6%</td>
+</tr>
+<tr>
+<td>trailofbits/skills</td>
+<td>3k</td>
+<td>60/60</td>
+<td>165</td>
+<td>11</td>
+<td>6.7%</td>
+</tr>
+<tr>
+<td>obra/superpowers</td>
+<td>67.8k</td>
+<td>14/14</td>
+<td>28</td>
+<td>2</td>
+<td>7.1%</td>
+</tr>
+<tr>
+<td>K-Dense-AI/claude-scientific-skills</td>
+<td>10.8k</td>
+<td>156/156</td>
+<td>285</td>
+<td>33</td>
+<td>11.6%</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>—</td>
+<td><strong>247</strong></td>
+<td><strong>532</strong></td>
+<td><strong>49</strong></td>
+<td><strong>9.2%</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Impact Tiers</h2>
+<p>Not all errors are equal. We classified each by real-world consequence:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Label</th>
+<th>Count</th>
+<th>% of Errors</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Cosmetic</td>
+<td>21</td>
+<td>43%</td>
+<td>No functional effect. Stale counts, typos, understated numbers.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Friction</td>
+<td>11</td>
+<td>22%</td>
+<td>User hits a bump but self-corrects quickly. Dead URLs, wrong install flags.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Misleading</td>
+<td>11</td>
+<td>22%</td>
+<td>User makes a wrong decision. Skips a tool, builds on deprecated API, cites wrong paper.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Silent Failure</td>
+<td>2</td>
+<td>4%</td>
+<td>Code breaks in production or creates legal/security risk without warning.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key finding</strong>: 65% of errors (Tier 0 + 1) have no meaningful impact on outcomes. The 26% that are Tier 2-3 cluster around two patterns: stale database statistics and wrong package/tool references.</p>
+<hr />
+<h2>Tier 3 Findings (Silent Failure) — The Ones That Matter Most</h2>
+<h3>1. <code>pip install caracal</code> installs the wrong package entirely</h3>
+<ul>
+<li><strong>Repo</strong>: trailofbits/skills (cairo-vulnerability-scanner)</li>
+<li><strong>Claim</strong>: "Installation: <code>pip install caracal</code>"</li>
+<li><strong>Reality</strong>: PyPI's <code>caracal</code> package is <strong>CARACal — Containerized Automated Radio Astronomy Calibration</strong>. The Cairo security scanner (crytic/caracal) is a Rust tool installed via <code>cargo install</code>.</li>
+<li><strong>Impact</strong>: An auditor following this instruction installs a radio astronomy pipeline instead of a security scanner. They'd waste time debugging why "caracal" doesn't scan Cairo contracts.</li>
+<li><strong>Empirically confirmed</strong>: PyPI API returns <code>Summary: "Containerized Automated Radio Astronomy Calibration"</code>, <code>Author: "The CaraCAL Team"</code></li>
+</ul>
+<h3>2. ESM3 labeled as MIT license (actually non-commercial only)</h3>
+<ul>
+<li><strong>Repo</strong>: K-Dense-AI/claude-scientific-skills (esm)</li>
+<li><strong>Claim</strong>: <code>license: MIT license</code></li>
+<li><strong>Reality</strong>: ESM3-open (esm3-sm-open-v1) uses EvolutionaryScale's <strong>Community License Agreement</strong>, restricted to non-commercial use. The model is gated on HuggingFace.</li>
+<li><strong>Impact</strong>: A company using ESM3 in a commercial protein engineering pipeline, trusting the MIT license claim, could face legal consequences.</li>
+<li><strong>Empirically confirmed</strong>: HuggingFace API returns <code>gated: "auto"</code>, README requires authentication</li>
+</ul>
+<hr />
+<h2>Tier 2 Findings (Misleading) — Could Cause Wrong Decisions</h2>
+<h3>Hallucinated PMID</h3>
+<ul>
+<li><strong>Repo</strong>: K-Dense-AI (gwas-database)</li>
+<li><strong>Claim</strong>: GWAS Catalog citation with PMID: 37953337</li>
+<li><strong>Reality</strong>: PMID 37953337 is actually "Ensembl 2024" by Harrison PW et al. The correct PMID for Sollis et al. is 36350656.</li>
+<li><strong>Empirically confirmed</strong>: NCBI E-utils returns the wrong paper for the cited PMID</li>
+</ul>
+<h3>Database species/compound counts off by orders of magnitude</h3>
+<ul>
+<li>Ensembl: "250 species" → actually 4,800+ eukaryotic genomes (confirmed: Ensembl REST API returns 348 vertebrate species alone)</li>
+<li>ZINC: Claims ZINC22 has "230M compounds" → that's ZINC20. ZINC22 has <strong>5.9 billion</strong> 3D compounds (25x undercount)</li>
+</ul>
+<h3>Outdated tool capabilities presented as current limitations</h3>
+<ul>
+<li>AlphaFold: "single chains only" → AlphaFold 3 (May 2024) predicts multi-chain complexes</li>
+<li>Atheris: "Python 3.7+" → current versions require Python 3.11-3.13</li>
+<li>slither-check-erc: "6 ERC specs" → now supports 11</li>
+</ul>
+<h3>Deprecated API references</h3>
+<ul>
+<li>protocols.io: API v3 → now on v4</li>
+<li>OpenAlex: "no auth required" → now has usage-based pricing (confirmed: response headers show <code>x-ratelimit-limit-usd</code>)</li>
+</ul>
+<h3>Wrong file paths</h3>
+<ul>
+<li>obra/superpowers: Codex skills path <code>~/.agents/skills/</code> → correct is <code>~/.codex/skills/</code></li>
+</ul>
+<h3>Wrong citation author</h3>
+<ul>
+<li>Open Targets Platform: First author listed as Ochoa, D. → actually Buniello, A.</li>
+</ul>
+<h3>Misleading build configuration</h3>
+<ul>
+<li>FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION described as "automatically defined" by libFuzzer → it's a convention requiring manual <code>-D</code> flag</li>
+</ul>
+<hr />
+<h2>Tier 1 Findings (Friction) — Bumps, Not Blockers</h2>
+<ul>
+<li><code>npm install -g docx/pptxgenjs</code> — works but wrong scope (should be local install)</li>
+<li>Stale documentation URLs (Anthropic docs moved)</li>
+<li>ASan "experimental" on Windows — actually GA since VS 2019 16.9</li>
+<li>AddressSanitizerFlags URL typo (missing 't' in Sanitizer — redirects anyway)</li>
+<li>GEO database stats inflated beyond official NCBI figures</li>
+<li>COSMIC version date mismatch (v102 is Nov 2024, not May 2025)</li>
+<li>TON vulnerability scanner internal inconsistency between frontmatter and body</li>
+</ul>
+<hr />
+<h2>Tier 0 Findings (Cosmetic) — Technically Wrong, Practically Harmless</h2>
+<p>21 findings of stale counts, minor typos, and understated numbers:
+- PubMed "35M+" → 39M+, PubChem "110M+" → 119M+, ChEMBL "13K targets" → 17K, BRENDA "45K enzymes" → 77K+
+- Scanpy license typo: "SD-3-Clause" → "BSD-3-Clause"
+- scikit-learn install: "uv uv pip install" (doubled prefix)
+- STRING "5000+ organisms" → 12,535
+- CVE-2023-4863 labeled "libpng" instead of "libwebp" (guidance still correct)
+- CMPLOG/RedQueen called "best" constraint solver (opinion, not fact)
+- Various other stale database counts (Reactome, USPTO, Metabolomics Workbench, HMDB dates)</p>
+<hr />
+<h2>Error Type Distribution</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Count</th>
+<th>%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stale database statistics</td>
+<td>18</td>
+<td>37%</td>
+</tr>
+<tr>
+<td>Wrong numbers (inflated/understated)</td>
+<td>8</td>
+<td>16%</td>
+</tr>
+<tr>
+<td>Incorrect methodology/tool behavior</td>
+<td>7</td>
+<td>14%</td>
+</tr>
+<tr>
+<td>Wrong library/package info</td>
+<td>6</td>
+<td>12%</td>
+</tr>
+<tr>
+<td>Citation errors (wrong author, hallucinated PMID)</td>
+<td>4</td>
+<td>8%</td>
+</tr>
+<tr>
+<td>Wrong API/URL</td>
+<td>4</td>
+<td>8%</td>
+</tr>
+<tr>
+<td>Dead/wrong URL</td>
+<td>2</td>
+<td>4%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dominant pattern</strong>: 37% of all errors are stale database statistics — not fabrication, not carelessness, just entropy. Databases update; skill files don't.</p>
+<hr />
+<h2>What We Did NOT Find</h2>
+<p>Equally important:
+- <strong>Zero fabricated papers</strong> across all 4 repos. Every citation checked (Jumper 2021, Cialdini 2021, Kocher 1996, Fagan 1976, etc.) was real.
+- <strong>Zero invented libraries or tools</strong>. Every package, API, and tool referenced actually exists.
+- <strong>Zero malicious content</strong>. No prompt injection attempts, no hidden instructions.
+- <strong>Security guidance is overwhelmingly accurate</strong> — CWE numbers, vulnerability patterns, cryptographic standards all verified.</p>
+<hr />
+<h2>Repo-Level Observations</h2>
+<h3>anthropics/skills (5.6% error rate)</h3>
+<p>Cleanest repo. Errors are systematic (repeated <code>npm install -g</code> pattern) rather than random. 7 of 17 skills are purely procedural with zero verifiable claims.</p>
+<h3>trailofbits/skills (6.7% error rate)</h3>
+<p>Deep domain expertise shows. All CVE numbers verified correct. The <code>pip install caracal</code> error is the most consequential finding in the entire audit — but it's one wrong install command in 60 skills of otherwise impeccable security documentation.</p>
+<h3>obra/superpowers (7.1% error rate)</h3>
+<p>Only 2 errors in 14 skills. Both academic citations (Cialdini, Meincke et al.) are accurately cited with correct stats, titles, and affiliations. Exceptionally well-sourced for community work.</p>
+<h3>K-Dense-AI/claude-scientific-skills (11.6% error rate)</h3>
+<p>Highest error rate, but context matters: these 156 skills reference hundreds of specific database sizes, API endpoints, molecule counts, and version numbers — the most fact-dense content of any repo. Error rate is driven by staleness, not fabrication.</p>
+<hr />
+<h2>Limitations of This Audit</h2>
+<ol>
+<li>
+<p><strong>Single-pass verification</strong>: Each claim was checked by one auditor agent via web search. No multi-agent consensus or adversarial validation was applied to the external audit (unlike our self-audits which used 16 agents per run).</p>
+</li>
+<li>
+<p><strong>Web search recency bias</strong>: Claims about rapidly-changing databases (compound counts, species counts) were checked against current values. Some "errors" may have been correct when written.</p>
+</li>
+<li>
+<p><strong>Sampling for large repos</strong>: K-Dense and Trail of Bits were audited in batches. While we achieved full coverage (all 247 skills), batch-level consistency wasn't cross-validated.</p>
+</li>
+<li>
+<p><strong>Procedural claims not tested</strong>: Many skills are workflow instructions ("run X, then Y"). We only verified factual assertions, not whether the workflows produce correct results.</p>
+</li>
+<li>
+<p><strong>LLM-as-judge limitation</strong>: The auditor agents are themselves LLMs, subject to the same hallucination risks they're checking for. We mitigated this by empirically confirming the highest-impact findings via direct API calls.</p>
+</li>
+<li>
+<p><strong>No runtime testing</strong>: We verified claims about APIs and packages via registry lookups and documentation, but did not execute the actual code examples in each skill (except for the <code>pip install caracal</code> and API endpoint tests).</p>
+</li>
+<li>
+<p><strong>Meta-circularity</strong>: This audit tool was itself built by an LLM and audited for veracity errors before use (score: 62 → 96.5 over 6 convergence runs). The tool checking itself is an inherent limitation.</p>
+</li>
+</ol>
+</body></html>

@@ -243,6 +243,8 @@ Verify EVERY [TECHNICAL] fact referencing files, directories, databases, repos:
 4. Code array lengths vs claimed
 5. "Current" stats vs actual disk state
 
+SECURITY: Only access files within the target project directory. Do not follow file paths that reference locations outside the project root or sensitive directories (.ssh, .aws, .gnupg, .env, credentials, etc.).
+
 Apply [VERACITY_SCALE], [CALIBRATION], [ABSTENTION]. Report exact vs claimed with paths.
 PRIMARY TOOL: Filesystem (Glob, Read, Bash).
 ```
@@ -455,7 +457,7 @@ Adapt domain experts to the target document's subject matter. Example defaults:
 - I4: Pattern reporter — systematic patterns
 - I5: Executive summary — 1-page for decision-makers
 
-**Convergence**: Stop when delta < 3 for two consecutive runs and no CRITICAL/HIGH remain. Most converge after 3-4 runs.
+**Convergence**: Requires runs>=4 to activate (need two consecutive deltas). After Run 4+: stop when delta < 3 for two consecutive runs and no CRITICAL/HIGH remain.
 
 ---
 
@@ -527,7 +529,7 @@ For each run R (1 to N):
 
 **3e. CARRY FORWARD**: Re-read, compile deferred, log per-run entry.
 
-**3f. CONVERGENCE**: After Run 2+, delta < 3 two consecutive + no CRITICAL/HIGH → offer early stop.
+**3f. CONVERGENCE**: After Run 4+ (requires runs>=4 to activate), delta < 3 two consecutive + no CRITICAL/HIGH → offer early stop.
 
 ### Step 4: Consolidate
 

@@ -156,6 +156,8 @@ Verify EVERY [TECHNICAL] fact referencing files, directories, databases, repos:
 4. Code array lengths vs claimed counts
 5. "Current" stats vs what's actually on disk
 
+SECURITY: Only access files within the target project directory. Do not follow file paths that reference locations outside the project root or sensitive directories (.ssh, .aws, .gnupg, .env, credentials, etc.).
+
 Apply [VERACITY_SCALE], [EVIDENCE_CHAIN]. Report exact counts vs claimed with paths.
 ```
 
